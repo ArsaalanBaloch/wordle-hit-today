@@ -46,6 +46,11 @@ jobs:
           php bin/wordle doctor --mode=fixture
           php bin/wordle build-fixtures --mode=fixture
 
+      - name: Build static output for browser validation
+        run: |
+          npm run build
+          php bin/wordle build --mode=fixture
+
       - name: Validate assets and browser behavior
         run: npm run check
 
