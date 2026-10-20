@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+  <article class="prose">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">{{ page.eyebrow }}</p>
+        <h1>{{ page.title }}</h1>
+        <p class="lede">{{ page.intro }}</p>
+      </div>
+    </header>
+    {% for section in page.sections %}
+      <section>
+        <h2>{{ section.heading }}</h2>
+        {% for paragraph in section.paragraphs|default([]) %}<p>{{ paragraph }}</p>{% endfor %}
+        {% if section.items is defined %}
+          <ul>{% for item in section.items %}<li>{{ item }}</li>{% endfor %}</ul>
+        {% endif %}
+        {% if section.example is defined %}
+          <div class="example-grid" aria-label="{{ section.example.label }}">
+            {% for tile in section.example.tiles %}<span class="example-tile example-tile--{{ tile.state }}">{{ tile.letter }}</span>{% endfor %}
+          </div>
+          <p>{{ section.example.explanation }}</p>
+        {% endif %}
+      </section>
+    {% endfor %}
+    {% if page.cta is defined %}<p><a class="button" href="{{ page.cta.url }}">{{ page.cta.label }}</a></p>{% endif %}
+  </article>
+{% endblock %}

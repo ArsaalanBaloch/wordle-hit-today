@@ -1,0 +1,86 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+  <header class="hero content-measure">
+    <div>
+      <p class="eyebrow">Private browser tool</p>
+      <h1>Wordle solver and five-letter word helper</h1>
+      <p class="lede">Enter up to six guesses, assign feedback to every tile, and filter candidates without sending your guesses to a server.</p>
+    </div>
+  </header>
+
+  <noscript><p class="notice notice--warning">This solver requires JavaScript. The instructions below remain available.</p></noscript>
+
+  <div class="solver-layout" data-solver data-dictionary="{{ assets.vocabulary }}">
+    <section aria-labelledby="grid-heading">
+      <h2 id="grid-heading">Your guesses</h2>
+      <p>Feedback starts unset. Use each feedback button to cycle through grey, yellow and green, or choose a state directly from its menu.</p>
+      <div class="solver-board">
+        {% for row in 1..6 %}
+          <div class="guess-row" data-guess-row aria-label="Guess {{ row }}">
+            {% for column in 1..5 %}
+              <div class="feedback-cell" data-feedback>
+                <label class="visually-hidden" for="guess-{{ row }}-{{ column }}">Guess {{ row }}, letter {{ column }}</label>
+                <input class="letter-input" id="guess-{{ row }}-{{ column }}" data-letter maxlength="1" inputmode="text" autocomplete="off" aria-label="Guess {{ row }}, letter {{ column }}">
+                <button class="feedback-button" type="button" data-state="unset" aria-label="Feedback: unset">Unset</button>
+                <label class="visually-hidden" for="feedback-{{ row }}-{{ column }}">Direct feedback choice for guess {{ row }}, letter {{ column }}</label>
+                <select class="feedback-select" id="feedback-{{ row }}-{{ column }}" aria-label="Direct feedback choice for guess {{ row }}, letter {{ column }}">
+                  <option value="unset">Unset</option>
+                  <option value="absent">Grey — absent</option>
+                  <option value="present">Yellow — elsewhere</option>
+                  <option value="correct">Green — correct</option>
+                </select>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="action-row">
+        <button class="button--quiet" type="button" data-reset>Reset</button>
+        <button class="button--secondary" type="button" data-dictionary-retry hidden>Retry vocabulary</button>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="results-heading">
+      <h2 id="results-heading">Candidate words</h2>
+      <p data-solver-status aria-live="polite">Preparing the solver vocabulary…</p>
+      <p class="notice notice--warning" data-vocabulary-warning hidden></p>
+      <p><strong data-candidate-count>0 candidates</strong></p>
+      <ol class="candidate-list" data-results></ol>
+      <button class="button--secondary" type="button" data-load-more hidden>Load 20 more</button>
+    </section>
+  </div>
+
+  <section class="section prose">
+    <h2>How to use this Wordle finder</h2>
+    <ol>
+      <li>Enter a five-letter guess exactly as you played it.</li>
+      <li>Mark each tile grey, yellow or green to match the game’s feedback.</li>
+      <li>Add more rows when another guess gives you new information.</li>
+      <li>Review the remaining candidate words and choose your next move.</li>
+    </ol>
+    <p>This five-letter word helper replays complete feedback rows. It is more precise than entering one loose list of included and excluded letters, especially when a guess contains a repeated letter.</p>
+
+    <h2>What the five-letter word finder checks</h2>
+    <p>Green tiles fix a letter in one position. Yellow tiles require the letter elsewhere and rule out the tested position. Grey tiles remove unmatched copies while preserving any copy already confirmed by green or yellow feedback.</p>
+
+    <h2>Vocabulary coverage</h2>
+    {% if assets.vocabulary_mode == 'fixture' %}
+      <p>This private demo uses a deliberately small fixture list. Production must import the pinned, licensed ESDB/SCOWL-derived dataset before any completeness claim. A suggestion is not guaranteed to be accepted by the official game or to be today’s solution.</p>
+    {% else %}
+      <p>The solver uses the pinned, locally imported general-English vocabulary recorded in the private data manifest. It is not an official NYT word list. A suggestion is not guaranteed to be accepted by the official game or to be today’s solution.</p>
+    {% endif %}
+    <h2>How duplicate letters are handled</h2>
+    <p>The filter assigns green matches first, then consumes the remaining answer-letter counts for yellow matches. A grey copy of a letter therefore does not automatically ban every copy of that letter.</p>
+
+    <h2>Wordle solver FAQ</h2>
+    <h3>Why does the solver show zero candidates?</h3>
+    <p>One or more feedback tiles may conflict, or the answer may be outside the current vocabulary. Recheck every tile before treating an empty result as proof that no word exists.</p>
+    <h3>Is a Wordle helper the same as an answer finder?</h3>
+    <p>It finds words consistent with the clues you provide; it does not fetch or guarantee today’s answer. Several candidates can remain after the same feedback.</p>
+    <h3>Is using a Wordle solver cheating?</h3>
+    <p>That depends on the rules you set for yourself. You can use it as a learning tool, a duplicate-letter checker or direct help when you are stuck.</p>
+    <h3>Are my guesses uploaded?</h3>
+    <p>No. Filtering runs in your browser, and the initial release does not send your grid to a server.</p>
+  </section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+  <article data-dated-page data-page-date="{{ record.puzzle_date }}">
+    <header class="hero content-measure">
+      <div>
+        <p class="eyebrow">Historical puzzle</p>
+        <h1>Wordle #{{ record.puzzle_number }} hints and answer for {{ full_date }}</h1>
+        <p class="lede">This page stays fixed to {{ record.puzzle_date }}. It will not redirect you away from a deliberately selected archive date.</p>
+      </div>
+      <div class="action-row">
+        <a class="button button--secondary" data-local-today-link hidden href="/">Go to your local day</a>
+        <a class="button button--quiet" data-date-update hidden href="/">A new local date is available</a>
+      </div>
+    </header>
+
+    {% if record.correction_notice is defined and record.correction_notice %}
+      <p class="notice notice--warning"><strong>Correction:</strong> {{ record.correction_notice }}</p>
+    {% endif %}
+
+    {% include "partials/answer.html.twig" with {id_suffix: '-dated'} %}
+
+    <nav class="archive-nav section" aria-label="Adjacent puzzle dates">
+      {% if previous_record %}<a rel="prev" href="/wordle-answers/{{ previous_record.puzzle_date }}/">← {{ previous_record.puzzle_date }}</a>{% endif %}
+      <a href="/wordle-answers/">All past answers</a>
+      {% if next_record %}<a rel="next" href="/wordle-answers/{{ next_record.puzzle_date }}/">{{ next_record.puzzle_date }} →</a>{% endif %}
+    </nav>
+  </article>
+{% endblock %}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wordle-hit-today.invalid/schemas/journal.schema.json",
+  "title": "Publication journal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "mode",
+    "record_date",
+    "record_revision",
+    "stage",
+    "files",
+    "promoted"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "run_id": { "type": "string", "minLength": 8, "maxLength": 128 },
+    "mode": { "enum": ["fixture", "production"] },
+    "record_date": { "type": "string", "format": "date" },
+    "record_revision": { "type": "integer", "minimum": 1 },
+    "stage": {
+      "enum": [
+        "fetched",
+        "validated",
+        "staged",
+        "published",
+        "failed",
+        "quarantined"
+      ]
+    },
+    "files": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1, "maxLength": 500 },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "promoted": { "type": "boolean" },
+    "error_class": { "type": ["string", "null"], "maxLength": 200 }
+  }
+}

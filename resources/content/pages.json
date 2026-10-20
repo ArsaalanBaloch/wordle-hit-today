@@ -1,0 +1,189 @@
+{
+  "how-to-play-wordle": {
+    "eyebrow": "Rules and feedback",
+    "title": "How to play Wordle: rules, colours and repeated letters",
+    "description": "Learn how to play Wordle, including the six-guess rules, green, yellow and grey feedback, Hard Mode and repeated letters.",
+    "intro": "Guess one five-letter word in six tries. Every submitted row returns position-by-position feedback that narrows the next guess.",
+    "sections": [
+      {
+        "heading": "The basic loop",
+        "paragraphs": [
+          "Type a valid five-letter word and submit it. Read all five feedback tiles before choosing the next word. The puzzle ends when every tile is green or all six rows have been used.",
+          "The official game maintains its own accepted-word list. A word appearing in a general dictionary does not guarantee that the game accepts it."
+        ]
+      },
+      {
+        "heading": "Green, yellow and grey",
+        "paragraphs": [
+          "Green means the letter is correct and in that exact position. Yellow means the answer contains that letter, but not in that position. Grey means the guess used no remaining copy of that letter."
+        ],
+        "example": {
+          "label": "Example feedback row: green S, grey T, yellow A, grey R, green E",
+          "tiles": [
+            { "letter": "S", "state": "correct" },
+            { "letter": "T", "state": "absent" },
+            { "letter": "A", "state": "present" },
+            { "letter": "R", "state": "absent" },
+            { "letter": "E", "state": "correct" }
+          ],
+          "explanation": "This row fixes S and E, moves A elsewhere, and removes the unmatched T and R from consideration."
+        }
+      },
+      {
+        "heading": "Repeated letters need careful reading",
+        "paragraphs": [
+          "Feedback is allocated to exact matches first. Remaining copies are then allocated to yellow matches. If a guess contains two Es but the answer has only one, one E can be green or yellow while the other is grey.",
+          "That grey tile limits the number of copies; it does not necessarily eliminate the letter entirely."
+        ]
+      },
+      {
+        "heading": "Hard mode and ordinary play",
+        "paragraphs": [
+          "The official game may offer optional settings such as Hard Mode. This guide explains the ordinary feedback rules and does not claim that every strategy is legal under every optional setting."
+        ]
+      },
+      {
+        "heading": "How does Wordle work?",
+        "paragraphs": [
+          "Every guess supplies constraints for the hidden five-letter answer. Green fixes a position, yellow keeps a letter but moves it, and grey removes only the copies that were not allocated to green or yellow tiles. A careful next guess must satisfy the complete pattern rather than treating each tile in isolation."
+        ]
+      },
+      {
+        "heading": "Can a Wordle answer use the same letter twice?",
+        "paragraphs": [
+          "Yes. Answers and guesses can contain repeated letters. The feedback may colour one copy green or yellow and another copy grey when the answer contains fewer copies than the guess."
+        ]
+      },
+      {
+        "heading": "What happens after six guesses?",
+        "paragraphs": [
+          "The daily attempt ends after the sixth submitted row if the answer has not been found. You can still review the feedback to see which constraints were missed, but this independent guide does not host or reset the official game."
+        ]
+      }
+    ],
+    "cta": { "url": "/wordle-solver/", "label": "Try the browser solver" }
+  },
+  "wordle-strategy": {
+    "eyebrow": "Practical decision-making",
+    "title": "Wordle strategy: starting words, tips and repeated letters",
+    "description": "Choose useful Wordle starting words, plan stronger second guesses, understand common-letter coverage and handle duplicate letters.",
+    "intro": "Good play is less about memorising one magic opener and more about turning each row into reliable constraints.",
+    "sections": [
+      {
+        "heading": "What makes a good Wordle starting word?",
+        "paragraphs": [
+          "A useful opener normally combines common letters with few duplicates, giving the first row several chances to reveal information. Different vocabularies and play preferences produce different sensible choices, so no starting word is guaranteed to be best.",
+          "Words such as CRANE, SLATE or TRACE illustrate broad letter coverage, but they are examples rather than a universal ranking. After the first row, the actual feedback matters more than the reputation of the opener."
+        ]
+      },
+      {
+        "heading": "Plan the second guess from the first result",
+        "paragraphs": [
+          "A strong second guess responds to what the opener revealed. When the first row is mostly grey, testing several new letters may be useful. When it gives multiple greens or yellows, preserve those constraints and compare the smaller set of plausible patterns.",
+          "Do not repeat a known absent letter merely to reuse a familiar word unless you have a deliberate information goal and your selected game mode permits it."
+        ]
+      },
+      {
+        "heading": "Respect every confirmed position",
+        "items": [
+          "Keep green letters fixed unless you are deliberately testing information in a mode that permits it.",
+          "Move yellow letters to untested positions instead of repeating a known failure.",
+          "Treat grey feedback as a count constraint when the same letter appears more than once.",
+          "Compare the whole feedback pattern, not one tile at a time."
+        ]
+      },
+      {
+        "heading": "Know when to test a duplicate",
+        "paragraphs": [
+          "Early guesses often benefit from five distinct letters, but repetition becomes valuable when the pattern points toward a word family with doubled letters. The right time to test a duplicate is when it separates plausible candidates, not because repeats are generally good or bad."
+        ]
+      },
+      {
+        "heading": "Common letters are a guide, not a guarantee",
+        "paragraphs": [
+          "Frequent letters can make an opener informative across a broad vocabulary, but daily answers can contain uncommon letters or repeated characters. Letter frequency helps compare options; it cannot identify a specific answer without feedback.",
+          "A balanced strategy therefore combines coverage with position information and the remaining candidate patterns."
+        ]
+      },
+      {
+        "heading": "Adjust the plan for Hard Mode",
+        "paragraphs": [
+          "Hard Mode may require later guesses to reuse revealed hints. That limits pure information guesses, so check the official setting rules and choose a candidate that respects every enforced clue."
+        ]
+      },
+      {
+        "heading": "Use a solver as a constraint checker",
+        "paragraphs": [
+          "A solver is most helpful when it preserves the feedback exactly and explains vocabulary limits. Zero results can indicate contradictory feedback, but it can also mean that the answer is outside the solver’s list."
+        ]
+      }
+    ],
+    "cta": { "url": "/wordle-solver/", "label": "Filter candidate words" }
+  },
+  "about": {
+    "eyebrow": "Method and independence",
+    "title": "About Wordle Hit Today",
+    "description": "How Wordle Hit Today prepares progressive hints, historical records and solver suggestions.",
+    "intro": "Wordle Hit Today is an independent help site designed to reveal only as much as a reader chooses.",
+    "sections": [
+      {
+        "heading": "What the site publishes",
+        "paragraphs": [
+          "Each validated record stores a puzzle date, public puzzle number, answer provenance, source-check time and factual letter hints. Generated public pages are static; visitors do not trigger the private publisher or its source requests.",
+          "Definitions are shown only when a locally imported, licensed source supplies a suitable non-circular gloss. Missing definitions do not block letter-based hints."
+        ]
+      },
+      {
+        "heading": "What source checked means",
+        "paragraphs": [
+          "Source checked means that a configured upstream response passed date, type and structural validation. It is not a claim that a person independently played the puzzle. Conflicting data is quarantined instead of replaced with a guess."
+        ]
+      },
+      {
+        "heading": "Independent status",
+        "paragraphs": [
+          "This site is not affiliated with or endorsed by The New York Times. It links to the official Wordle game and does not present itself as the game."
+        ]
+      },
+      {
+        "heading": "Corrections",
+        "paragraphs": [
+          "A real corrections address will replace the private-preview placeholder before production. Corrections retain the prior revision and publish an explicit notice rather than silently rewriting history."
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "eyebrow": "Plain-language disclosure",
+    "title": "Privacy",
+    "description": "Privacy information for Wordle Hit Today, including local browser processing and future hosting logs.",
+    "intro": "The local preview stores no visitor account and sends no solver guesses to a server.",
+    "sections": [
+      {
+        "heading": "Local date and solver data",
+        "paragraphs": [
+          "The browser reads its resolved timezone and local calendar date to select the matching published page. It does not request location permission or use IP geolocation.",
+          "Solver guesses and feedback remain in the current page session and are not persisted across visits in the initial release."
+        ]
+      },
+      {
+        "heading": "Storage on your device",
+        "paragraphs": [
+          "The initial release does not use cookies or local storage for guesses, spoiler state or a remembered date override. Normal browser cache behavior may retain static files."
+        ]
+      },
+      {
+        "heading": "Hosting and monitoring",
+        "paragraphs": [
+          "Production hosting has not been selected. Before launch, this notice will name relevant host logs, retention and any independent uptime monitor instead of claiming that no technical logs exist."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paragraphs": [
+          "The owner’s final privacy and corrections contact will be added before production. No placeholder address will be accepted by production configuration validation."
+        ]
+      }
+    ]
+  }
+}

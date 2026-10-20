@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wordle-hit-today.invalid/schemas/status.schema.json",
+  "title": "Sanitized scheduler status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "heartbeat_at_utc",
+    "last_source_success_at_utc",
+    "last_publication_at_utc",
+    "dates"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "heartbeat_at_utc": { "type": ["string", "null"], "format": "date-time" },
+    "last_source_success_at_utc": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "last_publication_at_utc": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "dates": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "retry_count",
+          "successful_checks",
+          "next_attempt_at_utc",
+          "last_result",
+          "last_error_category",
+          "complete"
+        ],
+        "properties": {
+          "retry_count": { "type": "integer", "minimum": 0 },
+          "successful_checks": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "next_attempt_at_utc": {
+            "type": ["string", "null"],
+            "format": "date-time"
+          },
+          "last_result": { "enum": ["success", "failed", "quarantined"] },
+          "last_error_category": {
+            "type": ["string", "null"],
+            "maxLength": 80
+          },
+          "complete": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

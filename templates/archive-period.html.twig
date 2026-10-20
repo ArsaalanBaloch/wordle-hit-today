@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+  <header class="hero content-measure">
+    <div>
+      <p class="eyebrow">Archive period</p>
+      <h1>{{ heading }}</h1>
+      <p class="lede">Published puzzle dates in this period, newest first.</p>
+    </div>
+  </header>
+  {% if months is defined %}
+    <nav class="archive-nav" aria-label="Months in {{ year }}">
+      {% for month in months %}<a href="/wordle-answers/{{ year }}/{{ month.number }}/">{{ month.name }}</a>{% endfor %}
+    </nav>
+  {% endif %}
+  {% include "partials/archive-list.html.twig" %}
+  <p><a href="/wordle-answers/">← Return to all past answers</a></p>
+{% endblock %}

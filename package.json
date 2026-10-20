@@ -1,0 +1,36 @@
+{
+  "name": "wordle-hit-today-assets",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "lint": "eslint assets/js scripts tests",
+    "format:check": "prettier --check \"{assets,scripts,tests}/**/*.{css,js,json}\" \"*.{json,md}\" \"config/**/*.json\" \"schemas/**/*.json\"",
+    "build": "node scripts/build.mjs",
+    "test:unit": "vitest run tests/js",
+    "test:browser": "playwright test --project=browser-chromium --project=responsive",
+    "test:a11y": "playwright test --project=a11y",
+    "test:seo": "playwright test --project=seo",
+    "scan:secrets": "node scripts/secret-scan.mjs",
+    "audit": "npm audit --audit-level=high",
+    "check": "npm run lint && npm run format:check && npm run scan:secrets && npm run audit && npm run build && npm run test:unit && npm run test:browser && npm run test:a11y && npm run test:seo"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@fontsource/inter": "^5.2.0",
+    "@fontsource/manrope": "^5.2.0",
+    "@playwright/test": "^1.55.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^10.0.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.0.0",
+    "vitest": "^4.0.0"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true
+  }
+}

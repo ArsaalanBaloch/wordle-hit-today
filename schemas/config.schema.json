@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wordle-hit-today.invalid/schemas/config.schema.json",
+  "title": "Wordle Hit Today configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mode",
+    "site_name",
+    "canonical_origin",
+    "homepage_fallback_timezone",
+    "visitor_date_mode",
+    "puzzle_number_anchor",
+    "source_poll_minutes",
+    "archive_page_size",
+    "public_output",
+    "private_storage",
+    "source",
+    "contact_address",
+    "monitoring",
+    "backup",
+    "theme"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "mode": { "enum": ["fixture", "production"] },
+    "site_name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "canonical_origin": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "homepage_fallback_timezone": { "const": "UTC" },
+    "visitor_date_mode": { "const": "device_local" },
+    "puzzle_number_anchor": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["date", "number"],
+          "properties": {
+            "date": { "type": "string", "format": "date" },
+            "number": { "type": "integer", "minimum": 0 }
+          }
+        }
+      ]
+    },
+    "source_poll_minutes": { "type": "integer", "minimum": 5, "maximum": 60 },
+    "archive_page_size": { "const": 50 },
+    "public_output": { "type": "string", "minLength": 1 },
+    "private_storage": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "host",
+        "path_pattern",
+        "connect_timeout_seconds",
+        "total_timeout_seconds",
+        "maximum_response_bytes"
+      ],
+      "properties": {
+        "host": { "const": "www.nytimes.com" },
+        "path_pattern": { "const": "/svc/wordle/v2/{date}.json" },
+        "connect_timeout_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "total_timeout_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "maximum_response_bytes": {
+          "type": "integer",
+          "minimum": 1024,
+          "maximum": 65536
+        }
+      }
+    },
+    "contact_address": { "type": ["string", "null"], "format": "email" },
+    "monitoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status_path",
+        "heartbeat_stale_minutes",
+        "eligible_date_pending_minutes"
+      ],
+      "properties": {
+        "status_path": { "type": "string", "minLength": 1 },
+        "heartbeat_stale_minutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1440
+        },
+        "eligible_date_pending_minutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1440
+        }
+      }
+    },
+    "backup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["local_path", "daily_copies", "weekly_copies"],
+      "properties": {
+        "local_path": { "type": "string", "minLength": 1 },
+        "daily_copies": { "type": "integer", "minimum": 1, "maximum": 31 },
+        "weekly_copies": { "type": "integer", "minimum": 1, "maximum": 52 }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["background", "text", "accent"],
+      "properties": {
+        "background": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "text": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+      }
+    }
+  }
+}

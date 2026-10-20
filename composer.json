@@ -1,0 +1,51 @@
+{
+  "name": "arsalan-baloch/wordle-hit-today",
+  "description": "Private CLI publisher for the Wordle Hit Today static website.",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.4",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "opis/json-schema": "^2.6",
+    "symfony/console": "^8.0",
+    "symfony/filesystem": "^8.0",
+    "symfony/http-client": "^8.0",
+    "symfony/lock": "^8.0",
+    "twig/twig": "^3.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "phpstan/phpstan": "^2.0",
+    "phpunit/phpunit": "^12.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "WordleHitToday\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "WordleHitToday\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "format:check": "php-cs-fixer check --diff --allow-risky=yes",
+    "analyse": "phpstan analyse --no-progress",
+    "test": "phpunit",
+    "check": [
+      "@format:check",
+      "@analyse",
+      "@test",
+      "composer audit --locked"
+    ]
+  },
+  "config": {
+    "allow-plugins": {},
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

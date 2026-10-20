@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "css": "/assets/static/site.1beb3333e3bb.css",
+  "scripts": {
+    "main": "/assets/static/main.18f96714961c.js",
+    "solver": "/assets/static/solver.7fa44f5e6ace.js",
+    "archive": "/assets/static/archive.931c67e7dbcf.js"
+  },
+  "fonts": {
+    "inter400": "/assets/static/fonts/inter400.8909904ab6c8.woff2",
+    "inter600": "/assets/static/fonts/inter600.f9a06e79cd3a.woff2",
+    "manrope600": "/assets/static/fonts/manrope600.f7ac6258da20.woff2",
+    "manrope700": "/assets/static/fonts/manrope700.d2a12c85a831.woff2"
+  },
+  "vocabulary": "/assets/static/solver-fixture.cfdcc0a5f76f.json",
+  "vocabulary_mode": "fixture",
+  "licenses": {
+    "inter": "/assets/static/licenses/Inter-OFL-1.1.txt",
+    "manrope": "/assets/static/licenses/Manrope-OFL-1.1.txt"
+  }
+}

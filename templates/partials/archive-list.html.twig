@@ -1,0 +1,10 @@
+<ol class="archive-list">
+  {% for item in page_records %}
+    <li class="archive-item">
+      <a href="/wordle-answers/{{ item.puzzle_date }}/"><strong>Wordle #{{ item.puzzle_number }}</strong> — {{ item.full_date }}</a>
+      <span class="archive-item__meta">{{ item.hint_values.vowel_occurrences }} vowel occurrence{% if item.hint_values.vowel_occurrences != 1 %}s{% endif %}; {% if item.hint_values.has_repeats %}has repeats{% else %}no repeats{% endif %}</span>
+    </li>
+  {% else %}
+    <li>No published records are available.</li>
+  {% endfor %}
+</ol>

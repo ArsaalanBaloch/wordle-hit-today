@@ -1,0 +1,103 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+  <article data-today-root data-home-date="{{ record.puzzle_date }}">
+    <header class="hero content-measure">
+      <div>
+        <p class="eyebrow">Progressive help, no instant spoiler</p>
+        <h1>Wordle hint today for {{ full_date }}</h1>
+        <p class="lede">Open only the clues you need, from letter facts to the complete answer.</p>
+      </div>
+      <div class="status-panel" aria-live="polite">
+        <span data-date-status>Checking this device’s local date before showing hints…</span>
+      </div>
+      <p class="notice notice--warning" data-pending hidden>That local date has not been published. You can retry by reloading this page or choose a date below.</p>
+      <p class="notice notice--warning" data-manifest-error hidden>The published-date check failed. Use the labelled UTC fallback or choose a date manually.</p>
+      <p class="notice notice--warning" data-intl-error hidden>Your browser did not provide local timezone support.</p>
+      <button class="button--quiet" type="button" data-date-retry hidden>Retry published-date check</button>
+      <a class="button" data-date-update hidden href="/">A new local date is available</a>
+      <form class="date-picker" data-date-picker>
+        <div class="field">
+          <label for="home-date">Choose a puzzle date</label>
+          <input id="home-date" name="date" type="date" min="{{ minimum_date }}" max="{{ maximum_date }}" required>
+        </div>
+        <button class="button--secondary" type="submit">Open date</button>
+      </form>
+    </header>
+
+    <section data-today-content hidden inert aria-label="Today’s resolved Wordle hints">
+      {% include "partials/answer.html.twig" with {id_suffix: '-today'} %}
+    </section>
+
+    <noscript>
+      <section class="stack" aria-labelledby="no-js-heading">
+        <div class="notice notice--warning">
+          <h2 id="no-js-heading">JavaScript is off</h2>
+          <p>Automatic local-date selection requires JavaScript. The following fallback is explicitly labelled for {{ full_date }} in UTC.</p>
+        </div>
+        {% include "partials/answer.html.twig" with {id_suffix: '-fallback'} %}
+      </section>
+    </noscript>
+
+    <section class="section" aria-labelledby="recent-heading">
+      <p class="eyebrow">Browse without spoilers</p>
+      <h2 id="recent-heading">Recent published puzzles</h2>
+      <div class="card-grid">
+        {% for recent in recent_records %}
+          <article class="card">
+            <h3><a href="/wordle-answers/{{ recent.puzzle_date }}/">Wordle #{{ recent.puzzle_number }}</a></h3>
+            <p>{{ recent.full_date }}</p>
+            <p>{{ recent.hint_values.vowel_occurrences }} vowel occurrence{% if recent.hint_values.vowel_occurrences != 1 %}s{% endif %}; {% if recent.hint_values.has_repeats %}repeated letter present{% else %}no repeated letters{% endif %}.</p>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section card content-measure">
+      <p class="eyebrow">Need a different kind of help?</p>
+      <h2>Turn your coloured tiles into candidates</h2>
+      <p>The browser solver handles duplicate letters using the same two-pass feedback rule as the game.</p>
+      <a class="button" href="/wordle-solver/">Open the Wordle solver</a>
+    </section>
+
+    <section class="section" aria-labelledby="help-options-heading">
+      <p class="eyebrow">One puzzle, several levels of help</p>
+      <h2 id="help-options-heading">Choose the Wordle help you need</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Today’s Wordle clues</h3>
+          <p>Begin with spoiler-free facts about vowels and repeated letters. First-letter and final-letter hints stay closed until you choose them.</p>
+        </article>
+        <article class="card">
+          <h3>Today’s Wordle answer</h3>
+          <p>Reveal individual letters or show the complete five-letter solution only when the clues are no longer enough.</p>
+        </article>
+        <article class="card">
+          <h3>Previous Wordle answers</h3>
+          <p>Use the searchable <a href="/wordle-answers/">Wordle archive</a> to find a validated puzzle by date, number or exact answer.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section prose">
+      <h2>How these hints work</h2>
+      <p>Start with factual structure: vowel occurrences and repeated letters. Continue to the first or final letter only if needed. The full answer remains behind a separate action.</p>
+      <p>This independent site links to the <a href="https://www.nytimes.com/games/wordle/index.html" rel="external">official Wordle game</a>; it does not host the game itself.</p>
+    </section>
+
+    <section class="section prose" aria-labelledby="today-faq-heading">
+      <p class="eyebrow">Quick answers</p>
+      <h2 id="today-faq-heading">Wordle hint today FAQ</h2>
+      <h3>Where can I find today’s Wordle hint without seeing the answer?</h3>
+      <p>The hint controls near the top of this page begin with letter-pattern facts. The full answer is a separate reveal, so opening one clue does not expose every spoiler.</p>
+      <h3>Does this page show the Wordle answer immediately?</h3>
+      <p>No. The answer tiles remain hidden until you reveal letters individually or select the full-answer control.</p>
+      <h3>Why might today’s puzzle date differ on another device?</h3>
+      <p>The homepage resolves the calendar date from each browser’s timezone. Someone in a different timezone may legitimately reach the next or previous dated puzzle at the same moment.</p>
+      <h3>Can I check yesterday’s Wordle answer?</h3>
+      <p>Yes. Open <a href="/wordle-answers/">Past Answers</a> and choose the required date. Historical pages remain fixed to their labelled date.</p>
+      <h3>Is this the official NYT Wordle website?</h3>
+      <p>No. Wordle Hit Today is an independent hints and solver site. Play the game on the <a href="https://www.nytimes.com/games/wordle/index.html" rel="external">official Wordle page</a>.</p>
+    </section>
+  </article>
+{% endblock %}

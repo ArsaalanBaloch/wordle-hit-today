@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    {% if robots is defined %}<meta name="robots" content="{{ robots }}">{% endif %}
+    <link rel="canonical" href="{{ canonical }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site_name }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ canonical }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <link rel="preload" href="{{ assets.fonts.inter400 }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ assets.fonts.manrope700 }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ assets.css }}">
+    {% if structured_data is defined %}
+      <script type="application/ld+json">{{ structured_data|raw }}</script>
+    {% endif %}
+    <script type="module" src="{{ assets.scripts.main }}"></script>
+    {% for script in page_scripts|default([]) %}
+      <script type="module" src="{{ script }}"></script>
+    {% endfor %}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    {% if mode == 'fixture' %}
+      <div class="demo-banner" role="status">PRIVATE PREVIEW — today’s record may be source-validated; the archive and solver still use demo data</div>
+    {% endif %}
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="/">
+          <span class="brand__mark" aria-hidden="true">WH</span>
+          <span>Wordle Hit Today</span>
+        </a>
+        <nav aria-label="Primary navigation">
+          <details class="nav-menu" open>
+            <summary>Menu</summary>
+            <ul>
+              <li><a href="/"{% if current_route == 'home' %} aria-current="page"{% endif %}>Today</a></li>
+              <li><a href="/wordle-solver/"{% if current_route == 'solver' %} aria-current="page"{% endif %}>Solver</a></li>
+              <li><a href="/wordle-answers/"{% if current_route == 'archive' %} aria-current="page"{% endif %}>Past Answers</a></li>
+              <li><a href="/how-to-play-wordle/"{% if current_route == 'how-to-play' %} aria-current="page"{% endif %}>How to Play</a></li>
+              <li><a href="/wordle-strategy/"{% if current_route == 'strategy' %} aria-current="page"{% endif %}>Strategy</a></li>
+              <li><a href="/about/"{% if current_route == 'about' %} aria-current="page"{% endif %}>About</a></li>
+              <li><a href="/privacy/"{% if current_route == 'privacy' %} aria-current="page"{% endif %}>Privacy</a></li>
+            </ul>
+          </details>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="page-shell">
+      {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/wordle-strategy/">Strategy</a>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="https://www.nytimes.com/games/wordle/index.html" rel="external">Play the official Wordle</a>
+        </nav>
+        <p class="small-print">
+          Independent Wordle help site. Not affiliated with or endorsed by The New York Times.
+          {% if contact_address %}Corrections: <a href="mailto:{{ contact_address }}">{{ contact_address }}</a>.{% else %}A corrections address will be added before production.{% endif %}
+        </p>
+        <p class="small-print">© {{ build_year }} Wordle Hit Today.</p>
+      </div>
+    </footer>
+  </body>
+</html>
