@@ -7,7 +7,7 @@ use PhpCsFixer\Finder;
 
 $finder = Finder::create()
     ->in([__DIR__.'/src', __DIR__.'/tests'])
-    ->append([__DIR__.'/bin/wordle']);
+    ->append([__DIR__.'/bin/wordle', __DIR__.'/scripts/router.php']);
 
 return (new Config())
     ->setRiskyAllowed(true)

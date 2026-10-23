@@ -10,6 +10,7 @@
     "mode",
     "record_date",
     "record_revision",
+    "records_sha256",
     "stage",
     "files",
     "promoted"
@@ -20,6 +21,7 @@
     "mode": { "enum": ["fixture", "production"] },
     "record_date": { "type": "string", "format": "date" },
     "record_revision": { "type": "integer", "minimum": 1 },
+    "records_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
     "stage": {
       "enum": [
         "fetched",

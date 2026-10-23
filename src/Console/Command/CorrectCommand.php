@@ -10,7 +10,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use WordleHitToday\Clock\SystemClock;
 use WordleHitToday\Console\ExitCode;
 use WordleHitToday\Publishing\PublisherLock;
 use WordleHitToday\Source\SourceFailure;
@@ -62,13 +61,16 @@ final class CorrectCommand extends ProjectCommand
             $record = $services->productionRecordFactory()->production(
                 $payload,
                 $client->urlFor($date),
-                new SystemClock()->now(),
+                $services->clock->now(),
                 $expectedRevision + 1,
                 $services->definitions->referenceFor($payload['solution']),
                 $notice,
             );
-            if ($record['content_hash'] === $existing['content_hash']) {
-                throw new \InvalidArgumentException('Correction evidence produces no record change.');
+            if ($record['solution'] === $existing['solution']
+                && $record['upstream_id'] === $existing['upstream_id']
+                && $record['puzzle_number'] === $existing['puzzle_number']
+                && $record['definition_reference'] === $existing['definition_reference']) {
+                throw new \InvalidArgumentException('Correction evidence produces no source-controlled record change.');
             }
             $io->definitionList(
                 ['Date' => $date],
@@ -90,12 +92,33 @@ final class CorrectCommand extends ProjectCommand
 
                 return ExitCode::Success->value;
             }
-            $services->records->saveRevision($existing);
-            $services->records->save($record);
-            $now = new SystemClock()->now();
-            $services->publisher->publish($now);
-            $services->status->publication($now);
-            $lock->release();
+            try {
+                $current = $services->records->find($date);
+                if (null === $current
+                    || $current['content_revision'] !== $expectedRevision
+                    || $current['content_hash'] !== $existing['content_hash']) {
+                    throw new \InvalidArgumentException('The record changed after review; rerun the correction against its current revision.');
+                }
+                $services->definitions->reload();
+                $correctionTime = $services->clock->now();
+                $lockedRecord = $services->productionRecordFactory()->production(
+                    $payload,
+                    $client->urlFor($date),
+                    $correctionTime,
+                    $expectedRevision + 1,
+                    $services->definitions->referenceFor($payload['solution']),
+                    $notice,
+                );
+                if ($lockedRecord['definition_reference'] !== $record['definition_reference']) {
+                    throw new \InvalidArgumentException('Definition data changed after review; rerun the correction before applying it.');
+                }
+                $services->records->saveRevision($current);
+                $services->records->save($lockedRecord);
+                $services->publisher->publish($correctionTime);
+                $services->status->publication($correctionTime);
+            } finally {
+                $lock->release();
+            }
             $io->success('Correction revision was retained, saved and published.');
 
             return ExitCode::Success->value;

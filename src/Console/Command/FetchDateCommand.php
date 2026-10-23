@@ -10,7 +10,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use WordleHitToday\Clock\SystemClock;
+use WordleHitToday\Clock\GlobalDateEligibility;
 use WordleHitToday\Console\ExitCode;
 use WordleHitToday\Publishing\PublisherLock;
 use WordleHitToday\Source\SourceFailure;
@@ -35,8 +35,9 @@ final class FetchDateCommand extends ProjectCommand
                 throw new \InvalidArgumentException('fetch-date requires a production configuration.');
             }
             $date = (string) $input->getArgument('date');
-            if (null !== $services->records->find($date)) {
-                throw new \InvalidArgumentException('A record already exists for this date; use correct for a revision.');
+            $now = $services->clock->now();
+            if (new GlobalDateEligibility()->earliestPublicationInstant($date) > $now) {
+                throw new \InvalidArgumentException('The requested date is not globally eligible for publication yet.');
             }
             $lock = new PublisherLock();
             if (!$lock->acquire($services->config->privateStorage().'/publisher.lock')) {
@@ -44,19 +45,25 @@ final class FetchDateCommand extends ProjectCommand
 
                 return ExitCode::Success->value;
             }
-            $client = $services->sourceClient();
-            $payload = $client->fetch($date);
-            $definition = $services->definitions->referenceFor($payload['solution']);
-            $record = $services->productionRecordFactory()->production(
-                $payload,
-                $client->urlFor($date),
-                new SystemClock()->now(),
-                definitionReference: $definition,
-            );
-            if (!$input->getOption('dry-run')) {
-                $services->records->save($record);
+            try {
+                if (null !== $services->records->find($date)) {
+                    throw new \InvalidArgumentException('A record already exists for this date; use correct for a revision.');
+                }
+                $client = $services->sourceClient();
+                $payload = $client->fetch($date);
+                $definition = $services->definitions->referenceFor($payload['solution']);
+                $record = $services->productionRecordFactory()->production(
+                    $payload,
+                    $client->urlFor($date),
+                    $now,
+                    definitionReference: $definition,
+                );
+                if (!$input->getOption('dry-run')) {
+                    $services->records->save($record);
+                }
+            } finally {
+                $lock->release();
             }
-            $lock->release();
             $io->success(sprintf(
                 '%s production record for %s after structural validation.',
                 $input->getOption('dry-run') ? 'Validated' : 'Stored',

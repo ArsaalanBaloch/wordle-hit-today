@@ -12,7 +12,6 @@
     "symfony/console": "^8.0",
     "symfony/filesystem": "^8.0",
     "symfony/http-client": "^8.0",
-    "symfony/lock": "^8.0",
     "twig/twig": "^3.0"
   },
   "require-dev": {

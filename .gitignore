@@ -2,6 +2,8 @@
 .downloads/
 vendor/
 node_modules/
+/assets/.dist-stage-*/
+/assets/.dist-previous-*/
 .phpunit.cache/
 .php-cs-fixer.cache
 coverage/
@@ -13,6 +15,7 @@ var/site.rollback/
 var/sites-preview-private/
 var/cache/
 var/test-*/
+var/restore-drill-*/
 var/.site-stage-*/
 var/backups/
 var/logs/

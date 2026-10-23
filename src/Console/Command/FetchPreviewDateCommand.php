@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use WordleHitToday\Clock\SystemClock;
 use WordleHitToday\Console\ExitCode;
 use WordleHitToday\Publishing\PublisherLock;
 use WordleHitToday\Source\PuzzleNumberResolver;
@@ -38,13 +37,10 @@ final class FetchPreviewDateCommand extends ProjectCommand
             if (!$parsedDate instanceof \DateTimeImmutable || $parsedDate->format('Y-m-d') !== $date) {
                 throw new \InvalidArgumentException('Date must be a real calendar date in YYYY-MM-DD form.');
             }
-            if ($parsedDate > new \DateTimeImmutable('today', new \DateTimeZone('UTC'))) {
+            $today = $services->clock->now()->setTimezone(new \DateTimeZone('UTC'))->setTime(0, 0);
+            if ($parsedDate > $today) {
                 throw new \InvalidArgumentException('A private preview cannot fetch a future date.');
             }
-            if (null !== $services->records->find($date)) {
-                throw new \InvalidArgumentException('A record already exists for this date.');
-            }
-
             $lock = new PublisherLock();
             if (!$lock->acquire($services->config->privateStorage().'/publisher.lock')) {
                 $io->note('Another writer holds the publication lock; preview fetch was safely skipped.');
@@ -52,6 +48,9 @@ final class FetchPreviewDateCommand extends ProjectCommand
                 return ExitCode::Success->value;
             }
             try {
+                if (null !== $services->records->find($date)) {
+                    throw new \InvalidArgumentException('A record already exists for this date.');
+                }
                 $client = $services->sourceClient();
                 $payload = $client->fetch($date);
                 $factory = new RecordFactory(
@@ -61,7 +60,7 @@ final class FetchPreviewDateCommand extends ProjectCommand
                 $record = $factory->privatePreview(
                     $payload,
                     $client->urlFor($date),
-                    new SystemClock()->now(),
+                    $services->clock->now(),
                     $services->definitions->referenceFor($payload['solution']),
                 );
                 $services->records->save($record);

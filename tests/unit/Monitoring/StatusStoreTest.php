@@ -53,7 +53,27 @@ final class StatusStoreTest extends TestCase
         self::assertFalse($store->shouldAttempt('2026-10-16', $now->modify('+2 days')));
     }
 
-    private function store(): StatusStore
+    public function testConfiguredMinimumAppliesToOrdinaryFailures(): void
+    {
+        $store = $this->store(20);
+        $now = new \DateTimeImmutable('2026-10-16T12:00:00Z');
+
+        $store->failure('2026-10-16', $now, 'network');
+
+        self::assertSame('2026-10-16T12:20:00Z', $store->snapshot()['dates']['2026-10-16']['next_attempt_at_utc']);
+    }
+
+    public function testConfiguredMinimumAlsoAppliesToSuccessfulRechecks(): void
+    {
+        $store = $this->store(120);
+        $now = new \DateTimeImmutable('2026-10-16T12:00:00Z');
+
+        $store->success('2026-10-16', $now);
+
+        self::assertSame('2026-10-16T14:00:00Z', $store->snapshot()['dates']['2026-10-16']['next_attempt_at_utc']);
+    }
+
+    private function store(int $minimumPollMinutes = 5): StatusStore
     {
         $projectRoot = dirname(__DIR__, 3);
 
@@ -61,7 +81,7 @@ final class StatusStoreTest extends TestCase
             $this->temporaryRoot.'/status.json',
             new AtomicFileWriter(),
             new SchemaValidator($projectRoot.'/schemas'),
-            5,
+            $minimumPollMinutes,
         );
     }
 }

@@ -10,7 +10,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use WordleHitToday\Console\ExitCode;
+use WordleHitToday\Publishing\PublicBuildIntegrity;
 use WordleHitToday\Publishing\PublisherLock;
+use WordleHitToday\Support\PathPolicy;
 
 #[AsCommand(name: 'rollback', description: 'Promote the retained previous public build without modifying authoritative private records.')]
 final class RollbackCommand extends ProjectCommand
@@ -28,11 +30,9 @@ final class RollbackCommand extends ProjectCommand
             $services = $this->services($input);
             $current = $services->config->publicOutput();
             $rollback = $current.'.rollback';
-            if (!is_file($rollback.DIRECTORY_SEPARATOR.'index.html')) {
-                throw new \RuntimeException('A complete retained rollback build is not available.');
-            }
             $io->definitionList(['Current public root' => $current], ['Retained rollback' => $rollback]);
             if (!$input->getOption('apply')) {
+                $this->assertRollbackAvailable($rollback);
                 $io->note('Inspection only. Re-run with --apply to swap directories under the publication lock.');
 
                 return ExitCode::Success->value;
@@ -43,17 +43,28 @@ final class RollbackCommand extends ProjectCommand
 
                 return ExitCode::Success->value;
             }
-            $displaced = $current.'.displaced.'.gmdate('Ymd\THis\Z');
-            if (file_exists($current) && !rename($current, $displaced)) {
-                throw new \RuntimeException('Unable to retain the displaced public build.');
-            }
-            if (!rename($rollback, $current)) {
-                if (file_exists($displaced)) {
-                    rename($displaced, $current);
+            try {
+                $this->assertRollbackAvailable($rollback);
+                $timestamp = $services->clock->now()->setTimezone(new \DateTimeZone('UTC'))->format('Ymd\THis\Z');
+                $displaced = $current.'.displaced.'.$timestamp;
+                PathPolicy::assertManagedRoot($displaced, $this->projectRoot, 'Displaced public build');
+                PathPolicy::assertDisjoint($displaced, $services->config->privateStorage(), 'Displaced public build', 'Private storage');
+                PathPolicy::assertDisjoint($displaced, $services->config->backupPath(), 'Displaced public build', 'Backup path');
+                if (file_exists($displaced) || is_link($displaced)) {
+                    throw new \RuntimeException('A displaced public build already exists for this timestamp.');
                 }
-                throw new \RuntimeException('Unable to promote the retained rollback build.');
+                if (file_exists($current) && !rename($current, $displaced)) {
+                    throw new \RuntimeException('Unable to retain the displaced public build.');
+                }
+                if (!rename($rollback, $current)) {
+                    if (file_exists($displaced)) {
+                        rename($displaced, $current);
+                    }
+                    throw new \RuntimeException('Unable to promote the retained rollback build.');
+                }
+            } finally {
+                $lock->release();
             }
-            $lock->release();
             $io->success('Promoted the retained previous public build. Displaced build: '.$displaced);
             $io->note('Authoritative private records were not rolled back. Reconcile and rebuild after diagnosing the release issue.');
 
@@ -67,5 +78,13 @@ final class RollbackCommand extends ProjectCommand
 
             return ExitCode::StorageOrBuildFailure->value;
         }
+    }
+
+    private function assertRollbackAvailable(string $rollback): void
+    {
+        if (!is_dir($rollback)) {
+            throw new \RuntimeException('A retained rollback build is not available.');
+        }
+        new PublicBuildIntegrity()->verify($rollback);
     }
 }

@@ -13,6 +13,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use WordleHitToday\Console\ExitCode;
 use WordleHitToday\Storage\BackupManager;
 use WordleHitToday\Storage\RecordStore;
+use WordleHitToday\Support\PathPolicy;
 
 #[AsCommand(name: 'restore', description: 'Verify a configured backup and restore it into a new private path. Never overwrites current data.')]
 final class RestoreCommand extends ProjectCommand
@@ -40,8 +41,13 @@ final class RestoreCommand extends ProjectCommand
             if ('' === $targetOption) {
                 throw new \InvalidArgumentException('--target is required and must identify a new private path.');
             }
-            $target = $this->projectPath($targetOption);
-            $this->assertSafeTarget($target, $services->config->publicOutput(), $services->config->privateStorage());
+            $target = PathPolicy::resolve($targetOption, $this->projectRoot, 'Restore target');
+            $this->assertSafeTarget(
+                $target,
+                $services->config->publicOutput(),
+                $services->config->privateStorage(),
+                $services->config->backupPath(),
+            );
             $manager = new BackupManager($services->writer);
             $files = $manager->verify($backup);
             if (!$input->getOption('apply')) {
@@ -67,16 +73,15 @@ final class RestoreCommand extends ProjectCommand
         }
     }
 
-    private function assertSafeTarget(string $target, string $publicRoot, string $privateRoot): void
+    private function assertSafeTarget(string $target, string $publicRoot, string $privateRoot, string $backupRoot): void
     {
-        $normalized = strtolower(str_replace('\\', '/', rtrim($target, '\\/')).'/');
-        foreach ([$this->projectRoot, $publicRoot, $privateRoot] as $forbidden) {
-            $blocked = strtolower(str_replace('\\', '/', rtrim($forbidden, '\\/')).'/');
-            if ($normalized === $blocked || str_starts_with($blocked, $normalized)) {
-                throw new \InvalidArgumentException('Restore target is too broad or overlaps an active project/runtime root.');
-            }
-        }
-        if (file_exists($target)) {
+        PathPolicy::assertManagedRoot($target, $this->projectRoot, 'Restore target');
+        PathPolicy::assertDisjoint($target, $publicRoot, 'Restore target', 'Public output');
+        PathPolicy::assertDisjoint($target, $publicRoot.'.rollback', 'Restore target', 'Public rollback');
+        PathPolicy::assertDisjoint($target, $privateRoot, 'Restore target', 'Private storage');
+        PathPolicy::assertDisjoint($target, $backupRoot, 'Restore target', 'Backup path');
+
+        if (file_exists($target) || is_link($target)) {
             throw new \InvalidArgumentException('Restore target must not already exist.');
         }
     }

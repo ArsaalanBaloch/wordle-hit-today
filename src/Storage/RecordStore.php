@@ -65,11 +65,6 @@ final readonly class RecordStore
         $this->writer->write($path, CanonicalJson::encode($record, true));
     }
 
-    public function root(): string
-    {
-        return $this->privateRoot;
-    }
-
     /** @return list<array<string, mixed>> */
     public function all(): array
     {

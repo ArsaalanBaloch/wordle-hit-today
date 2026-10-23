@@ -9,8 +9,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use WordleHitToday\Clock\SystemClock;
+use WordleHitToday\Clock\GlobalDateEligibility;
 use WordleHitToday\Console\ExitCode;
+use WordleHitToday\Console\ProjectServices;
 use WordleHitToday\Publishing\PublisherLock;
 
 #[AsCommand(name: 'build', description: 'Generate, validate and promote the static public site.')]
@@ -38,23 +39,27 @@ final class BuildCommand extends ProjectCommand
 
                 return ExitCode::Success->value;
             }
-            $builtAtOption = $input->getOption('built-at');
-            if (is_string($builtAtOption) && '' !== trim($builtAtOption)) {
-                if ('fixture' !== $services->config->mode()) {
-                    throw new \InvalidArgumentException('--built-at is available only for fixture previews.');
+            try {
+                $builtAtOption = $input->getOption('built-at');
+                if (is_string($builtAtOption) && '' !== trim($builtAtOption)) {
+                    if ('fixture' !== $services->config->mode()) {
+                        throw new \InvalidArgumentException('--built-at is available only for fixture previews.');
+                    }
+                    try {
+                        $builtAt = new \DateTimeImmutable($builtAtOption);
+                    } catch (\Exception) {
+                        throw new \InvalidArgumentException('--built-at must be a valid ISO-8601 instant.');
+                    }
+                } else {
+                    $builtAt = 'fixture' === $services->config->mode()
+                        ? $this->defaultFixtureBuildInstant($services)
+                        : $services->clock->now();
                 }
-                try {
-                    $builtAt = new \DateTimeImmutable($builtAtOption);
-                } catch (\Exception) {
-                    throw new \InvalidArgumentException('--built-at must be a valid ISO-8601 instant.');
-                }
-            } else {
-                $builtAt = 'fixture' === $services->config->mode()
-                    ? new \DateTimeImmutable('2026-10-16T12:00:00Z')
-                    : new SystemClock()->now();
+                $result = $services->publisher->publish($builtAt);
+                $services->status->publication($services->clock->now());
+            } finally {
+                $lock->release();
             }
-            $result = $services->publisher->publish($builtAt);
-            $lock->release();
             $io->success(sprintf(
                 'Published %d pages to %s (homepage date %s).',
                 $result->pageCount,
@@ -72,5 +77,18 @@ final class BuildCommand extends ProjectCommand
 
             return ExitCode::StorageOrBuildFailure->value;
         }
+    }
+
+    private function defaultFixtureBuildInstant(ProjectServices $services): \DateTimeImmutable
+    {
+        $deterministicInstant = new \DateTimeImmutable('2026-10-16T12:00:00Z');
+        $eligibility = new GlobalDateEligibility();
+        foreach ($services->records->all() as $record) {
+            if ($eligibility->earliestPublicationInstant((string) $record['puzzle_date']) > $deterministicInstant) {
+                return $services->clock->now();
+            }
+        }
+
+        return $deterministicInstant;
     }
 }

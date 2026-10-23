@@ -10,7 +10,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use WordleHitToday\Clock\GlobalDateEligibility;
-use WordleHitToday\Clock\SystemClock;
 use WordleHitToday\Console\ExitCode;
 use WordleHitToday\Publishing\PublisherLock;
 use WordleHitToday\Source\SourceFailure;
@@ -53,36 +52,40 @@ final class BackfillCommand extends ProjectCommand
 
                 return ExitCode::Success->value;
             }
-            $now = new SystemClock()->now();
-            $eligibility = new GlobalDateEligibility();
-            $client = $services->sourceClient();
-            $factory = $services->productionRecordFactory();
             $saved = 0;
             $failures = [];
-            foreach ($pending as $date) {
-                if ($eligibility->earliestPublicationInstant($date) > $now) {
-                    $failures[$date] = 'not_yet_eligible';
-                    continue;
+            try {
+                $pending = array_values(array_filter($dates, fn (string $date): bool => null === $services->records->find($date)));
+                $now = $services->clock->now();
+                $eligibility = new GlobalDateEligibility();
+                $client = $services->sourceClient();
+                $factory = $services->productionRecordFactory();
+                foreach ($pending as $date) {
+                    if ($eligibility->earliestPublicationInstant($date) > $now) {
+                        $failures[$date] = 'not_yet_eligible';
+                        continue;
+                    }
+                    try {
+                        $payload = $client->fetch($date);
+                        $record = $factory->production(
+                            $payload,
+                            $client->urlFor($date),
+                            $now,
+                            definitionReference: $services->definitions->referenceFor($payload['solution']),
+                        );
+                        $services->records->save($record);
+                        ++$saved;
+                    } catch (SourceFailure $exception) {
+                        $failures[$date] = $exception->category;
+                    }
                 }
-                try {
-                    $payload = $client->fetch($date);
-                    $record = $factory->production(
-                        $payload,
-                        $client->urlFor($date),
-                        $now,
-                        definitionReference: $services->definitions->referenceFor($payload['solution']),
-                    );
-                    $services->records->save($record);
-                    ++$saved;
-                } catch (SourceFailure $exception) {
-                    $failures[$date] = $exception->category;
+                if ($saved > 0) {
+                    $services->publisher->publish($now);
+                    $services->status->publication($now);
                 }
+            } finally {
+                $lock->release();
             }
-            if ($saved > 0) {
-                $services->publisher->publish($now);
-                $services->status->publication($now);
-            }
-            $lock->release();
             if ([] !== $failures) {
                 $io->warning(sprintf('Stored %d record(s); failures: %s.', $saved, json_encode($failures, JSON_THROW_ON_ERROR)));
 

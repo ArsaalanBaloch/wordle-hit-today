@@ -49,10 +49,11 @@ final readonly class StatusStore
         $checks = min(4, (int) ($previous['successful_checks'] ?? 0) + 1);
         $delays = [1 => 60, 2 => 300, 3 => 1080];
         $complete = $checks >= 4;
+        $delayMinutes = $complete ? 0 : max($this->minimumPollMinutes, $delays[$checks]);
         $status['dates'][$date] = [
             'retry_count' => 0,
             'successful_checks' => $checks,
-            'next_attempt_at_utc' => $complete ? null : $this->timestamp($now->modify(sprintf('+%d minutes', $delays[$checks]))),
+            'next_attempt_at_utc' => $complete ? null : $this->timestamp($now->modify(sprintf('+%d minutes', $delayMinutes))),
             'last_result' => 'success',
             'last_error_category' => null,
             'complete' => $complete,
@@ -76,6 +77,7 @@ final readonly class StatusStore
         if ('denied' === $category) {
             $minutes = 1440;
         }
+        $minutes = max($this->minimumPollMinutes, $minutes);
         if (null !== $retryAfterSeconds) {
             $minutes = max($this->minimumPollMinutes, (int) ceil($retryAfterSeconds / 60));
         }

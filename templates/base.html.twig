@@ -35,7 +35,7 @@
       <div class="site-header__inner">
         <a class="brand" href="/">
           <span class="brand__mark" aria-hidden="true">WH</span>
-          <span>Wordle Hit Today</span>
+          <span>{{ site_name }}</span>
         </a>
         <nav aria-label="Primary navigation">
           <details class="nav-menu" open>
@@ -68,7 +68,7 @@
           Independent Wordle help site. Not affiliated with or endorsed by The New York Times.
           {% if contact_address %}Corrections: <a href="mailto:{{ contact_address }}">{{ contact_address }}</a>.{% else %}A corrections address will be added before production.{% endif %}
         </p>
-        <p class="small-print">© {{ build_year }} Wordle Hit Today.</p>
+        <p class="small-print">© {{ build_year }} {{ site_name }}.</p>
       </div>
     </footer>
   </body>

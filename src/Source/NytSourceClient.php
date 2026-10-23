@@ -30,6 +30,7 @@ final readonly class NytSourceClient implements SourceClient
             $response = $this->http->request('GET', $url, [
                 'headers' => [
                     'Accept' => 'application/json',
+                    'Accept-Encoding' => 'identity',
                     'User-Agent' => 'Wordle-Hit-Today-Publisher/0.1 (+private CLI)',
                 ],
                 'max_redirects' => 0,
@@ -56,7 +57,9 @@ final readonly class NytSourceClient implements SourceClient
         }
         if (429 === $status) {
             $retryAfter = $headers['retry-after'][0] ?? null;
-            $retrySeconds = is_string($retryAfter) && ctype_digit($retryAfter) ? (int) $retryAfter : null;
+            $retrySeconds = is_string($retryAfter) && ctype_digit($retryAfter)
+                ? min(86_400, (int) $retryAfter)
+                : null;
             throw new SourceFailure('rate_limited', 'The source rate-limited the request.', $retrySeconds);
         }
         if (200 !== $status) {

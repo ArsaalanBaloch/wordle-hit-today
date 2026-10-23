@@ -49,6 +49,23 @@ final class NytSourceClientTest extends TestCase
         $client->fetch('2026-10-16');
     }
 
+    public function testRetryAfterIsCappedToOneDay(): void
+    {
+        $response = new MockResponse('', [
+            'http_code' => 429,
+            'response_headers' => ['content-type: application/json', 'retry-after: 999999999'],
+        ]);
+        $client = new NytSourceClient(new MockHttpClient($response), new SourcePayloadValidator(), $this->settings());
+
+        try {
+            $client->fetch('2026-10-16');
+            self::fail('Expected rate limiting.');
+        } catch (SourceFailure $exception) {
+            self::assertSame('rate_limited', $exception->category);
+            self::assertSame(86_400, $exception->retryAfterSeconds);
+        }
+    }
+
     /** @return array{host: string, path_pattern: string, connect_timeout_seconds: int, total_timeout_seconds: int, maximum_response_bytes: int} */
     private function settings(): array
     {

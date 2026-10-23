@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use WordleHitToday\Clock\SystemClock;
 use WordleHitToday\Console\ExitCode;
 use WordleHitToday\Publishing\PublisherLock;
 use WordleHitToday\Storage\BackupManager;
@@ -48,16 +47,23 @@ final class BackupCommand extends ProjectCommand
 
                 return ExitCode::Success->value;
             }
-            $path = new BackupManager($services->writer)->create(
-                $services->config->privateStorage(),
-                $services->config->backupPath(),
-                $this->projectPath((string) $input->getOption('config')),
-                new SystemClock()->now(),
-                $kind,
-                $retention,
-            );
-            $lock->release();
-            $io->success('Created verified backup: '.$path);
+            try {
+                $result = new BackupManager($services->writer)->create(
+                    $services->config->privateStorage(),
+                    $services->config->backupPath(),
+                    $this->projectPath((string) $input->getOption('config')),
+                    $services->config->statusPath(),
+                    $services->clock->now(),
+                    $kind,
+                    $retention,
+                );
+            } finally {
+                $lock->release();
+            }
+            $io->success('Created verified backup: '.$result->path);
+            if (null !== $result->retentionWarning) {
+                $io->warning($result->retentionWarning);
+            }
 
             return ExitCode::Success->value;
         } catch (\InvalidArgumentException $exception) {

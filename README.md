@@ -1,8 +1,14 @@
 # Wordle Hit Today
 
-Private/local implementation of the Wordle-help site defined in [prd.md](prd.md). The publisher is a PHP CLI that validates private records and generates a static site. Browser requests never execute PHP or contact the puzzle source.
+Private implementation of the Wordle-help site defined in [prd.md](prd.md). The publisher is a PHP CLI that validates private records and generates a static site. Browser requests never execute PHP or contact the puzzle source.
 
 The checked-in build is intentionally fixture-only: its three answers and small solver list are synthetic, the canonical origin is `https://example.invalid`, and generated preview pages display a DEMO banner. It is not authorized or configured for public production use.
+
+## Delivery status
+
+The configured GitHub `origin` is the private delivery target. The audited source, generated assets, and local quality evidence are complete; the exact final commit and matching remote SHA are reported in the delivery handoff. Git transport authentication works, but local GitHub CLI authentication is invalid, so this environment cannot truthfully report private repository metadata or the resulting Actions status.
+
+Private source delivery—and even a working review preview—would not establish production readiness. A production launch still requires a real domain and hosting environment, production vocabulary and definition data, live device and hosted performance evidence, operational monitoring, and encrypted immutable off-server backups.
 
 ## Architecture
 
@@ -13,7 +19,7 @@ The checked-in build is intentionally fixture-only: its three answers and small 
 - `schemas/` — versioned JSON Schema contracts.
 - `resources/` — original editorial copy and fixture vocabulary.
 - `tests/` — PHPUnit, Vitest, Playwright, axe, responsive and SEO checks.
-- `var/private/`, `var/site/`, `var/backups/`, `var/logs/` — ignored runtime output.
+- `var/private/` (including operational logs), `var/site/`, and `var/backups/` — ignored runtime output.
 
 ## Requirements
 
@@ -46,20 +52,24 @@ npm run check
 php bin/wordle reconcile --mode=fixture
 ```
 
-`composer check` runs formatting, PHPStan level 8, PHPUnit and Composer audit. `npm run check` runs ESLint, Prettier, a staged-source secret scan, deterministic assets, Vitest, Chromium behavior/responsive screenshots, axe and SEO checks.
+`composer check` runs formatting, PHPStan level 8, PHPUnit and Composer audit. `npm run check` runs ESLint, Prettier, a tracked/untracked non-ignored file secret scan, deterministic assets, Vitest, Chromium behavior/responsive screenshots, axe and SEO checks.
+
+Publication stages and hash-validates its asset snapshot, writes a durable pre-promotion journal, and gives each public build a self-contained exact-tree integrity manifest. Reconciliation, rollback, backup, and restore reject missing, changed, injected, unsafe, or symbolic-link entries. These checks detect corruption relative to the supplied manifest; they do not authenticate a manifest against an attacker who can replace both content and manifest. See [docs/SECURITY.md](docs/SECURITY.md) and [docs/RECOVERY.md](docs/RECOVERY.md).
 
 ## Production is deliberately gated
 
-Production configuration requires a real HTTPS origin, contact address, absolute public/private paths, and a validated date/number anchor. It also requires imported licensed WordNet and ESDB/SCOWL-derived data. The asset manifest records whether its solver vocabulary is `fixture` or `production`; the PHP build rejects a mode mismatch.
+Production configuration enforces a real HTTPS origin, contact address, absolute public/private paths, and a validated date/number anchor. The asset manifest records whether its solver vocabulary is `fixture` or `production`, and the PHP build rejects a mode mismatch. Licensed ESDB/SCOWL-derived vocabulary is therefore a production build gate. Pinned WordNet definitions and their coverage report remain a launch requirement, but missing definitions are currently omitted rather than failing a build.
 
-Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/RECOVERY.md](docs/RECOVERY.md) and [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) before enabling production mode.
+Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/SECURITY.md](docs/SECURITY.md), [docs/RECOVERY.md](docs/RECOVERY.md) and [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) before enabling production mode.
 
-## Current delivery blockers
+## Remaining work
 
-- GitHub CLI is installed but no GitHub account is authenticated and no private remote exists.
-- Final domain, contact address, hosting limits/access, monitor destination and off-server encrypted backup target are not supplied.
+- Reauthenticate GitHub CLI to verify private repository metadata and inspect the final GitHub Actions run.
+- Supply and verify the final domain, contact address, DNS/TLS, hosting limits/access, scheduler, cache behavior, and production document root.
 - The pinned production vocabulary/definition distributions and their verified checksums are not supplied.
-- The referenced 6 and 8 October 2026 NYT sample-response files are not present in the workspace.
+- Complete live regional-date source observation and production vocabulary/definition coverage reporting. The referenced 6 and 8 October 2026 NYT sample-response files are not present in the workspace.
+- Complete Safari/iOS, Android, manual screen-reader/zoom, hosted Lighthouse, and permitted load testing.
+- Configure and test independent monitoring plus an owner-controlled encrypted, immutable/versioned off-server backup and full restore drill.
 - Public launch is explicitly out of scope until the owner authorizes it.
 
 See [BUILD_REPORT.md](BUILD_REPORT.md) and [REQUIREMENTS.md](REQUIREMENTS.md) for evidence and blocked checks.

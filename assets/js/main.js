@@ -199,6 +199,10 @@ function initializeDatedPage() {
 }
 
 function watchForDateChange() {
+  const page = document.querySelector("[data-today-root], [data-dated-page]");
+  const update = page?.querySelector("[data-date-update]");
+  if (!page || !update) return;
+
   let initial;
   try {
     initial = localDateParts().date;
@@ -209,13 +213,10 @@ function watchForDateChange() {
     try {
       const current = localDateParts().date;
       if (current !== initial) {
-        const today = document.querySelector("[data-today-root]");
-        const update = today?.querySelector("[data-date-update]");
-        if (update) {
-          resetAnswerReveals(today);
-          update.href = `/wordle-answers/${current}/`;
-          update.hidden = false;
-        }
+        initial = current;
+        if (page.matches("[data-today-root]")) resetAnswerReveals(page);
+        update.href = `/wordle-answers/${current}/`;
+        update.hidden = false;
       }
     } catch {
       // Existing explicitly dated content remains usable.

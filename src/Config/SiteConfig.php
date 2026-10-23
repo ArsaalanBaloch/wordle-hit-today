@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace WordleHitToday\Config;
 
+use WordleHitToday\Support\PathPolicy;
 use WordleHitToday\Validation\SchemaValidator;
 use WordleHitToday\Validation\ValidationException;
 
 final readonly class SiteConfig
 {
-    /** @param array<string, mixed> $values */
-    private function __construct(private string $projectRoot, private array $values)
+    /**
+     * @param array<string, mixed>                                                                                   $values
+     * @param array{public_output: string, private_storage: string, status_path: string, backup_path: string} $paths
+     */
+    private function __construct(private array $values, private array $paths)
     {
     }
 
@@ -33,7 +37,7 @@ final readonly class SiteConfig
                 throw new ValidationException('Production configuration requires a contact address.');
             }
             foreach (['public_output', 'private_storage'] as $key) {
-                if (!self::isAbsolutePath((string) $values[$key])) {
+                if (!PathPolicy::isAbsoluteFilesystemPath((string) $values[$key])) {
                     throw new ValidationException(sprintf('Production %s must be an absolute path.', $key));
                 }
             }
@@ -42,11 +46,36 @@ final readonly class SiteConfig
             }
         }
 
-        if ((string) $values['public_output'] === (string) $values['private_storage']) {
-            throw new ValidationException('Public and private storage paths must be different.');
+        /** @var array<string, mixed> $monitoring */
+        $monitoring = $values['monitoring'];
+        /** @var array<string, mixed> $backup */
+        $backup = $values['backup'];
+
+        try {
+            $projectRoot = PathPolicy::normalizeAbsolute($projectRoot, 'Project root');
+            $paths = [
+                'public_output' => PathPolicy::resolve((string) $values['public_output'], $projectRoot, 'Public output'),
+                'private_storage' => PathPolicy::resolve((string) $values['private_storage'], $projectRoot, 'Private storage'),
+                'status_path' => PathPolicy::resolve((string) $monitoring['status_path'], $projectRoot, 'Status path'),
+                'backup_path' => PathPolicy::resolve((string) $backup['local_path'], $projectRoot, 'Backup path'),
+            ];
+
+            PathPolicy::assertManagedRoot($paths['public_output'], $projectRoot, 'Public output');
+            PathPolicy::assertManagedRoot($paths['private_storage'], $projectRoot, 'Private storage');
+            PathPolicy::assertManagedRoot($paths['backup_path'], $projectRoot, 'Backup path');
+            PathPolicy::assertDisjoint($paths['public_output'], $paths['private_storage'], 'Public output', 'Private storage');
+            PathPolicy::assertDisjoint($paths['public_output'], $paths['backup_path'], 'Public output', 'Backup path');
+            PathPolicy::assertDisjoint($paths['private_storage'], $paths['backup_path'], 'Private storage', 'Backup path');
+            $rollbackPath = $paths['public_output'].'.rollback';
+            PathPolicy::assertManagedRoot($rollbackPath, $projectRoot, 'Public rollback');
+            PathPolicy::assertDisjoint($rollbackPath, $paths['private_storage'], 'Public rollback', 'Private storage');
+            PathPolicy::assertDisjoint($rollbackPath, $paths['backup_path'], 'Public rollback', 'Backup path');
+            PathPolicy::assertStrictlyInside($paths['status_path'], $paths['private_storage'], 'Status path', 'Private storage');
+        } catch (\InvalidArgumentException $exception) {
+            throw new ValidationException($exception->getMessage(), previous: $exception);
         }
 
-        return new self($projectRoot, $values);
+        return new self($values, $paths);
     }
 
     public function mode(): string
@@ -66,12 +95,12 @@ final readonly class SiteConfig
 
     public function publicOutput(): string
     {
-        return $this->resolvePath((string) $this->values['public_output']);
+        return $this->paths['public_output'];
     }
 
     public function privateStorage(): string
     {
-        return $this->resolvePath((string) $this->values['private_storage']);
+        return $this->paths['private_storage'];
     }
 
     public function contactAddress(): ?string
@@ -117,18 +146,12 @@ final readonly class SiteConfig
 
     public function statusPath(): string
     {
-        /** @var array<string, mixed> $monitoring */
-        $monitoring = $this->values['monitoring'];
-
-        return $this->resolvePath((string) $monitoring['status_path']);
+        return $this->paths['status_path'];
     }
 
     public function backupPath(): string
     {
-        /** @var array<string, mixed> $backup */
-        $backup = $this->values['backup'];
-
-        return $this->resolvePath((string) $backup['local_path']);
+        return $this->paths['backup_path'];
     }
 
     /** @return array{daily_copies: int, weekly_copies: int} */
@@ -143,23 +166,4 @@ final readonly class SiteConfig
         ];
     }
 
-    /** @return array<string, mixed> */
-    public function all(): array
-    {
-        return $this->values;
-    }
-
-    private function resolvePath(string $path): string
-    {
-        if (self::isAbsolutePath($path)) {
-            return rtrim($path, '\\/');
-        }
-
-        return $this->projectRoot.DIRECTORY_SEPARATOR.str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $path);
-    }
-
-    private static function isAbsolutePath(string $path): bool
-    {
-        return 1 === preg_match('/^(?:[A-Za-z]:[\\\\\/]|\/)/', $path);
-    }
 }

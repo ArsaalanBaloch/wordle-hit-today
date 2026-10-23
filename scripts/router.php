@@ -46,7 +46,7 @@ if (str_ends_with($requestPath, '/')) {
 $candidate = $publicRoot.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relative);
 $rootReal = realpath($publicRoot);
 $fileReal = realpath($candidate);
-if (false === $rootReal || false === $fileReal || !str_starts_with(strtolower($fileReal), strtolower($rootReal.DIRECTORY_SEPARATOR)) || !is_file($fileReal)) {
+if (false === $rootReal || false === $fileReal || !isPathInsideRoot($fileReal, $rootReal) || !is_file($fileReal)) {
     serveError($publicRoot, 404);
 
     return;
@@ -54,12 +54,25 @@ if (false === $rootReal || false === $fileReal || !str_starts_with(strtolower($f
 
 serveFile($fileReal, $requestPath);
 
+function isPathInsideRoot(string $path, string $root): bool
+{
+    $prefix = rtrim($root, '\\/').DIRECTORY_SEPARATOR;
+    if ('\\' === DIRECTORY_SEPARATOR) {
+        $path = strtolower($path);
+        $prefix = strtolower($prefix);
+    }
+
+    return str_starts_with($path, $prefix);
+}
+
 function serveError(string $publicRoot, int $status): void
 {
     http_response_code($status);
     $errorFile = $publicRoot.DIRECTORY_SEPARATOR.'404.html';
-    if (is_file($errorFile)) {
-        serveFile($errorFile, '/404.html', $status);
+    $rootReal = realpath($publicRoot);
+    $errorReal = realpath($errorFile);
+    if (false !== $rootReal && false !== $errorReal && isPathInsideRoot($errorReal, $rootReal) && is_file($errorReal)) {
+        serveFile($errorReal, '/404.html', $status);
 
         return;
     }
@@ -85,6 +98,10 @@ function serveFile(string $path, string $requestPath, int $status = 200): void
     header('X-Content-Type-Options: nosniff');
     header('Referrer-Policy: strict-origin-when-cross-origin');
     header('Permissions-Policy: geolocation=(), camera=(), microphone=()');
+    $modified = filemtime($path);
+    if (false !== $modified) {
+        header('Last-Modified: '.gmdate('D, d M Y H:i:s', $modified).' GMT');
+    }
     if ('html' === $extension) {
         $contents = file_get_contents($path);
         if (false === $contents) {
@@ -111,10 +128,6 @@ function serveFile(string $path, string $requestPath, int $status = 200): void
         header('Cache-Control: max-age=60, must-revalidate');
     } else {
         header('Cache-Control: max-age=300, must-revalidate');
-    }
-    $modified = filemtime($path);
-    if (false !== $modified) {
-        header('Last-Modified: '.gmdate('D, d M Y H:i:s', $modified).' GMT');
     }
     readfile($path);
 }

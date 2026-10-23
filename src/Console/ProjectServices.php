@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace WordleHitToday\Console;
 
 use Symfony\Component\HttpClient\HttpClient;
+use WordleHitToday\Clock\Clock;
+use WordleHitToday\Clock\SystemClock;
 use WordleHitToday\Config\SiteConfig;
 use WordleHitToday\Definitions\DefinitionStore;
 use WordleHitToday\Hints\HintCalculator;
@@ -31,11 +33,14 @@ final readonly class ProjectServices
     public DefinitionStore $definitions;
     public StatusStore $status;
     public OperationalLogger $logger;
+    public Clock $clock;
 
     public function __construct(
         public string $projectRoot,
         public SiteConfig $config,
+        ?Clock $clock = null,
     ) {
+        $this->clock = $clock ?? new SystemClock();
         $this->schemas = new SchemaValidator($projectRoot.'/schemas');
         $this->hints = new HintCalculator();
         $this->recordsValidator = new RecordValidator($this->schemas, $this->hints);

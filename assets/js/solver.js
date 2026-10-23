@@ -4,8 +4,27 @@ import {
   rankCandidates,
 } from "./feedback.js";
 
-const solver = document.querySelector("[data-solver]");
+const solver =
+  typeof document === "undefined"
+    ? null
+    : document.querySelector("[data-solver]");
 if (solver) initializeSolver(solver);
+
+export function completedRowsSignature(rows) {
+  return JSON.stringify(
+    rows
+      .filter(
+        ({ guess, feedback }) =>
+          /^[A-Z]{5}$/.test(guess) &&
+          Array.isArray(feedback) &&
+          feedback.length === 5 &&
+          feedback.every(
+            (state) => state !== "unset" && feedbackStates.includes(state),
+          ),
+      )
+      .map(({ guess, feedback }) => [guess, ...feedback]),
+  );
+}
 
 async function initializeSolver(root) {
   const status = root.querySelector("[data-solver-status]");
@@ -17,8 +36,11 @@ async function initializeSolver(root) {
   const reset = root.querySelector("[data-reset]");
   const rows = [...root.querySelectorAll("[data-guess-row]")];
   let vocabulary = [];
+  let knownWords = new Set();
   let currentResults = [];
   let visibleCount = 20;
+  let normalStatus = "";
+  let lastCompletedSignature;
 
   const loadVocabulary = async () => {
     status.textContent = "Loading the demonstration vocabulary…";
@@ -36,7 +58,17 @@ async function initializeSolver(root) {
       vocabulary = payload.candidates.filter(({ word }) =>
         /^[A-Z]{5}$/.test(word),
       );
-      status.textContent = payload.coverage_note;
+      if (vocabulary.length === 0) {
+        throw new Error("Vocabulary contains no usable candidates");
+      }
+      knownWords = new Set(vocabulary.map(({ word }) => word));
+      normalStatus =
+        typeof payload.coverage_note === "string" &&
+        payload.coverage_note.trim()
+          ? payload.coverage_note
+          : "Vocabulary loaded.";
+      status.textContent = normalStatus;
+      lastCompletedSignature = undefined;
       update();
     } catch {
       status.textContent =
@@ -117,18 +149,22 @@ async function initializeSolver(root) {
   function update() {
     if (vocabulary.length === 0) return;
     const enteredRows = readRows();
-    const knownWords = new Set(vocabulary.map(({ word }) => word));
     const unknown = enteredRows.find(
       ({ guess }) => guess.length === 5 && !knownWords.has(guess),
     );
     warning.hidden = !unknown;
     if (unknown)
       warning.textContent = `${unknown.guess} is not in this vocabulary, but its feedback still applies.`;
+    const signature = completedRowsSignature(enteredRows);
+    if (signature === lastCompletedSignature) return;
+    lastCompletedSignature = signature;
     currentResults = rankCandidates(filterCandidates(vocabulary, enteredRows));
     count.textContent = `${currentResults.length} candidate${currentResults.length === 1 ? "" : "s"}`;
     if (currentResults.length === 0) {
       status.textContent =
         "No candidates match. The feedback may conflict, or the word may be outside this vocabulary.";
+    } else {
+      status.textContent = normalStatus;
     }
     visibleCount = 20;
     render();

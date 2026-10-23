@@ -12,6 +12,7 @@ final readonly class BuildResult
         public int $pageCount,
         public array $checksums,
         public string $homepageDate,
+        public int $homepageRevision,
     ) {
     }
 }

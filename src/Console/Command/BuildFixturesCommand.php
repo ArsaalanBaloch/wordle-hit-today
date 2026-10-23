@@ -34,11 +34,14 @@ final class BuildFixturesCommand extends ProjectCommand
 
                 return ExitCode::Success->value;
             }
-            $records = new FixtureFactory($services->hints)->records();
-            foreach ($records as $record) {
-                $services->records->save($record);
+            try {
+                $records = new FixtureFactory($services->hints)->records();
+                foreach ($records as $record) {
+                    $services->records->save($record);
+                }
+            } finally {
+                $lock->release();
             }
-            $lock->release();
             $io->success(sprintf('Wrote %d validated synthetic records to private storage.', count($records)));
 
             return ExitCode::Success->value;

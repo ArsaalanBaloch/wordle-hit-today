@@ -3,5 +3,6 @@ parameters:
   paths:
     - src
     - tests
+    - scripts/router.php
   tmpDir: var/cache/phpstan
   reportUnmatchedIgnoredErrors: true

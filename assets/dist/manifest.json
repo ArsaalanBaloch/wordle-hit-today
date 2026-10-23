@@ -1,21 +1,20 @@
 {
   "schema_version": 1,
-  "css": "/assets/static/site.1beb3333e3bb.css",
+  "css": "/assets/static/site.277de74a3017.css",
   "scripts": {
-    "main": "/assets/static/main.18f96714961c.js",
-    "solver": "/assets/static/solver.7fa44f5e6ace.js",
-    "archive": "/assets/static/archive.931c67e7dbcf.js"
+    "main": "/assets/static/main.deac8a346a6d.js",
+    "solver": "/assets/static/solver.78c17ebd65b5.js",
+    "archive": "/assets/static/archive.cd79177f45a5.js"
   },
   "fonts": {
     "inter400": "/assets/static/fonts/inter400.8909904ab6c8.woff2",
     "inter600": "/assets/static/fonts/inter600.f9a06e79cd3a.woff2",
-    "manrope600": "/assets/static/fonts/manrope600.f7ac6258da20.woff2",
     "manrope700": "/assets/static/fonts/manrope700.d2a12c85a831.woff2"
   },
   "vocabulary": "/assets/static/solver-fixture.cfdcc0a5f76f.json",
   "vocabulary_mode": "fixture",
   "licenses": {
-    "inter": "/assets/static/licenses/Inter-OFL-1.1.txt",
-    "manrope": "/assets/static/licenses/Manrope-OFL-1.1.txt"
+    "inter": "/assets/static/licenses/Inter-OFL-1.1.3b0a5fca3d17.txt",
+    "manrope": "/assets/static/licenses/Manrope-OFL-1.1.d826ab6583b1.txt"
   }
 }

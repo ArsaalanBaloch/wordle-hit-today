@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use WordleHitToday\Clock\GlobalDateEligibility;
-use WordleHitToday\Clock\SystemClock;
 use WordleHitToday\Console\ExitCode;
 use WordleHitToday\Publishing\PublisherLock;
 use WordleHitToday\Source\SourceFailure;
@@ -27,6 +26,7 @@ final class TickCommand extends ProjectCommand
         $io = new SymfonyStyle($input, $output);
         $started = hrtime(true);
         $runId = bin2hex(random_bytes(8));
+        $lock = null;
         try {
             $services = $this->services($input);
             $lock = new PublisherLock();
@@ -35,7 +35,7 @@ final class TickCommand extends ProjectCommand
 
                 return ExitCode::Success->value;
             }
-            $now = new SystemClock()->now();
+            $now = $services->clock->now();
             $services->status->heartbeat($now);
             if ('fixture' === $services->config->mode()) {
                 $services->logger->write($now, [
@@ -47,7 +47,6 @@ final class TickCommand extends ProjectCommand
                     'duration_ms' => $this->elapsedMilliseconds($started),
                     'public_publication_time' => null,
                 ]);
-                $lock->release();
                 $io->success('Fixture tick updated the heartbeat; no external source request was made.');
 
                 return ExitCode::Success->value;
@@ -102,7 +101,8 @@ final class TickCommand extends ProjectCommand
                     ]);
                 }
             }
-            if ($changed) {
+            $publicationNeeded = $changed || $services->publisher->needsPublication();
+            if ($publicationNeeded) {
                 $result = $services->publisher->publish($now);
                 $services->status->publication($now);
                 $services->logger->write($now, [
@@ -115,13 +115,12 @@ final class TickCommand extends ProjectCommand
                     'public_publication_time' => $now->format('Y-m-d\TH:i:s\Z'),
                 ]);
             }
-            $lock->release();
             if ($sourceFailed) {
                 $io->warning('Tick completed, but one or more source dates failed; retry state was persisted.');
 
                 return ExitCode::SourceOrNetworkBlocked->value;
             }
-            $io->success($changed ? 'Tick published newly validated records.' : 'Tick completed; no publication was needed.');
+            $io->success($publicationNeeded ? 'Tick published authoritative records.' : 'Tick completed; no publication was needed.');
 
             return ExitCode::Success->value;
         } catch (\InvalidArgumentException $exception) {
@@ -132,6 +131,8 @@ final class TickCommand extends ProjectCommand
             $io->error($exception->getMessage());
 
             return ExitCode::StorageOrBuildFailure->value;
+        } finally {
+            $lock?->release();
         }
     }
 

@@ -9,13 +9,13 @@ final class AtomicFileWriter
     public function write(string $path, string $contents): void
     {
         $directory = dirname($path);
+        $this->assertNoSymbolicLinks($directory);
         if (!is_dir($directory) && !mkdir($directory, 0o750, true) && !is_dir($directory)) {
             throw new \RuntimeException(sprintf('Unable to create directory: %s', $directory));
         }
 
-        if (is_link($directory) || is_link($path)) {
-            throw new \RuntimeException('Refusing to write through a symbolic link.');
-        }
+        $this->assertNoSymbolicLinks($directory);
+        $this->assertNoSymbolicLinks($path);
 
         $temporaryPath = $path.'.tmp.'.bin2hex(random_bytes(8));
         $bytes = file_put_contents($temporaryPath, $contents, LOCK_EX);
@@ -27,6 +27,19 @@ final class AtomicFileWriter
         if (!rename($temporaryPath, $path)) {
             @unlink($temporaryPath);
             throw new \RuntimeException(sprintf('Unable to promote temporary file to %s.', $path));
+        }
+    }
+
+    private function assertNoSymbolicLinks(string $path): void
+    {
+        for ($cursor = $path; ; $cursor = dirname($cursor)) {
+            if (is_link($cursor)) {
+                throw new \RuntimeException('Refusing to write through a symbolic link.');
+            }
+            $parent = dirname($cursor);
+            if ($parent === $cursor) {
+                return;
+            }
         }
     }
 }

@@ -11,7 +11,9 @@ use WordleHitToday\Clock\GlobalDateEligibility;
 use WordleHitToday\Config\SiteConfig;
 use WordleHitToday\Definitions\DefinitionStore;
 use WordleHitToday\Storage\AtomicFileWriter;
+use WordleHitToday\Storage\DirectoryIntegrity;
 use WordleHitToday\Support\CanonicalJson;
+use WordleHitToday\Support\PathPolicy;
 use WordleHitToday\Validation\RecordValidator;
 use WordleHitToday\Validation\SchemaValidator;
 
@@ -39,24 +41,30 @@ final readonly class SiteBuilder
 
     /**
      * @param list<array<string, mixed>> $records
-     * @param array<string, mixed>       $assets
+     * @param callable(BuildResult): void $onStaged
      */
-    public function build(array $records, array $assets, \DateTimeImmutable $builtAt): BuildResult
+    public function build(array $records, \DateTimeImmutable $builtAt, callable $onStaged): BuildResult
     {
         if ([] === $records) {
             throw new \RuntimeException('At least one validated record is required to build the site.');
         }
 
+        $builtAt = $builtAt->setTimezone(new \DateTimeZone('UTC'));
         foreach ($records as $record) {
             $this->recordValidator->validate($record);
             if ($record['mode'] !== $this->config->mode()) {
                 throw new \RuntimeException('Record mode does not match configuration mode.');
             }
+            if ($this->dateEligibility->earliestPublicationInstant((string) $record['puzzle_date']) > $builtAt) {
+                throw new \RuntimeException(sprintf(
+                    'Record %s is not globally eligible for publication yet.',
+                    $record['puzzle_date'],
+                ));
+            }
         }
 
         usort($records, static fn (array $left, array $right): int => $left['puzzle_date'] <=> $right['puzzle_date']);
         $records = array_map(fn (array $record): array => $this->withFullDate($record), $records);
-        $builtAt = $builtAt->setTimezone(new \DateTimeZone('UTC'));
         $homepage = $this->selectHomepageRecord($records, $builtAt);
         $output = $this->config->publicOutput();
         $this->assertSafeOutputPath($output);
@@ -65,15 +73,25 @@ final readonly class SiteBuilder
 
         try {
             $this->filesystem->mirror($this->projectRoot.'/assets/dist', $stage.'/assets/static');
+            $assets = AssetManifest::loadSnapshot($stage.'/assets/static', $this->config->mode());
             $archiveIndexes = $this->writeArchiveIndexes($stage, $records);
             $manifest = $this->writePublishedManifest($stage, $records, $homepage, $archiveIndexes, $builtAt);
             $pageCount = $this->writePages($stage, $records, $homepage, $assets, $builtAt);
             $this->writeSitemapAndRobots($stage, $records, $builtAt);
-            $checksums = $this->checksums($stage);
+            new PublicBuildIntegrity()->write($stage, $this->writer);
+            $checksums = new DirectoryIntegrity()->hashTree($stage);
             $this->schemaValidator->validateJson(
                 CanonicalJson::encode($manifest),
                 'published-dates.schema.json',
             );
+            $result = new BuildResult(
+                $output,
+                $pageCount,
+                $checksums,
+                (string) $homepage['puzzle_date'],
+                (int) $homepage['content_revision'],
+            );
+            $onStaged($result);
             $this->promote($stage, $output);
         } catch (\Throwable $exception) {
             if (is_dir($stage)) {
@@ -82,7 +100,7 @@ final readonly class SiteBuilder
             throw $exception;
         }
 
-        return new BuildResult($output, $pageCount, $checksums, (string) $homepage['puzzle_date']);
+        return $result;
     }
 
     /**
@@ -102,7 +120,7 @@ final readonly class SiteBuilder
         $base = $this->baseContext($assets, $builtAt);
         $homeCanonical = $this->canonical('/');
         $this->render($stage, 'index.html', 'home.html.twig', $base + [
-            'title' => sprintf('Wordle Hint Today and Answer for %s | Wordle Hit Today', $homepage['full_date']),
+            'title' => $this->pageTitle(sprintf('Wordle Hint Today and Answer for %s', $homepage['full_date'])),
             'description' => sprintf('Get spoiler-controlled Wordle hints, clues and the answer for %s, plus links to the solver and past answers.', $homepage['full_date']),
             'canonical' => $homeCanonical,
             'current_route' => 'home',
@@ -125,7 +143,7 @@ final readonly class SiteBuilder
             $route = '/wordle-answers/'.$record['puzzle_date'].'/';
             $canonical = $this->canonical($route);
             $this->render($stage, trim($route, '/').'/index.html', 'dated.html.twig', $base + [
-                'title' => sprintf('Wordle #%d Answer and Hints for %s | Wordle Hit Today', $record['puzzle_number'], $record['full_date']),
+                'title' => $this->pageTitle(sprintf('Wordle #%d Answer and Hints for %s', $record['puzzle_number'], $record['full_date'])),
                 'description' => sprintf('Progressive hints and a controlled answer reveal for Wordle #%d on %s.', $record['puzzle_number'], $record['full_date']),
                 'canonical' => $canonical,
                 'current_route' => 'archive',
@@ -156,7 +174,7 @@ final readonly class SiteBuilder
             $route = 1 === $page ? '/wordle-answers/' : sprintf('/wordle-answers/page/%d/', $page);
             $path = 1 === $page ? 'wordle-answers/index.html' : sprintf('wordle-answers/page/%d/index.html', $page);
             $this->render($stage, $path, 'archive.html.twig', $base + [
-                'title' => 1 === $page ? 'Wordle Archive: Past Answers by Date and Number | Wordle Hit Today' : sprintf('Wordle Archive — Page %d | Wordle Hit Today', $page),
+                'title' => $this->pageTitle(1 === $page ? 'Wordle Archive: Past Answers by Date and Number' : sprintf('Wordle Archive — Page %d', $page)),
                 'description' => 'Search the Wordle answer archive by date, puzzle number or exact word, and browse previous validated answers and hints.',
                 'canonical' => $this->canonical($route),
                 'current_route' => 'archive',
@@ -183,7 +201,7 @@ final readonly class SiteBuilder
                 $monthLinks[] = ['number' => $month, 'name' => false === $monthDate ? $month : $monthDate->format('F')];
             }
             $this->render($stage, sprintf('wordle-answers/%s/index.html', $year), 'archive-period.html.twig', $base + [
-                'title' => sprintf('%s Wordle Answers and Hints | Wordle Hit Today', $year),
+                'title' => $this->pageTitle(sprintf('%s Wordle Answers and Hints', $year)),
                 'description' => sprintf('Browse published Wordle answer and hint pages from %s.', $year),
                 'canonical' => $this->canonical(sprintf('/wordle-answers/%s/', $year)),
                 'current_route' => 'archive',
@@ -197,7 +215,7 @@ final readonly class SiteBuilder
                 $monthDate = \DateTimeImmutable::createFromFormat('!Y-m', $year.'-'.$month, new \DateTimeZone('UTC'));
                 $monthName = false === $monthDate ? $year.'-'.$month : $monthDate->format('F Y');
                 $this->render($stage, sprintf('wordle-answers/%s/%s/index.html', $year, $month), 'archive-period.html.twig', $base + [
-                    'title' => sprintf('Wordle Answers for %s | Wordle Hit Today', $monthName),
+                    'title' => $this->pageTitle(sprintf('Wordle Answers for %s', $monthName)),
                     'description' => sprintf('Browse published Wordle answer and hint pages from %s.', $monthName),
                     'canonical' => $this->canonical(sprintf('/wordle-answers/%s/%s/', $year, $month)),
                     'current_route' => 'archive',
@@ -209,7 +227,7 @@ final readonly class SiteBuilder
         }
 
         $this->render($stage, 'wordle-solver/index.html', 'solver.html.twig', $base + [
-            'title' => 'Wordle Solver and 5-Letter Word Finder | Wordle Hit Today',
+            'title' => $this->pageTitle('Wordle Solver and 5-Letter Word Finder'),
             'description' => 'Use this private Wordle solver and five-letter word finder to filter candidates from green, yellow and grey feedback, including repeats.',
             'canonical' => $this->canonical('/wordle-solver/'),
             'current_route' => 'solver',
@@ -232,7 +250,7 @@ final readonly class SiteBuilder
         foreach ($guideRoutes as $key => $routing) {
             $page = $pages[$key];
             $this->render($stage, trim($routing['route'], '/').'/index.html', 'guide.html.twig', $base + [
-                'title' => $page['title'].' | Wordle Hit Today',
+                'title' => $this->pageTitle((string) $page['title']),
                 'description' => $page['description'],
                 'canonical' => $this->canonical($routing['route']),
                 'current_route' => $routing['current'],
@@ -242,7 +260,7 @@ final readonly class SiteBuilder
         }
 
         $this->render($stage, '404.html', '404.html.twig', $base + [
-            'title' => 'Page Not Found | Wordle Hit Today',
+            'title' => $this->pageTitle('Page Not Found'),
             'description' => 'The requested Wordle help page is not available.',
             'canonical' => $this->canonical('/404.html'),
             'current_route' => 'none',
@@ -410,31 +428,15 @@ final readonly class SiteBuilder
         return $this->config->canonicalOrigin().$route;
     }
 
+    private function pageTitle(string $title): string
+    {
+        return $title.' | '.$this->config->siteName();
+    }
+
     /** @param array<string, mixed> $data */
     private function structuredData(array $data): string
     {
         return json_encode($data, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
-    }
-
-    /** @return array<string, string> */
-    private function checksums(string $root): array
-    {
-        $checksums = [];
-        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($root));
-        foreach ($iterator as $file) {
-            if (!$file->isFile()) {
-                continue;
-            }
-            $relative = str_replace('\\', '/', substr($file->getPathname(), strlen($root) + 1));
-            $hash = hash_file('sha256', $file->getPathname());
-            if (false === $hash) {
-                throw new \RuntimeException('Unable to hash staged output: '.$relative);
-            }
-            $checksums[$relative] = $hash;
-        }
-        ksort($checksums);
-
-        return $checksums;
     }
 
     private function promote(string $stage, string $output): void
@@ -457,13 +459,20 @@ final readonly class SiteBuilder
 
     private function assertSafeOutputPath(string $path): void
     {
-        if ('fixture' !== $this->config->mode()) {
-            return;
-        }
-        $root = strtolower(str_replace('\\', '/', rtrim($this->projectRoot, '\\/')).'/');
-        $normalized = strtolower(str_replace('\\', '/', rtrim($path, '\\/')).'/');
-        if (!str_starts_with($normalized, $root) || $normalized === $root) {
-            throw new \RuntimeException('Fixture output must be a non-root path inside the project workspace.');
+        try {
+            PathPolicy::assertManagedRoot($path, $this->projectRoot, 'Public output');
+            PathPolicy::assertDisjoint($path, $this->config->privateStorage(), 'Public output', 'Private storage');
+            PathPolicy::assertDisjoint($path, $this->config->backupPath(), 'Public output', 'Backup path');
+            $rollback = $path.'.rollback';
+            PathPolicy::assertManagedRoot($rollback, $this->projectRoot, 'Public rollback');
+            PathPolicy::assertDisjoint($rollback, $this->config->privateStorage(), 'Public rollback', 'Private storage');
+            PathPolicy::assertDisjoint($rollback, $this->config->backupPath(), 'Public rollback', 'Backup path');
+
+            if ('fixture' === $this->config->mode()) {
+                PathPolicy::assertStrictlyInside($path, $this->projectRoot, 'Fixture output', 'the project workspace');
+            }
+        } catch (\InvalidArgumentException $exception) {
+            throw new \RuntimeException('Unsafe public output path: '.$exception->getMessage(), previous: $exception);
         }
     }
 }

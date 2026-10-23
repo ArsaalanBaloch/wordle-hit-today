@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use WordleHitToday\Console\ExitCode;
+use WordleHitToday\Publishing\PublisherLock;
 
 #[AsCommand(name: 'import-definitions', description: 'Validate and import local licensed definition JSON. No network request.')]
 final class ImportDefinitionsCommand extends ProjectCommand
@@ -92,8 +93,18 @@ final class ImportDefinitionsCommand extends ProjectCommand
                 'entries' => $entries,
             ];
             if ($input->getOption('apply')) {
-                $services->definitions->save($document);
-                $services->writer->write($services->config->privateStorage().'/definitions/LICENSE.txt', $license);
+                $lock = new PublisherLock();
+                if (!$lock->acquire($services->config->privateStorage().'/publisher.lock')) {
+                    $io->note('Another writer holds the publication lock; definition import was safely skipped.');
+
+                    return ExitCode::Success->value;
+                }
+                try {
+                    $services->definitions->save($document);
+                    $services->writer->write($services->config->privateStorage().'/definitions/LICENSE.txt', $license);
+                } finally {
+                    $lock->release();
+                }
             }
             $io->success(sprintf(
                 '%s %d safe definition entries; %d input rows were omitted.',

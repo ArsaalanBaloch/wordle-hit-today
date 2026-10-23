@@ -16,7 +16,9 @@
     "test:seo": "playwright test --project=seo",
     "scan:secrets": "node scripts/secret-scan.mjs",
     "audit": "npm audit --audit-level=high",
-    "check": "npm run lint && npm run format:check && npm run scan:secrets && npm run audit && npm run build && npm run test:unit && npm run test:browser && npm run test:a11y && npm run test:seo"
+    "check:static": "npm run lint && npm run format:check && npm run scan:secrets && npm run audit && npm run test:unit",
+    "check:browser": "npm run test:browser && npm run test:a11y && npm run test:seo",
+    "check": "npm run check:static && npm run build && npm run check:browser"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",

@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use WordleHitToday\Console\ExitCode;
+use WordleHitToday\Publishing\PublisherLock;
 use WordleHitToday\Support\CanonicalJson;
 
 #[AsCommand(name: 'import-vocabulary', description: 'Validate and import a pinned, prefiltered five-letter vocabulary from a local file. No network request.')]
@@ -83,8 +84,18 @@ final class ImportVocabularyCommand extends ProjectCommand
             ];
             $target = $services->config->privateStorage().'/vocabulary/solver.json';
             if ($input->getOption('apply')) {
-                $services->writer->write($target, CanonicalJson::encode($document, true));
-                $services->writer->write($services->config->privateStorage().'/vocabulary/LICENSE.txt', $license);
+                $lock = new PublisherLock();
+                if (!$lock->acquire($services->config->privateStorage().'/publisher.lock')) {
+                    $io->note('Another writer holds the publication lock; vocabulary import was safely skipped.');
+
+                    return ExitCode::Success->value;
+                }
+                try {
+                    $services->writer->write($target, CanonicalJson::encode($document, true));
+                    $services->writer->write($services->config->privateStorage().'/vocabulary/LICENSE.txt', $license);
+                } finally {
+                    $lock->release();
+                }
             }
             $io->success(sprintf(
                 '%s %d unique five-letter words. %s',
