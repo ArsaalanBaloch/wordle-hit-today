@@ -143,7 +143,7 @@ final readonly class SiteBuilder
             $route = '/wordle-answers/'.$record['puzzle_date'].'/';
             $canonical = $this->canonical($route);
             $this->render($stage, trim($route, '/').'/index.html', 'dated.html.twig', $base + [
-                'title' => $this->pageTitle(sprintf('Wordle #%d Answer and Hints for %s', $record['puzzle_number'], $record['full_date'])),
+                'title' => $this->pageTitle(sprintf('Wordle #%d Answer & Hints — %s', $record['puzzle_number'], $record['short_date'])),
                 'description' => sprintf('Progressive hints and a controlled answer reveal for Wordle #%d on %s.', $record['puzzle_number'], $record['full_date']),
                 'canonical' => $canonical,
                 'current_route' => 'archive',
@@ -175,7 +175,9 @@ final readonly class SiteBuilder
             $path = 1 === $page ? 'wordle-answers/index.html' : sprintf('wordle-answers/page/%d/index.html', $page);
             $this->render($stage, $path, 'archive.html.twig', $base + [
                 'title' => $this->pageTitle(1 === $page ? 'Wordle Archive: Past Answers by Date and Number' : sprintf('Wordle Archive — Page %d', $page)),
-                'description' => 'Search the Wordle answer archive by date, puzzle number or exact word, and browse previous validated answers and hints.',
+                'description' => 1 === $page
+                    ? 'Search the Wordle answer archive by date, puzzle number or exact word, and browse previous validated answers and hints.'
+                    : sprintf('Browse page %d of the Wordle answer archive, with validated past answers and hints organized by puzzle date and number.', $page),
                 'canonical' => $this->canonical($route),
                 'current_route' => 'archive',
                 'page_scripts' => [$assets['scripts']['archive']],
@@ -202,7 +204,7 @@ final readonly class SiteBuilder
             }
             $this->render($stage, sprintf('wordle-answers/%s/index.html', $year), 'archive-period.html.twig', $base + [
                 'title' => $this->pageTitle(sprintf('%s Wordle Answers and Hints', $year)),
-                'description' => sprintf('Browse published Wordle answer and hint pages from %s.', $year),
+                'description' => sprintf('Browse validated Wordle answers and spoiler-controlled hints published in %s, with links to each puzzle by date and number.', $year),
                 'canonical' => $this->canonical(sprintf('/wordle-answers/%s/', $year)),
                 'current_route' => 'archive',
                 'heading' => sprintf('Wordle answers from %s', $year),
@@ -216,7 +218,7 @@ final readonly class SiteBuilder
                 $monthName = false === $monthDate ? $year.'-'.$month : $monthDate->format('F Y');
                 $this->render($stage, sprintf('wordle-answers/%s/%s/index.html', $year, $month), 'archive-period.html.twig', $base + [
                     'title' => $this->pageTitle(sprintf('Wordle Answers for %s', $monthName)),
-                    'description' => sprintf('Browse published Wordle answer and hint pages from %s.', $monthName),
+                    'description' => sprintf('Browse validated Wordle answers and spoiler-controlled hints published in %s, with links to each puzzle by date and number.', $monthName),
                     'canonical' => $this->canonical(sprintf('/wordle-answers/%s/%s/', $year, $month)),
                     'current_route' => 'archive',
                     'heading' => sprintf('Wordle answers for %s', $monthName),
@@ -250,7 +252,7 @@ final readonly class SiteBuilder
         foreach ($guideRoutes as $key => $routing) {
             $page = $pages[$key];
             $this->render($stage, trim($routing['route'], '/').'/index.html', 'guide.html.twig', $base + [
-                'title' => $this->pageTitle((string) $page['title']),
+                'title' => $this->pageTitle((string) ($page['seo_title'] ?? $page['title'])),
                 'description' => $page['description'],
                 'canonical' => $this->canonical($routing['route']),
                 'current_route' => $routing['current'],
@@ -262,7 +264,6 @@ final readonly class SiteBuilder
         $this->render($stage, '404.html', '404.html.twig', $base + [
             'title' => $this->pageTitle('Page Not Found'),
             'description' => 'The requested Wordle help page is not available.',
-            'canonical' => $this->canonical('/404.html'),
             'current_route' => 'none',
             'robots' => 'noindex, follow',
         ]);
@@ -338,30 +339,47 @@ final readonly class SiteBuilder
     /** @param list<array<string, mixed>> $records */
     private function writeSitemapAndRobots(string $stage, array $records, \DateTimeImmutable $builtAt): void
     {
-        $routes = ['/', '/wordle-solver/', '/wordle-answers/', '/how-to-play-wordle/', '/wordle-strategy/', '/about/', '/privacy/'];
+        $homepage = $this->selectHomepageRecord($records, $builtAt);
+        $newestRecordDate = $this->latestPuzzleDate($records);
+        /** @var array<string, string|null> $routes */
+        $routes = [
+            '/' => (string) $homepage['puzzle_date'],
+            '/wordle-solver/' => null,
+            '/wordle-answers/' => $newestRecordDate,
+            '/how-to-play-wordle/' => null,
+            '/wordle-strategy/' => null,
+            '/about/' => null,
+            '/privacy/' => null,
+        ];
         $archivePageSize = $this->config->archivePageSize();
         if ($archivePageSize < 1) {
             throw new \LogicException('Archive page size must be positive.');
         }
-        $archivePageCount = (int) ceil(count($records) / $archivePageSize);
-        for ($page = 2; $page <= $archivePageCount; ++$page) {
-            $routes[] = sprintf('/wordle-answers/page/%d/', $page);
+        $descending = array_reverse($records);
+        $archiveChunks = array_chunk($descending, $archivePageSize);
+        foreach ($archiveChunks as $pageIndex => $pageRecords) {
+            if (0 === $pageIndex) {
+                continue;
+            }
+            $routes[sprintf('/wordle-answers/page/%d/', $pageIndex + 1)] = $this->latestPuzzleDate($pageRecords);
         }
+        /** @var array<string, string> $periods */
         $periods = [];
         foreach ($records as $record) {
-            $routes[] = '/wordle-answers/'.$record['puzzle_date'].'/';
-            $periods['/wordle-answers/'.substr((string) $record['puzzle_date'], 0, 4).'/'] = true;
-            $periods['/wordle-answers/'.substr((string) $record['puzzle_date'], 0, 4).'/'.substr((string) $record['puzzle_date'], 5, 2).'/'] = true;
+            $recordDate = (string) $record['puzzle_date'];
+            $routes['/wordle-answers/'.$recordDate.'/'] = $recordDate;
+            $periods['/wordle-answers/'.substr($recordDate, 0, 4).'/'] = $recordDate;
+            $periods['/wordle-answers/'.substr($recordDate, 0, 4).'/'.substr($recordDate, 5, 2).'/'] = $recordDate;
         }
-        $routes = array_merge($routes, array_keys($periods));
-        $lastModified = $builtAt->format('Y-m-d');
+        $routes = array_merge($routes, $periods);
         $urls = array_map(
-            fn (string $route): string => sprintf(
-                '  <url><loc>%s</loc><lastmod>%s</lastmod></url>',
+            fn (string $route, ?string $lastModified): string => sprintf(
+                '  <url><loc>%s</loc>%s</url>',
                 htmlspecialchars($this->canonical($route), ENT_XML1 | ENT_QUOTES, 'UTF-8'),
-                $lastModified,
+                null === $lastModified ? '' : '<lastmod>'.$lastModified.'</lastmod>',
             ),
-            $routes,
+            array_keys($routes),
+            array_values($routes),
         );
         $sitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n".implode("\n", $urls)."\n</urlset>\n";
         $this->writer->write($stage.'/sitemap.xml', $sitemap);
@@ -419,6 +437,7 @@ final readonly class SiteBuilder
             throw new \RuntimeException('Validated record date could not be formatted.');
         }
         $record['full_date'] = $date->format('F j, Y');
+        $record['short_date'] = $date->format('M j, Y');
 
         return $record;
     }
@@ -431,6 +450,23 @@ final readonly class SiteBuilder
     private function pageTitle(string $title): string
     {
         return $title.' | '.$this->config->siteName();
+    }
+
+    /** @param list<array<string, mixed>> $records */
+    private function latestPuzzleDate(array $records): string
+    {
+        if ([] === $records) {
+            throw new \LogicException('Cannot determine a latest date from an empty record list.');
+        }
+
+        $latest = (string) $records[0]['puzzle_date'];
+        foreach ($records as $record) {
+            if ($record['puzzle_date'] > $latest) {
+                $latest = (string) $record['puzzle_date'];
+            }
+        }
+
+        return $latest;
     }
 
     /** @param array<string, mixed> $data */

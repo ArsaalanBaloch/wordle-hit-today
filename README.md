@@ -49,10 +49,11 @@ Then open `http://127.0.0.1:8080/`. Stop the preview with Ctrl+C. If a managed e
 ```powershell
 composer check
 npm run check
+npm run audit:seo
 php bin/wordle reconcile --mode=fixture
 ```
 
-`composer check` runs formatting, PHPStan level 8, PHPUnit and Composer audit. `npm run check` runs ESLint, Prettier, a tracked/untracked non-ignored file secret scan, deterministic assets, Vitest, Chromium behavior/responsive screenshots, axe and SEO checks.
+`composer check` runs formatting, PHPStan level 8, PHPUnit and Composer audit. `npm run check` runs ESLint, Prettier, a tracked/untracked non-ignored file secret scan, deterministic assets, Vitest, Chromium behavior/responsive screenshots, axe and SEO checks. `npm run audit:seo` can also audit an already generated `var/site` tree directly.
 
 Publication stages and hash-validates its asset snapshot, writes a durable pre-promotion journal, and gives each public build a self-contained exact-tree integrity manifest. Reconciliation, rollback, backup, and restore reject missing, changed, injected, unsafe, or symbolic-link entries. These checks detect corruption relative to the supplied manifest; they do not authenticate a manifest against an attacker who can replace both content and manifest. See [docs/SECURITY.md](docs/SECURITY.md) and [docs/RECOVERY.md](docs/RECOVERY.md).
 
@@ -60,7 +61,7 @@ Publication stages and hash-validates its asset snapshot, writes a durable pre-p
 
 Production configuration enforces a real HTTPS origin, contact address, absolute public/private paths, and a validated date/number anchor. The asset manifest records whether its solver vocabulary is `fixture` or `production`, and the PHP build rejects a mode mismatch. Licensed ESDB/SCOWL-derived vocabulary is therefore a production build gate. Pinned WordNet definitions and their coverage report remain a launch requirement, but missing definitions are currently omitted rather than failing a build.
 
-Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/SECURITY.md](docs/SECURITY.md), [docs/RECOVERY.md](docs/RECOVERY.md) and [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) before enabling production mode.
+Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/SEO_AUDIT.md](docs/SEO_AUDIT.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/SECURITY.md](docs/SECURITY.md), [docs/RECOVERY.md](docs/RECOVERY.md) and [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) before enabling production mode.
 
 ## Remaining work
 

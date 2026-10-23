@@ -6,15 +6,17 @@
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
     {% if robots is defined %}<meta name="robots" content="{{ robots }}">{% endif %}
-    <link rel="canonical" href="{{ canonical }}">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="{{ site_name }}">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
-    <meta property="og:url" content="{{ canonical }}">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ title }}">
-    <meta name="twitter:description" content="{{ description }}">
+    {% if canonical is defined %}
+      <link rel="canonical" href="{{ canonical }}">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="{{ site_name }}">
+      <meta property="og:title" content="{{ title }}">
+      <meta property="og:description" content="{{ description }}">
+      <meta property="og:url" content="{{ canonical }}">
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:title" content="{{ title }}">
+      <meta name="twitter:description" content="{{ description }}">
+    {% endif %}
     <link rel="preload" href="{{ assets.fonts.inter400 }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ assets.fonts.manrope700 }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ assets.css }}">

@@ -2,6 +2,7 @@
   "how-to-play-wordle": {
     "eyebrow": "Rules and feedback",
     "title": "How to play Wordle: rules, colours and repeated letters",
+    "seo_title": "How to Play Wordle: Rules & Tile Colours",
     "description": "Learn how to play Wordle, including the six-guess rules, green, yellow and grey feedback, Hard Mode and repeated letters.",
     "intro": "Guess one five-letter word in six tries. Every submitted row returns position-by-position feedback that narrows the next guess.",
     "sections": [
@@ -66,6 +67,7 @@
   "wordle-strategy": {
     "eyebrow": "Practical decision-making",
     "title": "Wordle strategy: starting words, tips and repeated letters",
+    "seo_title": "Wordle Strategy: Starting Words & Tips",
     "description": "Choose useful Wordle starting words, plan stronger second guesses, understand common-letter coverage and handle duplicate letters.",
     "intro": "Good play is less about memorising one magic opener and more about turning each row into reliable constraints.",
     "sections": [

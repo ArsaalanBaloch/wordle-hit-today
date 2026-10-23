@@ -31,7 +31,7 @@ test("historical metadata omits the solution", async ({ page }) => {
   await page.goto("/wordle-answers/2026-10-16/");
 
   await expect(page).toHaveTitle(
-    "Wordle #900016 Answer and Hints for October 16, 2026 | Wordle Hit Today",
+    "Wordle #900016 Answer & Hints — Oct 16, 2026 | Wordle Hit Today",
   );
   await expect(page.locator('meta[name="description"]')).not.toHaveAttribute(
     "content",
@@ -56,14 +56,12 @@ test("intent pages use distinct descriptive metadata and one main heading", asyn
     },
     {
       path: "/wordle-strategy/",
-      title:
-        "Wordle strategy: starting words, tips and repeated letters | Wordle Hit Today",
+      title: "Wordle Strategy: Starting Words & Tips | Wordle Hit Today",
       heading: /Wordle strategy: starting words, tips and repeated letters/i,
     },
     {
       path: "/how-to-play-wordle/",
-      title:
-        "How to play Wordle: rules, colours and repeated letters | Wordle Hit Today",
+      title: "How to Play Wordle: Rules & Tile Colours | Wordle Hit Today",
       heading: /How to play Wordle: rules, colours and repeated letters/i,
     },
   ];
@@ -198,4 +196,6 @@ test("404 is noindex and protected by security headers", async ({ page }) => {
     "content",
     "noindex, follow",
   );
+  await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+  await expect(page.locator('meta[property="og:url"]')).toHaveCount(0);
 });
