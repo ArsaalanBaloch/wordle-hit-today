@@ -6,7 +6,7 @@ The checked-in build is intentionally fixture-only: its three answers and small 
 
 ## Delivery status
 
-The configured GitHub `origin` is the private delivery target. The audited source, generated assets, and local quality evidence are complete; the exact final commit and matching remote SHA are reported in the delivery handoff. Git transport authentication works, but local GitHub CLI authentication is invalid, so this environment cannot truthfully report private repository metadata or the resulting Actions status.
+The configured GitHub `origin` is the verified private delivery target. The audited source, generated assets, local quality evidence, and GitHub Actions workflow pass are complete; the exact final commit and matching remote SHA are reported in the delivery handoff.
 
 Private source delivery—and even a working review preview—would not establish production readiness. A production launch still requires a real domain and hosting environment, production vocabulary and definition data, live device and hosted performance evidence, operational monitoring, and encrypted immutable off-server backups.
 
@@ -64,7 +64,6 @@ Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/
 
 ## Remaining work
 
-- Reauthenticate GitHub CLI to verify private repository metadata and inspect the final GitHub Actions run.
 - Supply and verify the final domain, contact address, DNS/TLS, hosting limits/access, scheduler, cache behavior, and production document root.
 - The pinned production vocabulary/definition distributions and their verified checksums are not supplied.
 - Complete live regional-date source observation and production vocabulary/definition coverage reporting. The referenced 6 and 8 October 2026 NYT sample-response files are not present in the workspace.
