@@ -6,6 +6,7 @@ ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    __WORDLE_CANONICAL_HOST_RULE__
     RewriteRule ^wordle-answers/page/1/?$ /wordle-answers/ [R=301,L,NE]
 </IfModule>
 

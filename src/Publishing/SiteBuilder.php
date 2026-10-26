@@ -286,6 +286,20 @@ final readonly class SiteBuilder
             ? 'Header always set X-Robots-Tag "noindex, nofollow"'
             : '';
         $contents = str_replace('__WORDLE_ROBOTS_HEADER__', $robotsHeader, $contents);
+        $canonicalHostRule = '';
+        if ('production' === $this->config->mode()) {
+            $canonicalHost = parse_url($this->config->canonicalOrigin(), PHP_URL_HOST);
+            if (!is_string($canonicalHost)
+                || false === filter_var($canonicalHost, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME)) {
+                throw new \RuntimeException('Production canonical origin does not contain a valid hostname.');
+            }
+            $canonicalHostRule = sprintf(
+                "RewriteCond %%{HTTP_HOST} !^%s$ [NC]\n    RewriteRule ^ https://%s%%{REQUEST_URI} [R=301,L,NE]",
+                preg_quote($canonicalHost, '/'),
+                $canonicalHost,
+            );
+        }
+        $contents = str_replace('__WORDLE_CANONICAL_HOST_RULE__', $canonicalHostRule, $contents);
 
         $this->writer->write($stage.'/.htaccess', $contents);
     }
