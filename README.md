@@ -8,7 +8,7 @@ The checked-in build is intentionally fixture-only: its three answers and small 
 
 The configured GitHub `origin` is the verified private delivery target. The audited source, generated assets, local quality evidence, and GitHub Actions workflow pass are complete; the exact final commit and matching remote SHA are reported in the delivery handoff.
 
-Private source delivery and the working noindex Hostinger staging preview do not establish production readiness. A production launch still requires production-domain activation, production vocabulary and definition data, live device and hosted performance evidence, operational monitoring, and encrypted immutable off-server backups.
+Private source delivery and the working noindex Hostinger staging preview do not establish production readiness. The production vocabulary and definition pipeline, Hostinger runtime, first live-source publication, reconciliation, and an on-host verified backup are ready. Public-domain activation, a working contact channel, scheduler activation, independent monitoring, live device/hosted performance evidence, and encrypted immutable off-server backups remain.
 
 ## Architecture
 
@@ -59,17 +59,16 @@ Publication stages and hash-validates its asset snapshot, writes a durable pre-p
 
 ## Production is deliberately gated
 
-Production configuration enforces a real HTTPS origin, contact address, absolute public/private paths, and a validated date/number anchor. The asset manifest records whether its solver vocabulary is `fixture` or `production`, and the PHP build rejects a mode mismatch. Licensed ESDB/SCOWL-derived vocabulary is therefore a production build gate. Pinned WordNet definitions and their coverage report remain a launch requirement, but missing definitions are currently omitted rather than failing a build.
+Production configuration enforces a real HTTPS origin, contact address, absolute public/private paths, and a validated date/number anchor. The asset manifest records whether its solver vocabulary is `fixture` or `production`, and the PHP build rejects a mode mismatch. `npm run prepare:production-data` reproducibly prepares the pinned ESDB/SCOWL vocabulary and Princeton WordNet definitions, records source/output checksums, and reports coverage. Missing or unsafe definitions are deliberately omitted rather than fabricated.
 
 Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/SEO_AUDIT.md](docs/SEO_AUDIT.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/SECURITY.md](docs/SECURITY.md), [docs/RECOVERY.md](docs/RECOVERY.md), [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) and [docs/HOSTINGER.md](docs/HOSTINGER.md) before enabling production mode.
 
 ## Remaining work
 
-- Supply and verify the final domain, contact address, DNS/TLS, hosting limits/access, scheduler, cache behavior, and production document root.
-- The pinned production vocabulary/definition distributions and their verified checksums are not supplied.
-- Complete live regional-date source observation and production vocabulary/definition coverage reporting. The referenced 6 and 8 October 2026 NYT sample-response files are not present in the workspace.
+- Attach `wordlehintoday.com`, point its DNS, install/verify TLS, then obtain the owner's explicit approval before replacing the public noindex fixture with the verified production tree.
+- Activate and verify the minute scheduler plus daily/weekly on-host backups; configure an independent stale-heartbeat monitor.
+- Create a working branded contact mailbox or forwarding destination. The current Hostinger account has no mail order, so the configured address must not be represented as monitored yet.
 - Complete Safari/iOS, Android, manual screen-reader/zoom, hosted Lighthouse, and permitted load testing.
-- Configure and test independent monitoring plus an owner-controlled encrypted, immutable/versioned off-server backup and full restore drill.
-- Public launch is explicitly out of scope until the owner authorizes it.
+- Configure an owner-controlled encrypted, immutable/versioned off-server backup and perform a full restore drill.
 
 See [BUILD_REPORT.md](BUILD_REPORT.md) and [REQUIREMENTS.md](REQUIREMENTS.md) for evidence and blocked checks.

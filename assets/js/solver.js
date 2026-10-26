@@ -43,7 +43,7 @@ async function initializeSolver(root) {
   let lastCompletedSignature;
 
   const loadVocabulary = async () => {
-    status.textContent = "Loading the demonstration vocabulary…";
+    status.textContent = "Loading the solver vocabulary…";
     retry.hidden = true;
     try {
       const response = await fetch(root.dataset.dictionary, {

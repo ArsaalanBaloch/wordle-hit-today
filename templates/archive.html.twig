@@ -13,7 +13,7 @@
     <h2 id="search-heading">Search the archive</h2>
     <form role="search">
       <label class="field-label" for="archive-query">Date, number or exact word</label>
-      <input id="archive-query" type="search" autocomplete="off" placeholder="2026-10-16, 900016 or CRANE">
+      <input id="archive-query" type="search" autocomplete="off" placeholder="YYYY-MM-DD, puzzle number or exact word">
       <button type="submit">Search</button>
     </form>
     <p data-search-status aria-live="polite">Showing the current archive.</p>
@@ -51,7 +51,11 @@
     <h3>Can I search past Wordle words by answer?</h3>
     <p>Yes. Enter the complete five-letter word. The archive search uses exact matching so a partial word does not reveal unrelated solutions.</p>
     <h3>Does the archive contain every Wordle answer?</h3>
-    <p>It contains only records imported and validated by this project. The private fixture preview is deliberately small and is not presented as a complete historical list.</p>
+    {% if mode == 'fixture' %}
+      <p>It contains only records imported and validated by this project. This private fixture preview is deliberately small and is not presented as a complete historical list.</p>
+    {% else %}
+      <p>It contains only records imported and validated by this project from the date publication began. It is not presented as a complete historical list.</p>
+    {% endif %}
     <h3>Do historical pages change when a new puzzle is published?</h3>
     <p>No. Each dated page stays attached to its original date, while the archive index adds newly validated records.</p>
   </section>

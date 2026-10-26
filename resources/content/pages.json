@@ -148,9 +148,25 @@
         ]
       },
       {
+        "heading": "Vocabulary and definition sources",
+        "paragraphs": [
+          "Solver candidates are derived from the pinned ESDB 2026.02.25 American English dictionaries. Optional meaning clues are derived from Princeton WordNet 3.0. Both datasets are filtered locally, retain their source checksums and are used under their accompanying licenses."
+        ],
+        "links": [
+          {
+            "url": "/licenses/ESDB-2026.02.25.txt",
+            "label": "ESDB 2026.02.25 copyright and license notice"
+          },
+          {
+            "url": "/licenses/WordNet-3.0.txt",
+            "label": "Princeton WordNet 3.0 license"
+          }
+        ]
+      },
+      {
         "heading": "Corrections",
         "paragraphs": [
-          "A real corrections address will replace the private-preview placeholder before production. Corrections retain the prior revision and publish an explicit notice rather than silently rewriting history."
+          "Corrections can be sent to the contact address in the site footer. Corrections retain the prior revision and publish an explicit notice rather than silently rewriting history."
         ]
       }
     ]
@@ -158,8 +174,8 @@
   "privacy": {
     "eyebrow": "Plain-language disclosure",
     "title": "Privacy",
-    "description": "Privacy information for Wordle Hit Today, including local browser processing and future hosting logs.",
-    "intro": "The local preview stores no visitor account and sends no solver guesses to a server.",
+    "description": "Privacy information for Wordle Hit Today, including local browser processing and hosting logs.",
+    "intro": "The site stores no visitor account and sends no solver guesses to the publisher.",
     "sections": [
       {
         "heading": "Local date and solver data",
@@ -177,13 +193,13 @@
       {
         "heading": "Hosting and monitoring",
         "paragraphs": [
-          "Production hosting has not been selected. Before launch, this notice will name relevant host logs, retention and any independent uptime monitor instead of claiming that no technical logs exist."
+          "The static site is hosted by Hostinger. Hostinger and its CDN may process IP addresses, request paths, browser identifiers and timestamps in technical security and access logs under their policies. This site does not currently add advertising, account tracking or analytics scripts."
         ]
       },
       {
         "heading": "Contact",
         "paragraphs": [
-          "The owner’s final privacy and corrections contact will be added before production. No placeholder address will be accepted by production configuration validation."
+          "Privacy and correction requests can be sent to the contact address displayed in the site footer."
         ]
       }
     ]

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 — 2026-10-26
+
+- Added reproducible production-data preparation from pinned ESDB/SCOWL and Princeton WordNet releases, including source manifests, checksums, license notices and coverage tests.
+- Preserved source frequency order during vocabulary import, improved production content disclosures and aligned privacy/contact wording with the static Hostinger deployment.
+- Prepared and verified the Hostinger production runtime, private data, first live-source publication, reconciliation and backup without replacing the public noindex fixture.
+
 ## 0.1.2 — 2026-10-26
 
 - Added a generated Hostinger web-server adapter with custom 404 handling, directory protection, security headers and immutable caching for content-addressed assets.

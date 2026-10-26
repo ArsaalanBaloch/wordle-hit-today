@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "eslint assets/js scripts tests",
     "format:check": "prettier --check \"{assets,scripts,tests}/**/*.{css,js,json}\" \"*.{json,md}\" \"config/**/*.json\" \"schemas/**/*.json\"",
+    "prepare:production-data": "node scripts/prepare-production-data.mjs",
     "build": "node scripts/build.mjs",
     "test:unit": "vitest run tests/js",
     "test:browser": "playwright test --project=browser-chromium --project=responsive",

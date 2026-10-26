@@ -58,11 +58,11 @@ final class ImportVocabularyCommand extends ProjectCommand
                     continue;
                 }
                 if (1 === preg_match('/^[A-Za-z]{5}$/D', $value)) {
-                    $words[strtoupper($value)] = true;
+                    // Preserve the reviewed input order as ranking metadata.
+                    // Duplicate words retain their earliest (best) rank.
+                    $words[strtoupper($value)] ??= count($words) + 1;
                 }
             }
-            $words = array_keys($words);
-            sort($words, SORT_STRING);
             if (count($words) < 1_000) {
                 throw new \InvalidArgumentException('Production vocabulary contains fewer than 1,000 valid five-letter words.');
             }
@@ -77,8 +77,8 @@ final class ImportVocabularyCommand extends ProjectCommand
                     'word_count' => count($words),
                 ],
                 'candidates' => array_map(
-                    static fn (string $word, int $index): array => ['word' => $word, 'rank' => $index + 1],
-                    $words,
+                    static fn (int $rank, string $word): array => ['word' => $word, 'rank' => $rank],
+                    array_values($words),
                     array_keys($words),
                 ),
             ];

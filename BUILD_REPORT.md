@@ -2,9 +2,9 @@
 
 ## Result
 
-The maintainability, security, performance, publication-integrity, and recovery audit is complete for the private fixture scope. The generated site is reproducible, the exact public tree reconciles with its journal, rollback artifacts carry their own integrity manifest, and a CLI backup/restore drill completed successfully.
+The maintainability, security, performance, publication-integrity, and recovery audit is complete for the private fixture and prepared production scopes. The generated site is reproducible, the exact tree reconciles with its journal, rollback artifacts carry their own integrity manifest, and CLI backup/restore drills completed successfully.
 
-Production readiness is not claimed. The production domain has been acquired and a noindex Hostinger staging environment is verified, but production still requires licensed vocabulary/definition data, live source/date observation, branded contact email, production DNS/TLS activation, physical-device and hosted performance evidence, independent monitoring, and encrypted immutable off-server backups.
+Public launch is not claimed. Pinned licensed vocabulary and definitions, a live source publication, Hostinger runtime, reconciliation and an on-host verified backup are complete. The real domain remains on registrar parking DNS, the public Hostinger document root still serves the noindex fixture, and branded contact delivery, scheduler activation, independent monitoring, physical-device/hosted performance evidence, and encrypted immutable off-server backups remain.
 
 ## Environment
 
@@ -28,8 +28,8 @@ Production readiness is not claimed. The production domain has been acquired and
 | PHPUnit                       | PASS, 69 tests and 149 assertions; 2 Windows symlink tests skipped                                                                      |
 | Composer validation/audit     | PASS; lockfile valid and no known advisories                                                                                            |
 | ESLint / Prettier             | PASS                                                                                                                                    |
-| Secret scan                   | PASS across 160 text-readable tracked/untracked non-ignored files                                                                       |
-| Vitest                        | PASS, 15/15                                                                                                                             |
+| Secret scan                   | PASS across 165 text-readable tracked/untracked non-ignored files                                                                       |
+| Vitest                        | PASS, 19/19                                                                                                                             |
 | Playwright browser/responsive | PASS, 14/14                                                                                                                             |
 | Playwright accessibility      | PASS, 4/4                                                                                                                               |
 | Playwright SEO                | PASS, 8/8                                                                                                                               |
@@ -37,21 +37,25 @@ Production readiness is not claimed. The production domain has been acquired and
 | `doctor --mode=fixture`       | PASS                                                                                                                                    |
 | Fixture generation            | PASS, 3 validated synthetic records                                                                                                     |
 | Asset reproducibility         | PASS across consecutive builds; an intentionally failed build preserved the previous `assets/dist` tree and left no staging directories |
-| Fixture publication           | PASS, 13 HTML pages and 30 total public files                                                                                           |
-| Reconciliation                | PASS, all 30 files matched exactly                                                                                                      |
+| Fixture publication           | PASS, 13 HTML pages and 32 total public files                                                                                           |
+| Production publication        | PASS in the private Hostinger prelaunch tree, 13 HTML pages and 32 total public files                                                   |
+| Reconciliation                | PASS, all 32 files matched exactly                                                                                                      |
 | Rollback inspection           | PASS against the retained build's self-contained integrity manifest                                                                     |
 | Backup/restore drill          | PASS; 6 files verified and 3 records restored/schema-validated into a new path                                                          |
 | GitHub CI                     | PASS for audit commit `e71fbc3`; all 13 validate-job steps completed successfully in run 39941359312                                    |
 
 ## Build measurements
 
-- Generated public tree: 223,620 bytes across 30 files
+- Generated fixture public tree: 227,679 bytes across 32 files
+- Generated production public tree: 426,385 bytes across 32 files
 - Homepage initial local assets: 54,390 uncompressed bytes (CSS, main JS, Inter 400, and Manrope 700)
 - CSS: 11,992 bytes
 - Main JavaScript: 4,522 bytes
-- Solver JavaScript: 4,643 bytes
+- Solver JavaScript: 4,636 bytes
 - Archive JavaScript: 3,493 bytes
 - Fixture vocabulary: 1,331 bytes
+- Production vocabulary: 6,982 words; SHA-256 `cf5139dbaf76957e37826ad6ef9d8d2c634f971e9618ec86da26bd91941dd64d`
+- Production definitions: 12,400 safe imported senses from 13,838 prepared rows; SHA-256 `8a9fe6f85abbdc3c98f2b7bee453227a84d93cfe95698e3a2b6582e04b559aa4`
 - Measured fixture PHP publication: 1,472 ms
 - Responsive screenshots: 320, 375, 768, 1024, and 1440 CSS pixels
 - Hosted three-run Lighthouse medians and five-minute 50-reader load test: BLOCKED pending a reachable production-like host
@@ -61,8 +65,9 @@ Production readiness is not claimed. The production domain has been acquired and
 - Fixture records: 3 synthetic dated records
 - Fixture solver candidates: 43
 - Fixture definition references: 0 of 3, deliberately omitted rather than fabricated
-- Production vocabulary: BLOCKED pending acquisition/import of a pinned licensed release
-- Production meaning coverage: BLOCKED pending licensed source import and coverage reporting
+- Production vocabulary: PASS, 6,982 ordered five-letter entries from pinned ESDB 2026.02.25 data
+- Production meaning import: PASS, 12,400 safe definitions imported and 1,438 unsafe/unsupported rows omitted
+- Initial live-record meaning coverage: 2 of 3 records have a definition reference; absence is displayed honestly
 
 ## Repository and delivery
 
@@ -72,7 +77,7 @@ Production readiness is not claimed. The production domain has been acquired and
 - Git transport is functional and the repository visibility was verified as `PRIVATE` on 2026-10-23; deployment does not depend on the stale local GitHub CLI token.
 - Audit CI: `https://github.com/ArsaalanBaloch/wordle-hit-today/actions/runs/39941359312` completed successfully.
 - Verified noindex Hostinger staging preview: `https://aqua-turkey-495051.hostingersite.com/`.
-- Production/public launch was intentionally not performed.
+- Production/public launch has not yet been performed; the current public path remains the recoverable noindex fixture.
 
 ## Integrity scope
 
@@ -85,9 +90,8 @@ Production readiness is not claimed. The production domain has been acquired and
 
 ## External production-readiness blockers
 
-- Branded contact email, production-domain DNS/TLS activation, scheduler, monitoring and production document-root verification
-- Licensed production vocabulary and definitions with checksums and coverage report
-- Live multi-date/regional source observation
+- Branded contact email, production-domain DNS/TLS activation, scheduler, and independent monitoring
+- Live multi-date/regional source observation beyond the verified 24–27 October 2026 window
 - Safari/iOS, Android, manual screen-reader, and 200% zoom testing
 - Hosted Lighthouse and permitted load testing
 - Forced process termination at every boundary and low-disk fault injection

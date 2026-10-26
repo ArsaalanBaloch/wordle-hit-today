@@ -26,7 +26,18 @@ php bin/wordle import-vocabulary `
   --sha256=<64-lowercase-hex> --source-version=<pinned-release>
 ```
 
-That is a dry validation. Add `--apply` to write `private_storage/vocabulary/solver.json` and its license. The importer accepts a prefiltered newline/TSV list, keeps ASCII five-letter forms, deduplicates and sorts, and refuses fewer than 1,000 candidates. The source preparation process remains responsible for applying ESDB/SCOWL variant/proper-name metadata accurately.
+That is a dry validation. Add `--apply` to write `private_storage/vocabulary/solver.json` and its license. The importer accepts a prefiltered newline/TSV list, keeps ASCII five-letter forms, preserves the reviewed input order as ranking metadata, keeps the earliest rank for duplicates, and refuses fewer than 1,000 candidates. The source preparation process remains responsible for applying ESDB/SCOWL variant/proper-name metadata accurately.
+
+The reproducible preparation command used for production is:
+
+```powershell
+npm run prepare:production-data -- `
+  --esdb-dir=C:\data\wordlist-diff `
+  --wordnet-dict=C:\data\wordnet-3.0\dict `
+  --output-dir=C:\data\prepared
+```
+
+It selects lowercase ASCII five-letter entries from the pinned ESDB `en_US` size-60 dictionary first, followed by size-70 additions, which filters marked proper names and abbreviations while preserving the reviewed common/large tiers. It also removes WordNet usage examples, joins sense-order metadata, and writes a checksum manifest for every prepared output.
 
 Build production assets with the imported file:
 
@@ -50,4 +61,4 @@ php bin/wordle import-definitions `
 
 Add `--apply` after reviewing counts. The importer omits malformed entries and glosses containing the answer or obvious suffix forms. Exact-form lookup is used; missing safe meanings do not block factual hints.
 
-No production checksums or coverage numbers are claimed until those exact distributions are provided and imported.
+The deployment operator must retain the generated checksum manifest and the exact license texts with the private imported data. Public attribution links are generated from `resources/licenses/`.

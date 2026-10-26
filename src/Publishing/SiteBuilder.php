@@ -73,6 +73,7 @@ final readonly class SiteBuilder
 
         try {
             $this->filesystem->mirror($this->projectRoot.'/assets/dist', $stage.'/assets/static');
+            $this->filesystem->mirror($this->projectRoot.'/resources/licenses', $stage.'/licenses');
             $assets = AssetManifest::loadSnapshot($stage.'/assets/static', $this->config->mode());
             $archiveIndexes = $this->writeArchiveIndexes($stage, $records);
             $manifest = $this->writePublishedManifest($stage, $records, $homepage, $archiveIndexes, $builtAt);
@@ -231,7 +232,7 @@ final readonly class SiteBuilder
 
         $this->render($stage, 'wordle-solver/index.html', 'solver.html.twig', $base + [
             'title' => $this->pageTitle('Wordle Solver and 5-Letter Word Finder'),
-            'description' => 'Use this private Wordle solver and five-letter word finder to filter candidates from green, yellow and grey feedback, including repeats.',
+            'description' => 'Use this browser-based Wordle solver and five-letter word finder to filter candidates from green, yellow and grey feedback, including repeats.',
             'canonical' => $this->canonical('/wordle-solver/'),
             'current_route' => 'solver',
             'page_scripts' => [$assets['scripts']['solver']],
