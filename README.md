@@ -8,7 +8,7 @@ The checked-in build is intentionally fixture-only: its three answers and small 
 
 The configured GitHub `origin` is the verified private delivery target. The audited source, generated assets, local quality evidence, and GitHub Actions workflow pass are complete; the exact final commit and matching remote SHA are reported in the delivery handoff.
 
-Private source delivery and the working noindex Hostinger staging preview do not establish production readiness. The production vocabulary and definition pipeline, Hostinger runtime, first live-source publication, reconciliation, and an on-host verified backup are ready. Public-domain activation, a working contact channel, scheduler activation, independent monitoring, live device/hosted performance evidence, and encrypted immutable off-server backups remain.
+The production site is live at `https://wordlehintoday.com/` with apex-only DNS, TLS, HTTPS redirection, the validated production dataset, and automatic publication plus daily/weekly on-host backup schedules. The public publisher normalizes web-readable directory and file permissions on every atomic build. Independent monitoring, live device/hosted performance evidence, a working branded mailbox, and encrypted immutable off-server backups remain.
 
 ## Architecture
 
@@ -65,9 +65,8 @@ Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/
 
 ## Remaining work
 
-- Attach `wordlehintoday.com`, point its DNS, install/verify TLS, then obtain the owner's explicit approval before replacing the public noindex fixture with the verified production tree.
-- Activate and verify the minute scheduler plus daily/weekly on-host backups; configure an independent stale-heartbeat monitor.
-- Create a working branded contact mailbox or forwarding destination. The current Hostinger account has no mail order, so the configured address must not be represented as monitored yet.
+- Observe the automatic publication and both backup schedules through their next due runs; configure an independent stale-heartbeat monitor.
+- Activate the planned `contact@wordlehintoday.com` mailbox. The address is displayed on the site but is not monitored yet.
 - Complete Safari/iOS, Android, manual screen-reader/zoom, hosted Lighthouse, and permitted load testing.
 - Configure an owner-controlled encrypted, immutable/versioned off-server backup and perform a full restore drill.
 

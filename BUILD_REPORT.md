@@ -2,9 +2,9 @@
 
 ## Result
 
-The maintainability, security, performance, publication-integrity, and recovery audit is complete for the private fixture and prepared production scopes. The generated site is reproducible, the exact tree reconciles with its journal, rollback artifacts carry their own integrity manifest, and CLI backup/restore drills completed successfully.
+The maintainability, security, performance, publication-integrity, and recovery audit is complete for the private fixture and production scopes. The generated site is reproducible, the exact tree reconciles with its journal, rollback artifacts carry their own integrity manifest, and CLI backup/restore drills completed successfully.
 
-Public launch is not claimed. Pinned licensed vocabulary and definitions, a live source publication, Hostinger runtime, reconciliation and an on-host verified backup are complete. The real domain remains on registrar parking DNS, the public Hostinger document root still serves the noindex fixture, and branded contact delivery, scheduler activation, independent monitoring, physical-device/hosted performance evidence, and encrypted immutable off-server backups remain.
+The production site is live at `https://wordlehintoday.com/` with apex-only DNS, TLS, HTTPS redirection, validated production content, and active automatic publication plus daily/weekly on-host backup schedules. Independent monitoring, physical-device/hosted performance evidence, a working branded mailbox, and encrypted immutable off-server backups remain.
 
 ## Environment
 
@@ -38,7 +38,7 @@ Public launch is not claimed. Pinned licensed vocabulary and definitions, a live
 | Fixture generation            | PASS, 3 validated synthetic records                                                                                                     |
 | Asset reproducibility         | PASS across consecutive builds; an intentionally failed build preserved the previous `assets/dist` tree and left no staging directories |
 | Fixture publication           | PASS, 13 HTML pages and 32 total public files                                                                                           |
-| Production publication        | PASS in the private Hostinger prelaunch tree, 13 HTML pages and 32 total public files                                                   |
+| Production publication        | PASS on `https://wordlehintoday.com/`, 13 HTML pages and 32 total public files                                                           |
 | Reconciliation                | PASS, all 32 files matched exactly                                                                                                      |
 | Rollback inspection           | PASS against the retained build's self-contained integrity manifest                                                                     |
 | Backup/restore drill          | PASS; 6 files verified and 3 records restored/schema-validated into a new path                                                          |
@@ -76,8 +76,8 @@ Public launch is not claimed. Pinned licensed vocabulary and definitions, a live
 - The exact final local and matching remote SHA are reported in the delivery handoff because a commit cannot embed its own SHA.
 - Git transport is functional and the repository visibility was verified as `PRIVATE` on 2026-10-23; deployment does not depend on the stale local GitHub CLI token.
 - Audit CI: `https://github.com/ArsaalanBaloch/wordle-hit-today/actions/runs/39941359312` completed successfully.
-- Verified noindex Hostinger staging preview: `https://aqua-turkey-495051.hostingersite.com/`.
-- Production/public launch has not yet been performed; the current public path remains the recoverable noindex fixture.
+- Production URL: `https://wordlehintoday.com/`; homepage, dated page, robots, sitemap, canonical metadata, security headers, and real 404 behavior were verified after launch.
+- The prior public fixture is retained as a rollback artifact. Generated public directories are normalized to `0755` and files to `0644` before every atomic promotion.
 
 ## Integrity scope
 
@@ -90,7 +90,7 @@ Public launch is not claimed. Pinned licensed vocabulary and definitions, a live
 
 ## External production-readiness blockers
 
-- Branded contact email, production-domain DNS/TLS activation, scheduler, and independent monitoring
+- Branded contact mailbox and independent monitoring
 - Live multi-date/regional source observation beyond the verified 24–27 October 2026 window
 - Safari/iOS, Android, manual screen-reader, and 200% zoom testing
 - Hosted Lighthouse and permitted load testing

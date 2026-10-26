@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4 — 2026-10-26
+
+- Launched the verified production build on the apex `wordlehintoday.com` domain with TLS, HTTPS redirection, live robots/sitemap metadata, and the automatic publication and backup schedules enabled.
+- Normalized generated public directories to `0755` and files to `0644` before atomic promotion so Hostinger/LiteSpeed can serve every scheduled build reliably.
+- Kept the previous noindex fixture as a recoverable rollback artifact and documented the still-pending branded mailbox, independent monitoring, device testing, and off-server backup work.
+
 ## 0.1.3 — 2026-10-26
 
 - Added reproducible production-data preparation from pinned ESDB/SCOWL and Princeton WordNet releases, including source manifests, checksums, license notices and coverage tests.

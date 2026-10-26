@@ -81,6 +81,7 @@ final readonly class SiteBuilder
             $this->writeSitemapAndRobots($stage, $records, $builtAt);
             $this->writeHostAdapter($stage);
             new PublicBuildIntegrity()->write($stage, $this->writer);
+            $this->normalizePublicPermissions($stage);
             $checksums = new DirectoryIntegrity()->hashTree($stage);
             $this->schemaValidator->validateJson(
                 CanonicalJson::encode($manifest),
@@ -507,6 +508,34 @@ final readonly class SiteBuilder
                 rename($rollback, $output);
             }
             throw new \RuntimeException('Unable to promote the staged public build.');
+        }
+    }
+
+    private function normalizePublicPermissions(string $root): void
+    {
+        if (!chmod($root, 0o755)) {
+            throw new \RuntimeException('Unable to set public directory permissions.');
+        }
+
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($root, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::SELF_FIRST,
+        );
+        foreach ($iterator as $entry) {
+            if ($entry->isLink()) {
+                throw new \RuntimeException('Refusing to set public permissions through a symbolic link.');
+            }
+            if (!$entry->isDir() && !$entry->isFile()) {
+                throw new \RuntimeException('Unable to set permissions on a non-regular public entry.');
+            }
+
+            $mode = $entry->isDir() ? 0o755 : 0o644;
+            if (!chmod($entry->getPathname(), $mode)) {
+                throw new \RuntimeException(sprintf(
+                    'Unable to set public permissions on %s.',
+                    $entry->getPathname(),
+                ));
+            }
         }
     }
 

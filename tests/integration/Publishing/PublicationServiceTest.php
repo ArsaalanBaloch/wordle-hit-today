@@ -86,6 +86,11 @@ final class PublicationServiceTest extends TestCase
             'X-Robots-Tag "noindex, nofollow"',
             (string) file_get_contents($this->services->config->publicOutput().'/.htaccess'),
         );
+        if ('\\' !== DIRECTORY_SEPARATOR) {
+            self::assertSame(0o755, fileperms($this->services->config->publicOutput()) & 0o777);
+            self::assertSame(0o755, fileperms($this->services->config->publicOutput().'/assets') & 0o777);
+            self::assertSame(0o644, fileperms($this->services->config->publicOutput().'/index.html') & 0o777);
+        }
     }
 
     public function testBuildRejectsARecordBeforeItsEarliestGlobalPublicationInstant(): void
