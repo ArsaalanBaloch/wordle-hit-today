@@ -4,8 +4,8 @@
 
 - Launched the verified production build on the apex `wordlehintoday.com` domain with TLS, HTTPS redirection, live robots/sitemap metadata, and the automatic publication and backup schedules enabled.
 - Normalized generated public directories to `0755` and files to `0644` before atomic promotion so Hostinger/LiteSpeed can serve every scheduled build reliably.
-- Redirected alternate Hostinger hostnames to the configured production hostname to prevent duplicate-host indexing.
-- Kept the previous noindex fixture as a recoverable rollback artifact and documented the still-pending branded mailbox, independent monitoring, device testing, and off-server backup work.
+- Added canonical-host redirect protection, moved the Hostinger primary website and deployment root to `wordlehintoday.com`, and removed the former free-domain website after verification.
+- Created a verified migration backup and documented the still-pending branded mailbox, independent monitoring, device testing, and off-server backup work.
 
 ## 0.1.3 — 2026-10-26
 

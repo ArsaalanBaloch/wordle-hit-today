@@ -2,15 +2,18 @@
 
 The Hostinger target is recorded in `.hostinger/site.json`. The public website is a generated static tree; application source, dependencies, runtime records, logs and backups must remain outside `public_html`.
 
-## Verified staging environment
+## Verified production environment
 
-- Temporary domain: `https://aqua-turkey-495051.hostingersite.com`
+- Primary domain: `https://wordlehintoday.com`
 - Hosting home: `/home/u164418876`
-- Document root: `/home/u164418876/domains/aqua-turkey-495051.hostingersite.com/public_html`
+- Document root: `/home/u164418876/domains/wordlehintoday.com/public_html`
+- Application release link: `/home/u164418876/apps/wordle-hit-today/current`
+- Private records: `/home/u164418876/private/wordle-hit-today`
+- Backups: `/home/u164418876/backups/wordle-hit-today`
 - PHP 8.4 CLI: `/opt/alt/php84/usr/bin/php`
 - Composer: available on the hosting account
 
-The temporary domain is fixture-only. Fixture builds emit both a `noindex, nofollow` HTML directive and an `X-Robots-Tag: noindex, nofollow` response header because Hostinger may override `robots.txt` on free subdomains.
+The former `aqua-turkey-495051.hostingersite.com` website was removed after the production site, SSL, scheduler and backups were verified on the custom domain. It is not a deployment or preview target.
 
 ## Publication rules
 
@@ -20,4 +23,4 @@ The temporary domain is fixture-only. Fixture builds emit both a `noindex, nofol
 4. Preserve the current `public_html` as a rollback directory before an atomic same-filesystem rename.
 5. Verify real page content, status codes, redirects, cache policy and security headers over HTTPS.
 
-Do not connect the production domain or enable indexing until production records, licensed solver vocabulary, definitions, the branded contact mailbox, cron, monitoring and backup/restore checks are complete.
+Production indexing, cron publication and on-host backups are enabled. The branded mailbox, independent monitoring and encrypted off-server backup remain separate operational tasks.

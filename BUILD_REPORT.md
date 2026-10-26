@@ -77,7 +77,7 @@ The production site is live at `https://wordlehintoday.com/` with apex-only DNS,
 - Git transport is functional and the repository visibility was verified as `PRIVATE` on 2026-10-23; deployment does not depend on the stale local GitHub CLI token.
 - Audit CI: `https://github.com/ArsaalanBaloch/wordle-hit-today/actions/runs/39941359312` completed successfully.
 - Production URL: `https://wordlehintoday.com/`; homepage, dated page, robots, sitemap, canonical metadata, security headers, and real 404 behavior were verified after launch.
-- The prior public fixture is retained as a rollback artifact. Generated public directories are normalized to `0755` and files to `0644` before every atomic promotion.
+- A verified migration backup was created before the free-domain website was removed. Generated public directories are normalized to `0755` and files to `0644` before every atomic promotion.
 
 ## Integrity scope
 
