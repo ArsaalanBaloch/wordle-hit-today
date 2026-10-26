@@ -8,7 +8,7 @@ The checked-in build is intentionally fixture-only: its three answers and small 
 
 The configured GitHub `origin` is the verified private delivery target. The audited source, generated assets, local quality evidence, and GitHub Actions workflow pass are complete; the exact final commit and matching remote SHA are reported in the delivery handoff.
 
-Private source delivery—and even a working review preview—would not establish production readiness. A production launch still requires a real domain and hosting environment, production vocabulary and definition data, live device and hosted performance evidence, operational monitoring, and encrypted immutable off-server backups.
+Private source delivery and the working noindex Hostinger staging preview do not establish production readiness. A production launch still requires production-domain activation, production vocabulary and definition data, live device and hosted performance evidence, operational monitoring, and encrypted immutable off-server backups.
 
 ## Architecture
 
@@ -61,7 +61,7 @@ Publication stages and hash-validates its asset snapshot, writes a durable pre-p
 
 Production configuration enforces a real HTTPS origin, contact address, absolute public/private paths, and a validated date/number anchor. The asset manifest records whether its solver vocabulary is `fixture` or `production`, and the PHP build rejects a mode mismatch. Licensed ESDB/SCOWL-derived vocabulary is therefore a production build gate. Pinned WordNet definitions and their coverage report remain a launch requirement, but missing definitions are currently omitted rather than failing a build.
 
-Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/SEO_AUDIT.md](docs/SEO_AUDIT.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/SECURITY.md](docs/SECURITY.md), [docs/RECOVERY.md](docs/RECOVERY.md) and [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) before enabling production mode.
+Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/SEO_AUDIT.md](docs/SEO_AUDIT.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/SECURITY.md](docs/SECURITY.md), [docs/RECOVERY.md](docs/RECOVERY.md), [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) and [docs/HOSTINGER.md](docs/HOSTINGER.md) before enabling production mode.
 
 ## Remaining work
 

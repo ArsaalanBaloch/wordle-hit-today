@@ -4,11 +4,11 @@
 
 The maintainability, security, performance, publication-integrity, and recovery audit is complete for the private fixture scope. The generated site is reproducible, the exact public tree reconciles with its journal, rollback artifacts carry their own integrity manifest, and a CLI backup/restore drill completed successfully.
 
-Production readiness is not claimed. There is no domain or hosting environment yet, and production still requires licensed vocabulary/definition data, live source/date observation, physical-device and hosted performance evidence, independent monitoring, and encrypted immutable off-server backups.
+Production readiness is not claimed. The production domain has been acquired and a noindex Hostinger staging environment is verified, but production still requires licensed vocabulary/definition data, live source/date observation, branded contact email, production DNS/TLS activation, physical-device and hosted performance evidence, independent monitoring, and encrypted immutable off-server backups.
 
 ## Environment
 
-- Final local verification: 2026-10-23, Asia/Karachi
+- Final local verification: 2026-10-26, Asia/Karachi
 - OS: Microsoft Windows NT 10.0.19045.0
 - PHP: 8.5.11 (project baseline remains PHP 8.4+)
 - Composer: 2.10.3
@@ -25,10 +25,10 @@ Production readiness is not claimed. There is no domain or hosting environment y
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | PHP CS Fixer                  | PASS, 75 PHP files clean                                                                                                                |
 | PHPStan                       | PASS, level 8, zero errors                                                                                                              |
-| PHPUnit                       | PASS, 69 tests and 145 assertions; 2 Windows symlink tests skipped                                                                      |
+| PHPUnit                       | PASS, 69 tests and 149 assertions; 2 Windows symlink tests skipped                                                                      |
 | Composer validation/audit     | PASS; lockfile valid and no known advisories                                                                                            |
 | ESLint / Prettier             | PASS                                                                                                                                    |
-| Secret scan                   | PASS across 155 text-readable tracked/untracked non-ignored files                                                                       |
+| Secret scan                   | PASS across 160 text-readable tracked/untracked non-ignored files                                                                       |
 | Vitest                        | PASS, 15/15                                                                                                                             |
 | Playwright browser/responsive | PASS, 14/14                                                                                                                             |
 | Playwright accessibility      | PASS, 4/4                                                                                                                               |
@@ -37,15 +37,15 @@ Production readiness is not claimed. There is no domain or hosting environment y
 | `doctor --mode=fixture`       | PASS                                                                                                                                    |
 | Fixture generation            | PASS, 3 validated synthetic records                                                                                                     |
 | Asset reproducibility         | PASS across consecutive builds; an intentionally failed build preserved the previous `assets/dist` tree and left no staging directories |
-| Fixture publication           | PASS, 13 HTML pages and 29 total public files                                                                                           |
-| Reconciliation                | PASS, all 29 files matched exactly                                                                                                      |
+| Fixture publication           | PASS, 13 HTML pages and 30 total public files                                                                                           |
+| Reconciliation                | PASS, all 30 files matched exactly                                                                                                      |
 | Rollback inspection           | PASS against the retained build's self-contained integrity manifest                                                                     |
 | Backup/restore drill          | PASS; 6 files verified and 3 records restored/schema-validated into a new path                                                          |
 | GitHub CI                     | PASS for audit commit `e71fbc3`; all 13 validate-job steps completed successfully in run 39941359312                                    |
 
 ## Build measurements
 
-- Generated public tree: 221,616 bytes across 29 files
+- Generated public tree: 223,620 bytes across 30 files
 - Homepage initial local assets: 54,390 uncompressed bytes (CSS, main JS, Inter 400, and Manrope 700)
 - CSS: 11,992 bytes
 - Main JavaScript: 4,522 bytes
@@ -69,9 +69,9 @@ Production readiness is not claimed. There is no domain or hosting environment y
 - Branch: `main`
 - Remote: `https://github.com/ArsaalanBaloch/wordle-hit-today.git`
 - The exact final local and matching remote SHA are reported in the delivery handoff because a commit cannot embed its own SHA.
-- Git transport and GitHub CLI authentication are functional. Repository visibility was verified as `PRIVATE` on 2026-10-23.
+- Git transport is functional and the repository visibility was verified as `PRIVATE` on 2026-10-23; deployment does not depend on the stale local GitHub CLI token.
 - Audit CI: `https://github.com/ArsaalanBaloch/wordle-hit-today/actions/runs/39941359312` completed successfully.
-- No working hosted preview is claimed. The earlier preview returned 404, and no domain/hosting has been supplied.
+- Verified noindex Hostinger staging preview: `https://aqua-turkey-495051.hostingersite.com/`.
 - Production/public launch was intentionally not performed.
 
 ## Integrity scope
@@ -85,7 +85,7 @@ Production readiness is not claimed. There is no domain or hosting environment y
 
 ## External production-readiness blockers
 
-- Real domain, contact email, hosting, scheduler, and TLS/document-root verification
+- Branded contact email, production-domain DNS/TLS activation, scheduler, monitoring and production document-root verification
 - Licensed production vocabulary and definitions with checksums and coverage report
 - Live multi-date/regional source observation
 - Safari/iOS, Android, manual screen-reader, and 200% zoom testing

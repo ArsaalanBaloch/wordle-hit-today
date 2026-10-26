@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
-    {% if robots is defined %}<meta name="robots" content="{{ robots }}">{% endif %}
+    {% if mode == 'fixture' %}
+      <meta name="robots" content="noindex, nofollow">
+    {% elseif robots is defined %}
+      <meta name="robots" content="{{ robots }}">
+    {% endif %}
     {% if canonical is defined %}
       <link rel="canonical" href="{{ canonical }}">
       <meta property="og:type" content="website">

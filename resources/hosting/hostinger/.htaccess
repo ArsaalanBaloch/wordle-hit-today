@@ -1,0 +1,35 @@
+Options -Indexes
+DirectoryIndex index.html
+ServerSignature Off
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^wordle-answers/page/1/?$ /wordle-answers/ [R=301,L,NE]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+    __WORDLE_ROBOTS_HEADER__
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
+    Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+
+    <FilesMatch "\.(?:html)$">
+        Header set Cache-Control "public, max-age=300, must-revalidate"
+    </FilesMatch>
+
+    <FilesMatch "^(?:published-dates\.json|sitemap\.xml)$">
+        Header set Cache-Control "public, max-age=60, must-revalidate"
+    </FilesMatch>
+
+    SetEnvIf Request_URI "\.[0-9a-f]{12}\.(?:css|js|json|woff2)$" immutable_asset
+    Header set Cache-Control "public, max-age=31536000, immutable" env=immutable_asset
+</IfModule>
+
+<FilesMatch "\.(?:php|phar|phtml)$">
+    Require all denied
+</FilesMatch>

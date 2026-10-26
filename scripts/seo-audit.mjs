@@ -144,6 +144,7 @@ const sitemapLocations = sitemapEntries.map(({ location }) => location);
 const sitemapOrigin = sitemapLocations[0]
   ? new URL(sitemapLocations[0]).origin
   : null;
+const fixtureMode = sitemapOrigin === "https://example.invalid";
 const pages = [];
 
 for (const file of htmlFiles) {
@@ -160,7 +161,14 @@ for (const file of htmlFiles) {
       .split(/\s*,\s*/)
       .includes("noindex"),
   );
+  const nofollow = robotsDirectives.some((value) =>
+    value
+      ?.toLowerCase()
+      .split(/\s*,\s*/)
+      .includes("nofollow"),
+  );
   const indexable = !noindex;
+  const canonicalRequired = indexable || (fixtureMode && route !== "/404.html");
   const page = {
     route,
     title: titles[0] ?? null,
@@ -170,6 +178,10 @@ for (const file of htmlFiles) {
     indexable,
   };
   pages.push(page);
+
+  if (fixtureMode && (!noindex || !nofollow)) {
+    report(errors, "fixture page must declare noindex, nofollow", route);
+  }
 
   if (titles.length !== 1)
     report(errors, `expected one title, found ${titles.length}`, route);
@@ -189,7 +201,7 @@ for (const file of htmlFiles) {
     report(errors, "expected one viewport meta tag", route);
   }
 
-  if (indexable) {
+  if (canonicalRequired) {
     if (canonicals.length !== 1) {
       report(
         errors,
@@ -229,7 +241,7 @@ for (const file of htmlFiles) {
     report(warnings, `title length is ${page.title.length} characters`, route);
   }
   if (
-    indexable &&
+    canonicalRequired &&
     page.description &&
     (page.description.length < 70 || page.description.length > 165)
   ) {
@@ -298,18 +310,20 @@ for (const file of htmlFiles) {
   }
 }
 
-const indexablePages = pages.filter(({ indexable }) => indexable);
-for (const [value, routes] of duplicateValues(indexablePages, "title")) {
+const canonicalPages = pages.filter(
+  ({ route, indexable }) => indexable || (fixtureMode && route !== "/404.html"),
+);
+for (const [value, routes] of duplicateValues(canonicalPages, "title")) {
   report(errors, `duplicate title on ${routes.join(", ")}: ${value}`);
 }
-for (const [value, routes] of duplicateValues(indexablePages, "description")) {
+for (const [value, routes] of duplicateValues(canonicalPages, "description")) {
   report(
     errors,
     `duplicate meta description on ${routes.join(", ")}: ${value}`,
   );
 }
 
-const canonicalSet = new Set(indexablePages.map(({ canonical }) => canonical));
+const canonicalSet = new Set(canonicalPages.map(({ canonical }) => canonical));
 const sitemapSet = new Set(sitemapLocations);
 for (const canonical of canonicalSet) {
   if (canonical && !sitemapSet.has(canonical)) {

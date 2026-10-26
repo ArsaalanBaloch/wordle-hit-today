@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-10-26
+
+- Added a generated Hostinger web-server adapter with custom 404 handling, directory protection, security headers and immutable caching for content-addressed assets.
+- Added two-layer `noindex, nofollow` protection for fixture staging and made the SEO auditor validate fixture and production indexing contracts separately.
+- Recorded and documented the verified noindex Hostinger staging target and atomic rollback-safe publication process.
+
 ## 0.1.1 — 2026-10-23
 
 - Hardened managed-path overlap, restore, rollback, asset-snapshot, and exact-tree integrity checks.

@@ -76,6 +76,16 @@ final class PublicationServiceTest extends TestCase
 
         self::assertSame(7, $result->homepageRevision);
         self::assertSame(7, $journal['record_revision']);
+        self::assertArrayHasKey('.htaccess', $result->checksums);
+        self::assertFileExists($this->services->config->publicOutput().'/.htaccess');
+        self::assertStringContainsString(
+            'ErrorDocument 404 /404.html',
+            (string) file_get_contents($this->services->config->publicOutput().'/.htaccess'),
+        );
+        self::assertStringContainsString(
+            'X-Robots-Tag "noindex, nofollow"',
+            (string) file_get_contents($this->services->config->publicOutput().'/.htaccess'),
+        );
     }
 
     public function testBuildRejectsARecordBeforeItsEarliestGlobalPublicationInstant(): void

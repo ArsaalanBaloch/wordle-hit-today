@@ -43,4 +43,4 @@ Keyword targeting remains organized by search intent in [SEO_KEYWORD_MAP.md](SEO
 
 ## Production-only checks still required
 
-A real domain and hosting environment are not configured, so this local audit cannot yet validate DNS/TLS, live HTTP status and redirect chains, CDN/cache headers, field Core Web Vitals, Search Console indexing, rendered search snippets, crawl logs or production structured-data processing. Run the same audit against the production build, then complete hosted Lighthouse and search-engine verification after deployment.
+A noindex Hostinger staging environment now verifies HTTPS delivery, live HTTP status, the page-one redirect, custom 404 behavior, CDN/cache headers and security headers. Production-domain DNS/TLS, field Core Web Vitals, Search Console indexing, rendered search snippets, crawl logs and production structured-data processing remain pending. Run the same audit against the production build, then complete hosted Lighthouse and search-engine verification after launch.

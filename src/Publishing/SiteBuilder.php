@@ -78,6 +78,7 @@ final readonly class SiteBuilder
             $manifest = $this->writePublishedManifest($stage, $records, $homepage, $archiveIndexes, $builtAt);
             $pageCount = $this->writePages($stage, $records, $homepage, $assets, $builtAt);
             $this->writeSitemapAndRobots($stage, $records, $builtAt);
+            $this->writeHostAdapter($stage);
             new PublicBuildIntegrity()->write($stage, $this->writer);
             $checksums = new DirectoryIntegrity()->hashTree($stage);
             $this->schemaValidator->validateJson(
@@ -270,6 +271,21 @@ final readonly class SiteBuilder
         ++$pageCount;
 
         return $pageCount;
+    }
+
+    private function writeHostAdapter(string $stage): void
+    {
+        $path = $this->projectRoot.'/resources/hosting/hostinger/.htaccess';
+        $contents = file_get_contents($path);
+        if (false === $contents) {
+            throw new \RuntimeException('Hostinger web-server configuration is not readable.');
+        }
+        $robotsHeader = 'fixture' === $this->config->mode()
+            ? 'Header always set X-Robots-Tag "noindex, nofollow"'
+            : '';
+        $contents = str_replace('__WORDLE_ROBOTS_HEADER__', $robotsHeader, $contents);
+
+        $this->writer->write($stage.'/.htaccess', $contents);
     }
 
     /**

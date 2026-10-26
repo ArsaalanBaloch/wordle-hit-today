@@ -13,6 +13,10 @@ test("home metadata is dated, self-canonical and spoiler-free", async ({
     "href",
     "https://example.invalid/",
   );
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    "content",
+    "noindex, nofollow",
+  );
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
     "Wordle Hint Today and Answer for October 16, 2026 | Wordle Hit Today",
@@ -194,7 +198,7 @@ test("404 is noindex and protected by security headers", async ({ page }) => {
   );
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     "content",
-    "noindex, follow",
+    "noindex, nofollow",
   );
   await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
   await expect(page.locator('meta[property="og:url"]')).toHaveCount(0);
