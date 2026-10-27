@@ -2,11 +2,11 @@
 
 Audit date: 27 October 2026  
 Live site audited: `https://wordlehintoday.com/`  
-Implementation scope: local project only; no commit, push or deployment
+Deployment: commit `6d1498c` pushed to GitHub and deployed to Hostinger
 
 ## Outcome
 
-The local implementation is ready for deployment based on the available automated and generated-output checks. The live site still serves the previously deployed build until an explicit deployment is approved. At the live audit time, its homepage file was last modified on 26 October and still labelled the 26 October puzzle even though the sitemap exposed the 27 October dated page.
+The implementation was committed, passed GitHub CI, and was deployed to Hostinger on 27 October 2026. Before deployment, the live homepage still labelled the 26 October puzzle even though the sitemap exposed the 27 October dated page. After deployment, the homepage correctly labels 27 October, the obsolete public source-check timestamp is absent, and the generated output passed live route, indexability, integrity, and browser checks.
 
 The stale homepage and premature archive/sitemap exposure had one shared timing cause: a next-day record is legitimately fetched early for UTC+14 visitors, but publication previously treated every saved record as globally indexable. A second issue prevented a rebuild at UTC midnight when that record had already been saved. The local fix separates globally eligible date-page access from UTC indexability and triggers the required rollover build.
 
@@ -108,8 +108,10 @@ Skipped PHP tests require Windows symbolic-link creation privileges unavailable 
 - `README.md` — linked this implementation report from the project documentation index.
 - `BUILD_REPORT.md` — formatting normalization only.
 
-The PRD was not modified. Production credentials and live hosting were not changed.
+The PRD and production credentials were not modified. The verified release was deployed through the existing Hostinger production configuration.
 
-## Deployment readiness
+## Deployment verification
 
-The source and locally generated production output are ready for an owner-approved commit/deployment. The current live site is not yet fixed because deployment was expressly withheld. After deployment, verify the live homepage date, sitemap membership at a UTC boundary, Search Console ownership/submission, URL inspection, and field Core Web Vitals.
+Commit `6d1498c` is live on Hostinger. The production build published the 27 October homepage, kept the 28 October UTC+14 page accessible with `noindex, follow`, and excluded that future date from the sitemap. All 12 sitemap URLs returned `200`, remained self-canonical and indexable, and all 31 web-accessible integrity-manifest files matched their SHA-256 hashes. A real-browser check passed for Pakistan, UTC+14 and the solver with no page, console or request errors. The Hostinger scheduler heartbeat advanced after the release switch, confirming that the automatic publisher continued on the new release.
+
+Search Console ownership/submission and field Core Web Vitals remain external account/data checks.

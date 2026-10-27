@@ -21,6 +21,8 @@ var/backups/
 var/logs/
 var/*.log
 var/*.pid
+var/deploy-stage-*/
+var/wordle-release-*.tar.gz
 var/production-*/
 /sites-preview/
 /sites-preview-package.tar.gz
