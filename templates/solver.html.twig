@@ -45,7 +45,7 @@
       <h2 id="results-heading">Candidate words</h2>
       <p data-solver-status aria-live="polite">Preparing the solver vocabulary…</p>
       <p class="notice notice--warning" data-vocabulary-warning hidden></p>
-      <p><strong data-candidate-count>0 candidates</strong></p>
+      <p><strong data-candidate-count>Candidate count loading</strong></p>
       <ol class="candidate-list" data-results></ol>
       <button class="button--secondary" type="button" data-load-more hidden>Load 20 more</button>
     </section>
@@ -63,6 +63,7 @@
 
     <h2>What the five-letter word finder checks</h2>
     <p>Green tiles fix a letter in one position. Yellow tiles require the letter elsewhere and rule out the tested position. Grey tiles remove unmatched copies while preserving any copy already confirmed by green or yellow feedback.</p>
+    <p>That makes the tool useful as a Wordle word finder when you know some letters and positions but still have several possible answers. Enter the complete feedback row rather than a rough pattern so repeated letters are counted correctly.</p>
 
     <h2>Vocabulary coverage</h2>
     {% if assets.vocabulary_mode == 'fixture' %}
@@ -82,5 +83,8 @@
     <p>That depends on the rules you set for yourself. You can use it as a learning tool, a duplicate-letter checker or direct help when you are stuck.</p>
     <h3>Are my guesses uploaded?</h3>
     <p>No. Filtering runs in your browser, and the initial release does not send your grid to a server.</p>
+
+    <h2>Related Wordle help</h2>
+    <p>Review <a href="/how-to-play-wordle/">how Wordle feedback works</a>, compare <a href="/wordle-strategy/">starting-word strategy and tips</a>, or open the <a href="/wordle-answers/">past Wordle answer archive</a>.</p>
   </section>
 {% endblock %}

@@ -14,7 +14,7 @@
         ]
       },
       {
-        "heading": "Green, yellow and grey",
+        "heading": "What do Wordle colours mean?",
         "paragraphs": [
           "Green means the letter is correct and in that exact position. Yellow means the answer contains that letter, but not in that position. Grey means the guess used no remaining copy of that letter."
         ],
@@ -72,7 +72,7 @@
     "intro": "Good play is less about memorising one magic opener and more about turning each row into reliable constraints.",
     "sections": [
       {
-        "heading": "What makes a good Wordle starting word?",
+        "heading": "How to compare the best Wordle starting words",
         "paragraphs": [
           "A useful opener normally combines common letters with few duplicates, giving the first row several chances to reveal information. Different vocabularies and play preferences produce different sensible choices, so no starting word is guaranteed to be best.",
           "Words such as CRANE, SLATE or TRACE illustrate broad letter coverage, but they are examples rather than a universal ranking. After the first row, the actual feedback matters more than the reputation of the opener."
@@ -131,14 +131,8 @@
       {
         "heading": "What the site publishes",
         "paragraphs": [
-          "Each validated record stores a puzzle date, public puzzle number, answer provenance, source-check time and factual letter hints. Generated public pages are static; visitors do not trigger the private publisher or its source requests.",
+          "Each validated record stores a puzzle date, public puzzle number, answer provenance, validation metadata and factual letter hints. Generated public pages are static; visitors do not trigger the private publisher or its source requests.",
           "Definitions are shown only when a locally imported, licensed source supplies a suitable non-circular gloss. Missing definitions do not block letter-based hints."
-        ]
-      },
-      {
-        "heading": "What source checked means",
-        "paragraphs": [
-          "Source checked means that a configured upstream response passed date, type and structural validation. It is not a claim that a person independently played the puzzle. Conflicting data is quarantined instead of replaced with a guess."
         ]
       },
       {

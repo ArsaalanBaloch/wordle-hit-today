@@ -4,7 +4,7 @@
 
 The supplied `wordle_keywords_kd_volume.csv` contains 1,000 unique rows with keyword difficulty and US monthly search-volume estimates. It has no exact duplicate or zero-volume rows. Search-volume estimates are directional: close variants can describe overlapping searches, so their volumes must not be added and presented as a unique audience total.
 
-Keywords are selected by relevance, intent, truthfulness and page usefulness. KD is a planning signal, not an exclusion rule. A high-KD term remains in scope when it matches the product; a low-KD term is excluded when it describes another game, a competitor, an unsupported feature or misleading intent.
+Keywords are selected and prioritized by relevance, intent, truthfulness, page fit, coverage gaps and user usefulness. US volume and KD are retained only as source data in the row-level report; neither metric affects selection, exclusion, priority or content placement. A term remains in scope when it matches the product and is excluded when it describes another game, a competitor, an unsupported feature or misleading intent.
 
 ## Page assignments
 

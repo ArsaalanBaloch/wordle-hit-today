@@ -2,8 +2,8 @@
   "schema_version": 1,
   "css": "/assets/static/site.277de74a3017.css",
   "scripts": {
-    "main": "/assets/static/main.deac8a346a6d.js",
-    "solver": "/assets/static/solver.f76bbbd8b990.js",
+    "main": "/assets/static/main.a748100fc4af.js",
+    "solver": "/assets/static/solver.78eec7b5805e.js",
     "archive": "/assets/static/archive.cd79177f45a5.js"
   },
   "fonts": {

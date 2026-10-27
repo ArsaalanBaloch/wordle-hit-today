@@ -167,8 +167,13 @@ for (const file of htmlFiles) {
       .split(/\s*,\s*/)
       .includes("nofollow"),
   );
-  const indexable = !noindex;
-  const canonicalRequired = indexable || (fixtureMode && route !== "/404.html");
+  const intendedNoindex = /<html\b[^>]*\bdata-page-robots=["']noindex(?:,|%2C|\s)/i.test(
+    html,
+  );
+  const indexable = fixtureMode ? !intendedNoindex : !noindex;
+  const canonicalRequired =
+    route !== "/404.html" &&
+    (indexable || intendedNoindex || fixtureMode);
   const page = {
     route,
     title: titles[0] ?? null,
@@ -310,9 +315,7 @@ for (const file of htmlFiles) {
   }
 }
 
-const canonicalPages = pages.filter(
-  ({ route, indexable }) => indexable || (fixtureMode && route !== "/404.html"),
-);
+const canonicalPages = pages.filter(({ indexable }) => indexable);
 for (const [value, routes] of duplicateValues(canonicalPages, "title")) {
   report(errors, `duplicate title on ${routes.join(", ")}: ${value}`);
 }

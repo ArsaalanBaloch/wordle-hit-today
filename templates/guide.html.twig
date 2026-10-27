@@ -28,5 +28,15 @@
       </section>
     {% endfor %}
     {% if page.cta is defined %}<p><a class="button" href="{{ page.cta.url }}">{{ page.cta.label }}</a></p>{% endif %}
+    {% if current_route in ['how-to-play', 'strategy'] %}
+      <section>
+        <h2>Related Wordle help</h2>
+        <p>
+          <a href="/">Today’s Wordle hints</a>,
+          <a href="/wordle-solver/">Wordle solver</a>,
+          <a href="/wordle-answers/">past Wordle answers</a>{% if current_route == 'how-to-play' %}, and <a href="/wordle-strategy/">Wordle strategy tips</a>{% else %}, and <a href="/how-to-play-wordle/">Wordle rules</a>{% endif %}.
+        </p>
+      </section>
+    {% endif %}
   </article>
 {% endblock %}

@@ -5,7 +5,7 @@ export default [
     ignores: ["var/**", "vendor/**", "node_modules/**", "assets/dist/**"],
   },
   {
-    files: ["**/*.js"],
+    files: ["**/*.{js,mjs}"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -19,6 +19,12 @@ export default [
       "no-eval": "error",
       "no-implied-eval": "error",
       "prefer-const": "error"
+    },
+  },
+  {
+    files: ["scripts/**/*.mjs"],
+    rules: {
+      "no-console": "off",
     },
   },
 ];

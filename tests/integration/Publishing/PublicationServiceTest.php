@@ -114,15 +114,62 @@ final class PublicationServiceTest extends TestCase
         $this->services->records->save($records[0]);
         $firstBuild = new \DateTimeImmutable('2026-10-15T12:00:00Z');
         $this->services->publisher->publish($firstBuild);
-        self::assertFalse($this->services->publisher->needsPublication());
+        self::assertFalse($this->services->publisher->needsPublication($firstBuild));
 
         // Simulate a tick that durably saved its record and then failed before publication.
         $this->services->records->save($records[1]);
         $retryTime = new \DateTimeImmutable('2026-10-16T12:00:00Z');
-        self::assertTrue($this->services->publisher->needsPublication());
+        self::assertTrue($this->services->publisher->needsPublication($retryTime));
 
         $this->services->publisher->publish($retryTime);
-        self::assertFalse($this->services->publisher->needsPublication());
+        self::assertFalse($this->services->publisher->needsPublication($retryTime));
+    }
+
+    public function testUtcDateRolloverTriggersPublicationForAnAlreadySavedRecord(): void
+    {
+        $records = new FixtureFactory($this->services->hints)->records();
+        foreach ($records as $record) {
+            $this->services->records->save($record);
+        }
+
+        $beforeUtcRollover = new \DateTimeImmutable('2026-10-16T12:00:00Z');
+        $this->services->publisher->publish($beforeUtcRollover);
+        $publicRoot = $this->services->config->publicOutput();
+
+        self::assertStringNotContainsString(
+            '/wordle-answers/2026-10-17/',
+            (string) file_get_contents($publicRoot.'/sitemap.xml'),
+        );
+        self::assertStringNotContainsString(
+            '/wordle-answers/2026-10-17/',
+            (string) file_get_contents($publicRoot.'/wordle-answers/index.html'),
+        );
+        self::assertStringContainsString(
+            'data-page-robots="noindex, follow"',
+            (string) file_get_contents($publicRoot.'/wordle-answers/2026-10-17/index.html'),
+        );
+        self::assertStringContainsString(
+            '"date": "2026-10-17"',
+            (string) file_get_contents($publicRoot.'/assets/data/published-dates.json'),
+        );
+
+        self::assertFalse($this->services->publisher->needsPublication($beforeUtcRollover));
+        $afterUtcRollover = new \DateTimeImmutable('2026-10-17T00:00:00Z');
+        self::assertTrue($this->services->publisher->needsPublication($afterUtcRollover));
+
+        $this->services->publisher->publish($afterUtcRollover);
+        self::assertStringContainsString(
+            '/wordle-answers/2026-10-17/',
+            (string) file_get_contents($publicRoot.'/sitemap.xml'),
+        );
+        self::assertStringContainsString(
+            '/wordle-answers/2026-10-17/',
+            (string) file_get_contents($publicRoot.'/wordle-answers/index.html'),
+        );
+        self::assertStringNotContainsString(
+            'data-page-robots="noindex, follow"',
+            (string) file_get_contents($publicRoot.'/wordle-answers/2026-10-17/index.html'),
+        );
     }
 
     public function testFailureAfterStagingPreservesTheCurrentPublicBuild(): void

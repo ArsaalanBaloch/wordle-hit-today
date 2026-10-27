@@ -73,6 +73,7 @@ async function initializeSolver(root) {
     } catch {
       status.textContent =
         "The solver vocabulary could not be loaded. Your entries are still here; retry when ready.";
+      count.textContent = "Candidate count unavailable";
       retry.hidden = false;
     }
   };

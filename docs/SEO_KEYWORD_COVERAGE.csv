@@ -1,0 +1,1001 @@
+Keyword,US Volume,KD,Group,Intent,Target URL,Priority,Previous Coverage,Final Coverage,Placement,Exclusion Reason,Normalized Duplicate
+wordle,43450000,77,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+wordle hint,3340000,48,daily,Current daily hints and answer,/,High,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+wordle today,2290000,14,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,Yes
+wordle nyt,1430000,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+nyt wordle,1350000,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle unlimited,880000,80,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hint today,797000,40,daily,Current daily hints and answer,/,High,"Exact: title, h1, headings, body","Exact: title, h1, headings, body","title, h1, headings, body",,No
+new york times wordle,461000,3,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+nytimes wordle,455000,11,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle answer,404000,33,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+today's wordle,379000,21,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,Yes
+wordle solver,362000,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,No
+wordle of the day,355000,52,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle answer today,342000,64,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle game,336000,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle new york times,283000,5,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+todays wordle,281000,50,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,Yes
+wordle hints,254000,61,daily,Current daily hints and answer,/,High,Exact: description,"Exact: description, headings, body","description, headings, body",,No
+wordle help,200000,9,broad,General Wordle help,/,Medium,"Exact: headings, body",Exact: body,body,,No
+today wordle answers,184000,12,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+ny times wordle,174000,66,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle helper,135000,53,solver,Interactive candidate filtering,/wordle-solver/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+today's wordle answer,120000,56,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,Yes
+wordle - the new york times,118000,71,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle nytimes,109000,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle for today,105000,66,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what is todays wordle,102000,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+todays wordle answer,95000,48,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle finder,91000,31,solver,Interactive candidate filtering,/wordle-solver/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+wordle.,87000,82,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+custom wordle,78000,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nyt wordle today,76000,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+what is today's wordle,75000,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hints today,74000,47,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle today answer,72000,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,Yes
+wordle hint today mashable,70000,12,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle nyt today,69000,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+unlimited wordle,67000,35,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what is the wordle today,67000,57,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+infinite wordle,63000,18,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle word today,58000,65,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle website,58000,84,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+play wordle,57000,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle clue,53000,0,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+wordle connections,49000,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",Yes
+wordle ny times,47000,14,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle archive,47000,35,archive,Historical answer lookup,/wordle-answers/,High,"Exact: title, h1, headings, body","Exact: title, h1, headings, body","title, h1, headings, body",,No
+wordle games,47000,83,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+"wordle, connections",47000,66,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",Yes
+wordle word finder,47000,45,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ",Exact: body,body,,No
+wordle clue today,46000,64,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle new york times today,44000,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle words used,41000,37,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+past wordle words,41000,56,archive,Historical answer lookup,/wordle-answers/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+whats todays wordle,39000,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+daily wordle,39000,8,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+used wordle words,38000,34,archive,Historical answer lookup,/wordle-answers/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+wordle cheat,36000,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle today hint,36000,40,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+yesterday's wordle,35000,3,archive,Historical answer lookup,/wordle-answers/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+today wordle hints,34000,35,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle online,34000,86,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+what is today's wordle answer,34000,49,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle mashable,34000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+tom's guide wordle,33000,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+ny wordle,31000,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+ny times wordle today,30000,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle answer finder,30000,54,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+powerlanguage wordle,29000,30,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+mashable wordle,29000,6,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+new york wordle,28000,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+new york times wordle today,28000,59,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+tom's wordle,28000,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,Yes
+wordle hint mashable,28000,22,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+today wordle answer,27000,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+today's wordle hint,27000,37,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+wordle unlimited unblocked,27000,64,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nytimes wordle today,26000,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle answers,26000,50,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+techradar wordle,26000,22,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle 2,26000,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+word finder wordle,26000,45,solver,Interactive candidate filtering,/wordle-solver/,High,Exact: title,Exact: title,title,,No
+nyt wordle hint,26000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle infinite,25000,53,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+dont wordle,25000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle word,24000,60,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+mashable wordle hints today,24000,22,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+past wordle answers,24000,62,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle bot,24000,4,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle new york,23000,71,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle — the new york times,23000,69,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+hints for wordle,23000,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle today nyt,23000,71,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+try hard wordle,22000,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle today game website,22000,32,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle game today,22000,62,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+best wordle starting words,21000,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Exact: headings, body","headings, body",,No
+waffle wordle,21000,38,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle of the day answer,20000,3,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+mashable wordle hint today,20000,31,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+today wordle,19000,51,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle today mashable,19000,14,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+spanish wordle,18000,40,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+what's today's wordle,18000,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle today game,18000,68,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle uk,18000,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+previous wordle words,18000,55,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+mashable wordle today,18000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle nytimes today,18000,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+todays wordle hint,17000,11,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle clues,17000,22,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+nyt wordle answer,17000,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle himt,17000,55,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+previous wordle answers,17000,0,archive,Historical answer lookup,/wordle-answers/,High,Exact: body,Exact: body,body,,No
+hint for wordle today,17000,48,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle help today,16000,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+hints for today's wordle,16000,39,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+toms wordle,16000,45,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle words already used,16000,37,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle today new york times,16000,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle nyt hint,16000,62,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+words used in wordle,15000,37,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle words,15000,34,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+nfl wordle,15000,3,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+anti wordle,15000,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle mashable today,15000,22,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle play,15000,80,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle - a daily word game,15000,61,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",Yes
+what's the wordle today,14000,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+powerlanguage co uk wordle,14000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle yesterday,14000,35,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+5 letter words for wordle,14000,44,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,Yes
+wordle ny,14000,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+6 letter wordle,13000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+best word to start wordle,13000,12,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+make your own wordle,13000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle for kids,13000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle unlimited new york times,13000,45,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+good wordle starting words,13000,3,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+word tips wordle,13000,50,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,Yes
+wordle hurdle,13000,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what is the wordle,13000,59,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle',12000,81,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+wordle word of the day,12000,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle calculator,12000,29,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle guesser,12000,38,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+play wordle today,12000,6,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle hint for today,12000,50,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+best starting word for wordle,11000,4,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle generator,11000,39,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle unlimted,11000,80,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what's today's wordle answer,11000,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what was yesterday's wordle,11000,1,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle tips,11000,42,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+free wordle,11000,22,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+world wordle,11000,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle start words,11000,3,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+new york times wordle game,11000,71,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle+,11000,14,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+hint for wordle,11000,37,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle free,11000,77,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle unblocked,10000,68,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+whats the wordle today,10000,52,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what is wordle today,10000,56,rules,Learn Wordle rules,/how-to-play-wordle/,High,Natural variation: Rules guide and FAQ,Natural variation: Rules guide and FAQ,Rules guide and FAQ,,No
+what is the wordle word today,10000,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what is todays wordle answer,10000,46,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+country wordle,9800,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle clues for today,9800,50,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+whats the wordle,9800,59,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+unused wordle words,9800,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Predictive or unused-answer intent is not supported,No
+wordle variants,9800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+clash royale wordle,9700,6,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+how to play wordle,9700,7,rules,Learn Wordle rules,/how-to-play-wordle/,High,"Exact: title, description, h1, body","Exact: title, description, h1, body","title, description, h1, body",,No
+wordle ny times today,9700,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+what is the wordle of the day,9600,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+the wordle,9300,76,broad,General Wordle help,/,Medium,"Exact: headings, body",Exact: body,body,,No
+hint for today's wordle,9300,37,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+nyt wordle answer today,9300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+best wordle starting word,9100,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Exact: headings, body","headings, body",,No
+wordle the new york times,9000,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle hint mashable today,8900,17,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle unlimited today,8900,35,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle game website,8900,79,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle dictionary,8900,29,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle hi t,8800,46,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what does today's wordle start with,8800,54,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+todays wordle word,8700,33,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint today newsweek,8600,10,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle like games,8600,4,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+what is wordle,8600,42,rules,Learn Wordle rules,/how-to-play-wordle/,High,Natural variation: Rules guide and FAQ,Natural variation: Rules guide and FAQ,Rules guide and FAQ,,No
+what is the wordle for today,8500,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle unscrambler,8400,63,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle tom's guide,8300,34,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+nyt wordle hint today,8300,63,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+today's wordle mashable,8300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+yesterdays wordle,8200,3,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+try hard guides wordle,8100,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+tom's wordle hint,8000,10,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle answer for today,8000,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle today word,7900,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+games like wordle,7900,7,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+5 letter word finder for wordle,7800,72,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle today nytimes,7800,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+nytimes/wordle,7800,77,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+tom's wordle hints,7700,32,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle puzzle,7600,79,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+create your own wordle,7600,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle],7600,81,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+wordle rules,7600,2,rules,Learn Wordle rules,/how-to-play-wordle/,High,"Exact: title, h1, body","Exact: title, h1, body","title, h1, body",,No
+hints for wordle today,7500,38,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+daily wordle answer,7500,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+times wordle,7500,62,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle today connections,7400,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+forbes wordle hint today,7400,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle practice,7400,64,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle history,7300,64,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle alternative,7300,34,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+math wordle,7200,37,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+todays wordle hints,7200,37,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+word master wordle,7100,53,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+how do you play wordle,7000,0,rules,Learn Wordle rules,/how-to-play-wordle/,High,Natural variation: Rules guide and FAQ,Natural variation: Rules guide and FAQ,Rules guide and FAQ,,No
+wordle of day,7000,49,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+newsweek wordle hint today,6800,10,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle nyt free,6700,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle app,6700,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle in spanish,6700,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+today's wordle nyt,6700,54,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle a daily word game,6600,68,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",Yes
+new york times wordle of the day,6500,3,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle solver 5 letters,6400,2,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+32 wordle,6300,2,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle unlimited play,6300,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle daily,6300,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle connections hint,6200,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+clash wordle,6200,31,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle spelling bee,6200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",Yes
+quordle wordle,6200,66,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle words not used yet,6200,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Predictive or unused-answer intent is not supported,No
+best wordle words,6200,15,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+tomsguide wordle,6100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+nytimes.com wordle,6000,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle today: answer,6000,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,Yes
+answer to wordle today,6000,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle starter words,6000,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle unlimeted,5900,83,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+word finder for wordle,5900,58,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle yesterday answer,5800,35,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle today play,5700,61,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle solution,5700,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+tryhard wordle,5600,35,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle crossword,5600,63,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+one piece wordle,5600,29,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle times,5600,70,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle unlimited game,5600,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle of the day today,5500,65,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle starting words,5500,5,strategy,Improve Wordle play,/wordle-strategy/,High,Exact: description,"Exact: description, headings, body","description, headings, body",,No
+wordle español,5500,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+movie wordle,5500,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+todays wordle mashable,5400,16,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+yesterday wordle,5400,3,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+mashable wordle hint,5400,28,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle game online,5400,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+connections wordle,5300,79,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+answer to today's wordle,5300,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+words already used in wordle,5200,37,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle tom,5200,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+new york times daily wordle,5200,84,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle link,5200,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+pokemon wordle,5200,33,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+whats the wordle for today,5200,49,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle geography,5200,2,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+forbes wordle today,5200,11,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+word of the day wordle,5100,24,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle answer yesterday,5100,43,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle hints for today,5100,47,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle kids,5000,32,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nba wordle,5000,55,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+"new york times, wordle today",4900,65,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+new york times wordle for today,4900,28,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle un,4800,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+football wordle,4800,2,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+first letter of today's wordle,4700,10,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+music wordle,4700,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what's the wordle,4700,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle past words,4700,55,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+best words to start wordle,4500,19,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle daily game,4500,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+try harder wordle,4500,35,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+hint wordle,4500,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint forbes,4400,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle answers today,4400,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+16 wordle,4300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+geography wordle,4300,65,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+today wordle hint,4300,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle strands,4300,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle clues today,4200,11,daily,Current daily hints and answer,/,High,Exact: headings,Exact: headings,headings,,No
+nytimes wordle hint,4200,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+co wordle,4100,31,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+quad wordle,4100,73,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle daily word game,4100,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle nyc,4000,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+tom wordle,4000,45,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+make a wordle,4000,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+7 letter wordle,3900,7,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hints today mashable,3900,14,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle word list,3900,4,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle ny time,3900,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+toms guide wordle,3800,34,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordtips wordle,3800,23,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle list,3800,41,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle mashable hint today,3800,45,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle solution today,3800,23,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint of the day,3800,57,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what was the wordle today,3800,62,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+today's wordle word,3700,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle first letter,3700,37,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle mini crossword,3700,69,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle word game,3700,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+unlimited wordle unblocked,3700,30,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordplay wordle,3700,55,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+4 letter wordle,3600,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+song wordle,3600,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what is the word for wordle today,3600,57,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle first letter today,3600,6,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+new york times wordle today answer,3600,52,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+words not used in wordle,3600,16,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Predictive or unused-answer intent is not supported,No
+words to start wordle,3600,12,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+11 letter wordle,3600,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle game unlimited,3500,73,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle of today,3500,64,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle cheats,3500,21,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle solver tool,3500,2,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+five letter words for wordle,3500,6,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle puzzle today,3500,1,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+list of wordle answers,3400,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+tom's wordle guide,3400,20,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+starting words for wordle,3400,3,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle online game,3400,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle espanol,3400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+5 letter wordle solver,3400,2,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle hunt,3400,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle solver today,3400,63,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle maker,3400,49,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what does wordle start with today,3400,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle off,3300,4,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+why is 'wordle hints today' trending,3300,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,Yes
+hurdle wordle,3300,62,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nytimes games wordle,3300,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+create wordle,3300,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle best starting word,3300,12,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle creator,3300,39,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle spanish,3300,58,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+why is 'wordle hints today' trending explanation,3300,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+6 letter wordle solver,3300,37,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle tool,3300,46,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+today’s wordle,3200,61,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,Yes
+wordle archives,3200,4,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+mlb wordle,3200,3,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle nytimes.com,3200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+hint wordle today,3200,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle new,3200,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+infinte wordle,3200,18,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hints mashable,3200,13,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle. com,3200,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,Yes
+wordle type games,3200,11,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle country game,3100,58,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle today 23,3100,14,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle solve,3100,52,solver,Interactive candidate filtering,/wordle-solver/,High,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,No
+wordle countries,3100,71,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+good words to start wordle,3100,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle hints and answers | tom's guide,3100,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle hibt,3100,60,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+best first word for wordle,3000,11,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle game online free,3000,85,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle free play,3000,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+more wordle,3000,15,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+help with wordle,3000,11,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle english,3000,80,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle used words,3000,44,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+what's the wordle of the day,3000,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle es,3000,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+not wordle,2900,54,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle for the day,2900,57,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle word puzzle,2900,0,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle analyzer,2900,4,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle custom,2900,43,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle jr,2900,29,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+the new york times wordle,2900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+previous wordle,2800,59,archive,Historical answer lookup,/wordle-answers/,High,Exact: body,Exact: body,body,,No
+what is the wordle answer today,2800,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle unlimited nyt,2800,71,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+free wordle games,2800,85,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+cnet wordle,2800,6,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle hiny,2800,55,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+nyt wordle connections,2800,69,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+hello wordle,2800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+create a wordle,2800,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle online free,2800,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+best wordle start words,2800,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+google wordle,2800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+64 wordle,2800,17,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what was today's wordle,2800,62,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle unlimited free,2800,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+disney wordle,2800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle clue for today,2800,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what is today's wordle word,2700,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+yesterdays wordle answer,2700,28,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle tip,2700,51,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+hints for todays wordle,2700,39,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+5 letter word finder wordle,2700,69,solver,Interactive candidate filtering,/wordle-solver/,High,Exact: title,Exact: title,title,,No
+wordle u,2700,77,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+new york times wordle puzzle,2700,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+color wordle,2700,34,rules,Learn Wordle rules,/how-to-play-wordle/,High,Natural variation: Rules guide and FAQ,Natural variation: Rules guide and FAQ,Rules guide and FAQ,,No
+today's wordle hints,2700,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint today forbes,2700,12,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+5-letter words for wordle,2600,5,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,Yes
+ny times wordle game,2600,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+play today's wordle,2600,40,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+what was wordle yesterday,2600,2,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle past answers,2600,46,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+new york times wordle hint,2600,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+what letter does wordle start with today,2600,46,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+kids wordle,2600,31,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle search,2600,57,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle new york time,2600,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+first letter of wordle today,2600,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+cross wordle,2600,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nyt wordle hints,2600,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+tom's wordle hint today,2600,33,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+six letter wordle,2600,19,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what is today wordle,2500,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what was yesterdays wordle,2500,3,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+word play wordle,2500,38,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle new york times app,2500,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+what is the answer to today's wordle,2500,49,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle map,2500,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle nyt game,2500,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+don't wordle,2500,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle words to start with,2500,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle starting word,2500,4,strategy,Improve Wordle play,/wordle-strategy/,High,"Exact: description, headings, body","Exact: description, headings, body","description, headings, body",,No
+german wordle,2500,33,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+wordle connection,2500,41,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nyt wordle hints today,2500,65,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle try hard,2400,18,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+endless wordle,2400,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle peaks,2400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+prior wordle words,2400,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle solitaire,2400,41,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+today's wordle new york times,2400,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle uk game,2400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+clues for today's wordle,2400,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+today’s wordle answer,2400,55,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,Yes
+wordle play unlimited,2400,77,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nut wordle,2400,66,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+new york time wordle,2400,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle site,2400,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle archive list,2400,63,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+best words for wordle,2400,6,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+word solver wordle,2300,61,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+le mot wordle,2300,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+different wordle games,2300,36,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hont,2300,55,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle 6,2300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle 6 letters,2300,12,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle wordle,2300,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle andwer,2300,0,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+whats the wordle of the day,2300,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+try hard wordle solver,2300,42,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle word of the day today,2300,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle new york times game,2300,79,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+mashable wordle hints for today,2300,7,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+tom's guide wordle today,2300,12,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle en español,2300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+myrrh wordle,2300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+new york times wordle answer,2300,63,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+"wordle, spelling bee",2300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",Yes
+wordle solver try hard,2300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+italian wordle,2300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+double wordle,2300,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle assist,2300,53,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle words not used,2300,16,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Predictive or unused-answer intent is not supported,No
+hardest wordle words,2200,0,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+words for wordle,2200,31,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle hard mode,2200,12,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle country,2200,62,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+games similar to wordle,2200,2,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle website free,2200,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+today wordle word,2200,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle free online,2200,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+daily wordle today,2200,65,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+yesterday wordle answer,2200,28,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+today's wordle puzzle,2200,60,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint.,2200,48,daily,Current daily hints and answer,/,High,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+ny times daily wordle,2200,80,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+unlimted wordle,2200,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+costom wordle,2200,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+newyorktimes wordle,2100,63,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+try hard guide wordle,2100,41,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle nyt strands,2100,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle 2 solitaire,2100,44,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+tom's wordle hints for today,2100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+what was yesterday's wordle word,2100,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+ny wordle today,2100,64,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+what is the daily wordle,2100,58,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle game play online free,2100,86,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+what does todays wordle start with,2100,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+number wordle,2100,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hint today tom's guide,2100,7,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+5 letter wordle,2100,57,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+sports wordle,2100,45,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle forbes,2100,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+word unscrambler wordle,2100,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+nytimes wordle answer,2100,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle cheater,2100,30,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle unlimited answers,2100,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+yesterday's wordle answer,2000,3,archive,Historical answer lookup,/wordle-answers/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+n y times wordle,2000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+5 letter words with these letters wordle,2000,64,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle help 5 letters,2000,63,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle anser,2000,37,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+answer to wordle,2000,48,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle for today answer,2000,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+toms wordle hint,2000,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle 5 letter words,2000,56,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+nyc wordle,2000,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle today word game,2000,18,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle!,2000,81,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+nytimes wordle game,2000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle hin,2000,0,daily,Current daily hints and answer,/,Low,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,No
+wordle review,2000,4,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle answer list,2000,50,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+pshaw wordle,1900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle answers list,1900,49,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what is the daily wordle today,1900,65,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+toms wordle hints,1900,32,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle used word list,1900,49,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle unlimtied,1900,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nytimes wordle connections,1900,68,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+best wordle starter words,1900,0,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+3 letter wordle,1900,4,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+past wordle words list,1900,48,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+word.tips wordle,1900,31,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,Yes
+rock paper shotgun wordle,1900,2,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle cheat today,1900,57,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+capitalize my title wordle,1900,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle gameplay,1900,86,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+best starter words for wordle,1900,4,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+5 letter words wordle,1800,65,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle word tips,1800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+discord wordle answer,1800,35,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+forbes wordle,1800,11,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle today ny times,1800,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle past games,1800,61,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle today hints,1800,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle word yesterday,1800,28,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+nytimes wordle answer today,1800,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+kid wordle,1800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nytimes wordle hint today,1800,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle answer finder - word finder,1800,54,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+used wordle list,1800,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+octordle wordle,1800,38,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle of the day new york times,1800,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+clue for today's wordle,1800,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+custom wordle maker,1700,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle todat,1700,0,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+why is 'new york times wordle' trending,1700,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+good wordle words,1700,2,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle helper tool,1700,47,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+previously used wordle words,1700,47,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle help tool,1700,1,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+toms wordle clue,1700,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle start letter,1700,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hurdle 2,1700,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+10 letter wordle,1700,3,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle toms,1700,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle unlimited.org,1700,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+new york.times wordle,1700,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle list of words,1700,12,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+toms wordle help,1700,34,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+latin wordle,1700,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+wordle today uk,1700,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle for free,1700,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+good starting words for wordle,1700,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle daily word,1600,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle word today answer,1600,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+quintessential wordle,1600,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle unlimite,1600,77,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle word finder 5 letters,1600,71,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+what is the first letter of today's wordle,1600,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+french wordle,1600,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+whats todays wordle answer,1600,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle awnser,1600,10,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle replay,1600,34,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+hard wordle words,1600,2,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+five letter word finder wordle,1600,70,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+today's wordle clue,1600,62,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+what's the wordle for today,1600,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle unlimated,1600,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle plus,1600,64,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle word solver,1600,50,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle game link,1600,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+cnet wordle hint today,1600,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle 4,1600,51,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+already used wordle words,1600,5,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+solve wordle,1600,3,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+clues for wordle,1500,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+best wordle start,1500,3,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+what is todays wordle word,1500,7,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle together,1500,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+infinate wordle,1500,42,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+hint for todays wordle,1500,49,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+inf wordle,1500,68,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle tips today,1500,0,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle words list,1500,70,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle hing,1500,2,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+answer for wordle today,1500,37,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+8 wordle,1500,19,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what is the best word to start with in wordle,1500,0,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle connections today,1500,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle history list,1500,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle waffle,1500,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+ny wordle hint,1500,52,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+www.nytimes.com wordle,1500,84,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle unl,1500,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+nyt wordle of the day,1500,3,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+carom wordle,1500,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle answe,1500,50,daily,Current daily hints and answer,/,Low,"Exact: headings, body","Exact: headings, body","headings, body",,No
+wordle previous words,1500,56,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle powerlanguage,1500,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+my wordle,1500,80,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+cryptic wordle,1500,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+foodle wordle,1500,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle make your own,1400,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle deutsch,1400,39,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+wordle calc,1400,30,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+clues for wordle today,1400,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle cheat sheet,1400,48,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle guess,1400,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+nytimes/games/wordle,1400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle of the day hint,1400,57,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+free wordle game,1400,80,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle-new york times today,1400,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle hit,1400,62,daily,Current daily hints and answer,/,High,"Exact: title, body","Exact: title, body","title, body",,No
+wordle variations,1400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle start letter today,1400,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle unscramble,1400,51,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle nyt hint today,1400,64,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+triple wordle,1400,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+todays wordle clue,1400,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+flag wordle,1400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+open wordle,1400,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordfinder wordle,1400,50,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+power language wordle,1400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle answer of the day,1400,49,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what was the wordle yesterday,1400,34,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle word for today,1400,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle dec 19,1400,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+what the wordle for today,1400,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+daily games like wordle,1400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+taylor swift wordle,1400,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hitn,1400,55,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+first letter of wordle,1400,36,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle himts,1400,0,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle francais,1300,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+wordle new york times today hint,1300,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+list of wordle words,1300,41,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+what does the wordle start with,1300,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle guess the country,1300,44,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+tom's wordle hints today,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle answer today mashable,1300,3,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+free wordle unlimited,1300,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle nut,1300,45,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle unlimites,1300,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what letter does today's wordle start with,1300,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+7 letter wordle solver,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+nyt games wordle,1300,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle sudoku,1300,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+clue for wordle today,1300,57,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle starting letter today,1300,55,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+phone number wordle,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle - google search,1300,69,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle game of the day,1300,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+infinite wordle unblocked,1300,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle unlimited practice,1300,63,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle tom's guide today,1300,35,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+jeff goldblum wordle,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle hint yesterday,1300,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle solver pro,1300,38,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle-new york times,1300,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle nyt answer,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+newyork times wordle,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+tom's hints wordle,1300,36,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+yesterday's wordle new york times today,1300,30,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle solver online,1300,50,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle answer october 12,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+wordle words used so far,1300,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle strategy,1300,8,strategy,Improve Wordle play,/wordle-strategy/,High,"Exact: title, h1, body","Exact: title, h1, body","title, h1, body",,No
+new york wordle today,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+dordle wordle,1300,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+costum wordle,1300,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle scramble,1300,69,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+octo wordle,1300,39,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+uk wordle,1200,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle game hint,1200,69,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+other wordle games,1200,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+"nyt wordle, connections",1200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+daily wordle hint,1200,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint cnet,1200,9,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle video game,1200,61,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+ny times wordle answer,1200,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle anwser,1200,48,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+mini wordle,1200,70,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+best 3 starting words for wordle,1200,9,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+what does wordle start with,1200,50,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle tom's,1200,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+play wordle free,1200,79,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle with friends,1200,65,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+tofays wordle,1200,57,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+nyt wordle game,1200,69,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+unblocked wordle,1200,52,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+unused wordle words list,1200,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Predictive or unused-answer intent is not supported,No
+wordle french,1200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+wordle used words list,1200,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle ulimited,1200,77,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hint tom's guide,1200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle solved,1200,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+hints wordle,1200,55,daily,Current daily hints and answer,/,High,Exact: body,Exact: body,body,,No
+wordle today forbes,1200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle create,1200,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle geography game,1200,70,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+ny times wordle hint,1200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle techradar,1200,22,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+good words for wordle,1200,3,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle power language,1200,71,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+spelling bee wordle,1200,5,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle game nyt,1200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle connections hints,1200,50,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle multiplayer,1200,64,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+discord wordle today,1200,16,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle try hard guides,1200,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+basketball wordle,1200,55,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+4 wordle,1200,36,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle yesterday word,1200,47,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle unlim,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+toms wordle guide,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+reverse wordle,1100,30,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+marvel wordle,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle cheat tool,1100,46,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle cheating methods,1100,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle play today,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle new york times play,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle hint nme,1100,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle infinte,1100,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle google,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+new york times wordle of the day today,1100,30,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+the wordle of the day,1100,58,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+tomsguide wordle hint,1100,27,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle unlimitied,1100,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+horse wordle,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+today's nyt wordle,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle endless,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+today's new york times wordle,1100,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle word search,1100,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle todsy,1100,74,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint today mashable today,1100,40,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle hint techradar,1100,40,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle blossom,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+yesterday's wordle word,1100,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+what todays wordle,1100,56,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle find,1100,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+wordle clue of the day,1100,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle game for today,1100,74,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+"nytimes wordle, connections",1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+wordle hints today trending,1100,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle jan 6,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+words not used in wordle yet,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Predictive or unused-answer intent is not supported,No
+wordle today.,1100,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,Yes
+wordle list of used words,1100,49,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+tomsguide wordle today,1100,26,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+game like wordle,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+daily wordle game,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+new york times wordle answer today,1100,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+unlimeted wordle,1100,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle in one answers,1100,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+has adieu been a wordle word,1100,0,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+past wordle,1100,64,archive,Historical answer lookup,/wordle-answers/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+8 letter wordle,1100,48,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle tofay,1100,59,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+list of used wordle words,1100,37,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+5 letter wordle words,1000,48,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+fake wordle,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+is wordle free,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+tom's guide to wordle,1000,34,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle game hints today,1000,56,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle andwer today,1000,55,daily,Current daily hints and answer,/,Low,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+mashable wordle hint for today,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+nytime wordle,1000,70,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle puzzle for today,1000,63,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+4 word wordle,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle tody,1000,66,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle tips and hints,1000,57,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+what the wordle today,1000,62,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+play wordle unlimited,1000,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+october 12 wordle answer,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+wordle answer today 2025-09-27,1000,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle connections unlimited,1000,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+ultimate wordle,1000,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+waffle wordle game,1000,44,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+tryhardguides.com wordle,1000,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle sovler,1000,47,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle gint,1000,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle solver 5 letter,1000,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle free unlimited,1000,77,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+tom’s wordle,1000,46,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,Yes
+forbes wordle hint,1000,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+today's wordle game,1000,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle archive nyt,1000,51,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle hint newsweek,1000,11,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+has wordle ever repeated a word,1000,4,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+starter words for wordle,1000,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+different types of wordle,1000,11,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+long wordle,1000,79,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle asnwer,1000,52,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+help with wordle today,1000,66,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+try hard guides wordle solver,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle finder 5 letter,1000,64,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+hockey wordle,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle stats today,1000,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle daily puzzle,1000,28,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+map wordle,1000,60,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+hard guides wordle,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle +,1000,75,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+what was todays wordle,1000,57,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle hint tom's guide today,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+nyt wordle strands,1000,62,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+why is 'wordle nytimes' trending?,1000,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+"wordle, connections, spelling bee",900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",Yes
+make wordle,900,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+techradar wordle today,900,39,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+nyt wordle spelling bee,900,20,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+todays wordle.,900,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,Yes
+wordle. nyt,900,71,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,Yes
+new times wordle,900,50,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+naruto wordle,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle 1v1,900,44,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what is wordle answer today,900,55,rules,Learn Wordle rules,/how-to-play-wordle/,High,Natural variation: Rules guide and FAQ,Natural variation: Rules guide and FAQ,Rules guide and FAQ,,No
+wordle hint forbes today,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle todya,900,59,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+unscramble wordle,900,57,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+what was yesterday's wordle answer,900,12,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle game new york times,900,83,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle practice games,900,70,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle en espanol,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+jjk wordle,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+what today's wordle,900,51,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle quordle,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle word hint,900,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle game play unlimited,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+star wars wordle,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+how does wordle work,900,10,rules,Learn Wordle rules,/how-to-play-wordle/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+wordle hint nyt,900,55,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+nyt wordle today play,900,22,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+solitaire wordle,900,40,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+sequence wordle,900,33,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle answr,900,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle nytimes connections,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+old wordle words,900,64,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+wordle n,900,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle tosay,900,65,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what's the answer to today's wordle,900,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+what was the wordle word yesterday,900,43,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle mashable hint,900,31,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle nyt today game,900,73,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle login,900,31,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+multiple wordle,900,70,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+"wordle,",900,80,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+aspic wordle,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle unlmited,900,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle guesses,900,0,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+waxen wordle,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+new york times wordle hints,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+play wordle online,900,85,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle mini,900,50,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle today's answer,900,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+tryhard guides wordle,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+nytimes wordle for today,900,2,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+christian wordle,900,28,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle first word,900,87,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle game today play,900,82,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+first letter in wordle today,900,55,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hurdle game,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what does the wordle start with today,900,51,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+nytimes wordle of the day,900,63,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle logo,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle .,900,76,broad,General Wordle help,/,Medium,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+what is the wordle today answer,900,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+ny time wordle,900,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle forever,900,55,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+tryhard wordle solver,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle. hint,900,48,daily,Current daily hints and answer,/,High,"Exact: title, description, h1, headings, body","Exact: title, description, h1, headings, body","title, description, h1, headings, body",,Yes
+wordle new york times free,900,75,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle solver help,900,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+four letter wordle,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle junior,900,28,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle italiano,900,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Non-English intent is outside the current English site scope,No
+nytimes wordle hints,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle calcle,900,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+what today wordle,900,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle inlimited,900,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+what is the word of the day for wordle,900,57,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle meme,900,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle words so far,900,39,broad,General Wordle help,/,Medium,Natural variation: Homepage overview and internal navigation,Natural variation: Homepage overview and internal navigation,Homepage overview and internal navigation,,No
+hint on today's wordle,900,2,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle unblocked unlimited,900,72,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+fox wordle,900,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+what is the wordle word for today,900,61,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle roday,900,54,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle .com,800,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,Yes
+wordle play online,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle unimited,800,80,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hint nov 11,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+wordle free game,800,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+try hard guides wordle answer,800,52,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+dont wordle unlimited,800,28,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+why is 'wordle hints today' trending?,800,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,Yes
+wordle h,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle try hard guide,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle new york times answer,800,4,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+what is the answer to wordle today,800,57,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle puzzle of the day,800,60,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint for the day,800,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+infinite wordle game,800,41,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+food wordle,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+quark wordle,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+medical wordle,800,9,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle finder 5 letters,800,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle 1644,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+wordle game.org,800,83,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle june 22,800,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+find wordle,800,2,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle amswer,800,46,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+easy wordle,800,76,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle 16,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle starters,800,3,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+what is the answer to todays wordle,800,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle answer archive,800,0,archive,Historical answer lookup,/wordle-answers/,High,"Exact: description, headings, body",Exact: description,description,,No
+nyt daily wordle,800,67,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+wordle today tom's guide,800,12,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+online wordle,800,85,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+hint today's wordle,800,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+"wordle, connections spelling bee",800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",Yes
+gunky wordle,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle games unlimited,800,78,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+ny times wordle of the day,800,54,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+today's wordle hint mashable,800,8,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+lorry wordle,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle tiday,800,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle game uk,800,31,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordfinder for wordle,800,58,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+5 letter wordle finder,800,70,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle answer october 21,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+wordle bot free,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Playable-game intent; this site provides hints, guides and tools only",No
+wordle hurdle solitaire,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle umlimited,800,81,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle inf,800,69,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+marvel rivals wordle,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hint for today mashable,800,35,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle unused words,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Predictive or unused-answer intent is not supported,No
+wordle july 15 2026,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+word for wordle,800,63,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle hint finder,800,33,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle help solver,800,55,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle clue today mashable,800,47,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+all wordle answers,800,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+hurdle wordle game,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle dec 2,800,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+practice wordle,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Feature is not provided by the current website,No
+wordle unscrambler 5 letters,800,0,solver,Interactive candidate filtering,/wordle-solver/,High,"Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Natural variation: Solver instructions, controls, vocabulary notes and FAQ","Solver instructions, controls, vocabulary notes and FAQ",,No
+wordle answer july 15 2026,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+soccer wordle,800,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle practice unlimited,800,62,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hinr,800,48,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle hint oct 7,800,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+animal wordle,800,53,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,"Different game, variant or unsupported playable feature",No
+wordle hint jan 6,800,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+why is today's wordle trending explanation,800,0,daily,Current daily hints and answer,/,High,Natural variation: Homepage daily-help content and FAQ,Natural variation: Homepage daily-help content and FAQ,Homepage daily-help content and FAQ,,No
+wordle answer mashable,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+alphabetical list of wordle answers,800,0,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+wordle ai,800,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+what was today's wordle answer,800,10,archive,Historical answer lookup,/wordle-answers/,High,"Natural variation: Archive search, historical navigation and FAQ","Natural variation: Archive search, historical navigation and FAQ","Archive search, historical navigation and FAQ",,No
+worst wordle starting words,800,0,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle ans,700,55,daily,Current daily hints and answer,/,High,"Exact: headings, body","Exact: headings, body","headings, body",,No
+nyt wordle today answer,700,57,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Official-site navigational intent; excluded to avoid implying NYT affiliation,No
+best start word for wordle,700,0,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No
+wordle mashable hints for today,700,49,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+dowdy wordle,700,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Ambiguous query or intent not supported by the current website,No
+wordle april 15,700,1,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+cnet wordle hint,700,9,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Competitor-specific navigational intent,No
+wordle oct 6,700,0,Excluded,Unsupported or misleading intent,—,Excluded,Excluded,Excluded,—,Specific puzzle/date is not present in the validated archive,No
+best wordle start word,700,5,strategy,Improve Wordle play,/wordle-strategy/,High,"Natural variation: Strategy guide, starting-word advice and tips","Natural variation: Strategy guide, starting-word advice and tips","Strategy guide, starting-word advice and tips",,No

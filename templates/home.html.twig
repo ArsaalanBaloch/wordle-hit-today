@@ -11,9 +11,7 @@
       <div class="status-panel" aria-live="polite">
         <span data-date-status>Checking this device’s local date before showing hints…</span>
       </div>
-      <p class="notice notice--warning" data-pending hidden>That local date has not been published. You can retry by reloading this page or choose a date below.</p>
-      <p class="notice notice--warning" data-manifest-error hidden>The published-date check failed. Use the labelled UTC fallback or choose a date manually.</p>
-      <p class="notice notice--warning" data-intl-error hidden>Your browser did not provide local timezone support.</p>
+      <p class="notice notice--warning" data-date-notice hidden></p>
       <button class="button--quiet" type="button" data-date-retry hidden>Retry published-date check</button>
       <a class="button" data-date-update hidden href="/">A new local date is available</a>
       <form class="date-picker" data-date-picker>
@@ -33,9 +31,8 @@
       <section class="stack" aria-labelledby="no-js-heading">
         <div class="notice notice--warning">
           <h2 id="no-js-heading">JavaScript is off</h2>
-          <p>Automatic local-date selection requires JavaScript. The following fallback is explicitly labelled for {{ full_date }} in UTC.</p>
+          <p>Automatic local-date selection requires JavaScript. Open the <a href="/wordle-answers/{{ record.puzzle_date }}/">Wordle hints and answer for {{ full_date }}</a>, which is explicitly labelled and works without JavaScript.</p>
         </div>
-        {% include "partials/answer.html.twig" with {id_suffix: '-fallback'} %}
       </section>
     </noscript>
 
@@ -48,6 +45,7 @@
             <h3><a href="/wordle-answers/{{ recent.puzzle_date }}/">Wordle #{{ recent.puzzle_number }}</a></h3>
             <p>{{ recent.full_date }}</p>
             <p>{{ recent.hint_values.vowel_occurrences }} vowel occurrence{% if recent.hint_values.vowel_occurrences != 1 %}s{% endif %}; {% if recent.hint_values.has_repeats %}repeated letter present{% else %}no repeated letters{% endif %}.</p>
+            <p class="small-print" data-archive-date="{{ recent.puzzle_date }}" hidden></p>
           </article>
         {% endfor %}
       </div>
@@ -62,7 +60,7 @@
 
     <section class="section" aria-labelledby="help-options-heading">
       <p class="eyebrow">One puzzle, several levels of help</p>
-      <h2 id="help-options-heading">Choose the Wordle help you need</h2>
+      <h2 id="help-options-heading">Today’s Wordle hints, clues and answer</h2>
       <div class="card-grid">
         <article class="card">
           <h3>Today’s Wordle clues</h3>
@@ -90,8 +88,8 @@
       <h2 id="today-faq-heading">Wordle hint today FAQ</h2>
       <h3>Where can I find today’s Wordle hint without seeing the answer?</h3>
       <p>The hint controls near the top of this page begin with letter-pattern facts. The full answer is a separate reveal, so opening one clue does not expose every spoiler.</p>
-      <h3>Does this page show the Wordle answer immediately?</h3>
-      <p>No. The answer tiles remain hidden until you reveal letters individually or select the full-answer control.</p>
+      <h3>What is today’s Wordle answer?</h3>
+      <p>The answer is available in the reveal section above, but it is not shown automatically. Reveal letters individually or select the full-answer control when you are ready.</p>
       <h3>Why might today’s puzzle date differ on another device?</h3>
       <p>The homepage resolves the calendar date from each browser’s timezone. Someone in a different timezone may legitimately reach the next or previous dated puzzle at the same moment.</p>
       <h3>Can I check yesterday’s Wordle answer?</h3>

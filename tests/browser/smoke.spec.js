@@ -48,6 +48,118 @@ test("an explicit historical page remains authoritative", async ({ page }) => {
   );
 });
 
+test("homepage redirects to the published puzzle for the visitor's local date", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    timezoneId: "Pacific/Kiritimati",
+  });
+  const page = await context.newPage();
+  await installStaticRoutes(page);
+  await page.addInitScript(() => {
+    const RealDate = Date;
+    const fixed = new RealDate("2026-10-16T12:00:00Z");
+    globalThis.Date = class extends RealDate {
+      constructor(...args) {
+        super(...(args.length ? args : [fixed]));
+      }
+      static now() {
+        return fixed.getTime();
+      }
+    };
+  });
+
+  await page.goto("/");
+  await expect(page).toHaveURL(/\/wordle-answers\/2026-10-17\/$/);
+  await context.close();
+});
+
+test("homepage shows one clear pending state when a local date is unavailable", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    timezoneId: "Pacific/Kiritimati",
+  });
+  const page = await context.newPage();
+  await installStaticRoutes(page);
+  await page.addInitScript(() => {
+    const RealDate = Date;
+    const fixed = new RealDate("2026-10-17T12:00:00Z");
+    globalThis.Date = class extends RealDate {
+      constructor(...args) {
+        super(...(args.length ? args : [fixed]));
+      }
+      static now() {
+        return fixed.getTime();
+      }
+    };
+  });
+
+  await page.goto("/");
+  await expect(page.locator("[data-date-notice]")).toBeVisible();
+  await expect(page.locator("[data-date-notice]")).toContainText(
+    "has not been published",
+  );
+  await expect(page.locator("[data-today-content]")).toBeHidden();
+  await context.close();
+});
+
+test("homepage keeps its labelled fallback usable when the manifest fails", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const RealDate = Date;
+    const fixed = new RealDate("2026-10-17T00:30:00Z");
+    globalThis.Date = class extends RealDate {
+      constructor(...args) {
+        super(...(args.length ? args : [fixed]));
+      }
+      static now() {
+        return fixed.getTime();
+      }
+    };
+  });
+  await page.route("**/assets/data/published-dates.json", (route) =>
+    route.fulfill({ status: 503, body: "unavailable" }),
+  );
+
+  await page.goto("/");
+  await expect(page.locator("[data-date-notice]")).toBeVisible();
+  await expect(page.locator("[data-date-notice]")).toContainText(
+    "check failed",
+  );
+  await expect(page.locator("[data-today-content]")).toBeVisible();
+});
+
+test("dated page labels a date that is later than the visitor's local day", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    timezoneId: "America/Los_Angeles",
+  });
+  const page = await context.newPage();
+  await installStaticRoutes(page);
+  await page.addInitScript(() => {
+    const RealDate = Date;
+    const fixed = new RealDate("2026-10-17T01:00:00Z");
+    globalThis.Date = class extends RealDate {
+      constructor(...args) {
+        super(...(args.length ? args : [fixed]));
+      }
+      static now() {
+        return fixed.getTime();
+      }
+    };
+  });
+
+  await page.goto("/wordle-answers/2026-10-17/");
+  await expect(page.locator("[data-date-relation]")).toHaveText(
+    "Published for an earlier timezone",
+  );
+  await expect(page.locator("[data-future-date-warning]")).toBeVisible();
+  await context.close();
+});
+
 test("header navigation exposes every main page", async ({ page }) => {
   await page.goto("/");
 
@@ -113,7 +225,7 @@ test("missing routes return a real 404", async ({ page }) => {
   );
 });
 
-test("no-JavaScript homepage exposes the explicitly UTC-labelled fallback", async ({
+test("no-JavaScript homepage links to an explicitly dated accessible fallback", async ({
   browser,
 }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
@@ -125,7 +237,11 @@ test("no-JavaScript homepage exposes the explicitly UTC-labelled fallback", asyn
     page.getByRole("heading", { name: "JavaScript is off" }),
   ).toBeVisible();
   await expect(
-    page.getByText(/explicitly labelled for October 16, 2026 in UTC/),
+    page.getByRole("link", {
+      name: /Wordle hints and answer for October 16, 2026/,
+    }),
   ).toBeVisible();
+  await expect(page.locator("[data-answer]")).toHaveCount(1);
+  await expect(page.locator("[data-today-content]")).toBeHidden();
   await context.close();
 });

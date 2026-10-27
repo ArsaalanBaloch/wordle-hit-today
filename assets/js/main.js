@@ -16,6 +16,13 @@ export function localDateParts(
   return { timezone, date: `${values.year}-${values.month}-${values.day}` };
 }
 
+export function dateRelation(pageDate, localDate) {
+  if (!ISO_DATE.test(pageDate) || !ISO_DATE.test(localDate)) return null;
+  if (pageDate < localDate) return "past";
+  if (pageDate > localDate) return "future";
+  return "today";
+}
+
 function initializeAnswerReveals(root = document) {
   for (const answer of root.querySelectorAll("[data-answer]")) {
     if (answer.dataset.revealReady === "true") continue;
@@ -110,15 +117,23 @@ async function initializeTodayPage() {
   const content = root.querySelector("[data-today-content]");
   const status = root.querySelector("[data-date-status]");
   const retry = root.querySelector("[data-date-retry]");
+  const notice = root.querySelector("[data-date-notice]");
   const labelledDate = root.dataset.homeDate;
   let resolved;
+
+  const showNotice = (message = "") => {
+    notice.textContent = message;
+    notice.hidden = message === "";
+  };
 
   try {
     resolved = localDateParts();
   } catch {
     status.textContent =
       "Automatic local-date selection is unavailable. The UTC-labelled fallback remains available below.";
-    root.querySelector("[data-intl-error]").hidden = false;
+    showNotice(
+      "Your browser did not provide local timezone support. The explicitly dated UTC fallback remains available.",
+    );
     content.hidden = false;
     content.inert = false;
     initializeAnswerReveals(content);
@@ -137,8 +152,7 @@ async function initializeTodayPage() {
   let retryCount = 0;
   const checkManifest = async () => {
     retry.disabled = true;
-    root.querySelector("[data-pending]").hidden = true;
-    root.querySelector("[data-manifest-error]").hidden = true;
+    showNotice();
     try {
       const response = await fetch("/assets/data/published-dates.json", {
         headers: { Accept: "application/json" },
@@ -164,10 +178,14 @@ async function initializeTodayPage() {
         return;
       }
       status.textContent = `Hints for ${resolved.date} are not available yet.`;
-      root.querySelector("[data-pending]").hidden = false;
+      showNotice(
+        "That local date has not been published. You can retry the check or choose a date below.",
+      );
     } catch {
       status.textContent = `Could not check whether hints for ${resolved.date} are available. The page is labelled for ${labelledDate}.`;
-      root.querySelector("[data-manifest-error]").hidden = false;
+      showNotice(
+        "The published-date check failed. The explicitly labelled page remains available, or you can choose a date manually.",
+      );
       content.hidden = false;
       content.inert = false;
       initializeAnswerReveals(content);
@@ -188,6 +206,21 @@ function initializeDatedPage() {
   if (!page) return;
   try {
     const { date } = localDateParts();
+    const relation = dateRelation(page.dataset.pageDate, date);
+    const label = page.querySelector("[data-date-relation]");
+    const warning = page.querySelector("[data-future-date-warning]");
+    if (label) {
+      label.textContent =
+        relation === "today"
+          ? "Today’s Wordle puzzle"
+          : relation === "past"
+            ? "Historical Wordle puzzle"
+            : "Published for an earlier timezone";
+    }
+    if (warning && relation === "future") {
+      warning.textContent = `This verified puzzle is dated ${page.dataset.pageDate}, which is later than this device’s local date (${date}). Continue only if you intentionally selected it.`;
+      warning.hidden = false;
+    }
     const link = page.querySelector("[data-local-today-link]");
     if (link && date !== page.dataset.pageDate) {
       link.href = `/wordle-answers/${date}/`;
@@ -195,6 +228,26 @@ function initializeDatedPage() {
     }
   } catch {
     // The explicit dated page remains authoritative when Intl is missing.
+  }
+}
+
+function initializeArchiveDateRelations(root = document) {
+  let localDate;
+  try {
+    localDate = localDateParts().date;
+  } catch {
+    return;
+  }
+  for (const label of root.querySelectorAll("[data-archive-date]")) {
+    const relation = dateRelation(label.dataset.archiveDate, localDate);
+    if (!relation) continue;
+    label.textContent =
+      relation === "today"
+        ? "Today in your timezone"
+        : relation === "past"
+          ? "Past puzzle"
+          : "Later than your local date";
+    label.hidden = false;
   }
 }
 
@@ -238,5 +291,6 @@ if (typeof document !== "undefined") {
   );
   initializeTodayPage();
   initializeDatedPage();
+  initializeArchiveDateRelations();
   watchForDateChange();
 }

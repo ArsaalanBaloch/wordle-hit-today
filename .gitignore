@@ -20,6 +20,7 @@ var/.site-stage-*/
 var/backups/
 var/logs/
 var/*.log
+var/*.pid
 var/production-*/
 /sites-preview/
 /sites-preview-package.tar.gz

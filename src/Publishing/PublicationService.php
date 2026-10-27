@@ -80,7 +80,7 @@ final readonly class PublicationService
         return $result;
     }
 
-    public function needsPublication(): bool
+    public function needsPublication(?\DateTimeImmutable $at = null): bool
     {
         $records = $this->records->all();
         if ([] === $records) {
@@ -102,6 +102,10 @@ final readonly class PublicationService
                 || !hash_equals($this->recordsHash($records), (string) $journal['records_sha256'])) {
                 return true;
             }
+            $at ??= new \DateTimeImmutable('now', new \DateTimeZone('UTC'));
+            if ($journal['record_date'] !== $this->homepageDateAt($records, $at)) {
+                return true;
+            }
 
             $expected = [];
             /** @var list<mixed> $files */
@@ -121,6 +125,20 @@ final readonly class PublicationService
         } catch (\Throwable) {
             return true;
         }
+    }
+
+    /** @param list<array<string, mixed>> $records */
+    private function homepageDateAt(array $records, \DateTimeImmutable $at): string
+    {
+        usort($records, static fn (array $left, array $right): int => $left['puzzle_date'] <=> $right['puzzle_date']);
+        $utcDate = $at->setTimezone(new \DateTimeZone('UTC'))->format('Y-m-d');
+        $eligible = array_values(array_filter(
+            $records,
+            static fn (array $record): bool => $record['puzzle_date'] <= $utcDate,
+        ));
+        $record = [] !== $eligible ? $eligible[count($eligible) - 1] : $records[count($records) - 1];
+
+        return (string) $record['puzzle_date'];
     }
 
     /** @param list<array<string, mixed>> $records */

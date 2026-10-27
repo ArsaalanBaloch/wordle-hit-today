@@ -38,7 +38,7 @@ The production site is live at `https://wordlehintoday.com/` with apex-only DNS,
 | Fixture generation            | PASS, 3 validated synthetic records                                                                                                     |
 | Asset reproducibility         | PASS across consecutive builds; an intentionally failed build preserved the previous `assets/dist` tree and left no staging directories |
 | Fixture publication           | PASS, 13 HTML pages and 32 total public files                                                                                           |
-| Production publication        | PASS on `https://wordlehintoday.com/`, 13 HTML pages and 32 total public files                                                           |
+| Production publication        | PASS on `https://wordlehintoday.com/`, 13 HTML pages and 32 total public files                                                          |
 | Reconciliation                | PASS, all 32 files matched exactly                                                                                                      |
 | Rollback inspection           | PASS against the retained build's self-contained integrity manifest                                                                     |
 | Backup/restore drill          | PASS; 6 files verified and 3 records restored/schema-validated into a new path                                                          |

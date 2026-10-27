@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { localDateParts } from "../../assets/js/main.js";
+import { dateRelation, localDateParts } from "../../assets/js/main.js";
 
 describe("local date resolution", () => {
   it("builds the date from local calendar parts instead of UTC ISO", () => {
@@ -38,5 +38,28 @@ describe("local date resolution", () => {
 
     expect(() => localDateParts()).toThrow("Intl unavailable");
     spy.mockRestore();
+  });
+});
+
+describe("puzzle date classification", () => {
+  it("classifies past, current and later dates without server timezone assumptions", () => {
+    expect(dateRelation("2026-10-26", "2026-10-27")).toBe("past");
+    expect(dateRelation("2026-10-27", "2026-10-27")).toBe("today");
+    expect(dateRelation("2026-10-28", "2026-10-27")).toBe("future");
+  });
+
+  it("rejects malformed calendar labels", () => {
+    expect(dateRelation("October 27", "2026-10-27")).toBeNull();
+  });
+
+  it("covers representative international timezones at a date boundary", () => {
+    const instant = new Date("2026-10-26T18:45:00Z");
+    expect(localDateParts(instant, "Asia/Karachi").date).toBe("2026-10-26");
+    expect(localDateParts(instant, "Asia/Kolkata").date).toBe("2026-10-27");
+    expect(localDateParts(instant, "Europe/London").date).toBe("2026-10-26");
+    expect(localDateParts(instant, "America/Los_Angeles").date).toBe(
+      "2026-10-26",
+    );
+    expect(localDateParts(instant, "Australia/Sydney").date).toBe("2026-10-27");
   });
 });

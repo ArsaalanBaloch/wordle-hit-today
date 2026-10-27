@@ -3,7 +3,6 @@
     <span>{{ full_date }}</span>
     <span>Wordle #{{ record.puzzle_number }}</span>
     <span>State: {{ record.record_state|capitalize }}</span>
-    <span>Source checked: {% if record.source_checked_at_utc %}{{ record.source_checked_at_utc }}{% else %}not applicable to synthetic demo data{% endif %}</span>
   </div>
 
   <div class="hint-list" aria-label="Progressive hints">

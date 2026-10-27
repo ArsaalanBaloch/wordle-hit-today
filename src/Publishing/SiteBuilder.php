@@ -66,6 +66,7 @@ final readonly class SiteBuilder
         usort($records, static fn (array $left, array $right): int => $left['puzzle_date'] <=> $right['puzzle_date']);
         $records = array_map(fn (array $record): array => $this->withFullDate($record), $records);
         $homepage = $this->selectHomepageRecord($records, $builtAt);
+        $indexableRecords = $this->indexableRecordsAt($records, $builtAt);
         $output = $this->config->publicOutput();
         $this->assertSafeOutputPath($output);
         $stage = dirname($output).DIRECTORY_SEPARATOR.'.site-stage-'.bin2hex(random_bytes(6));
@@ -75,7 +76,7 @@ final readonly class SiteBuilder
             $this->filesystem->mirror($this->projectRoot.'/assets/dist', $stage.'/assets/static');
             $this->filesystem->mirror($this->projectRoot.'/resources/licenses', $stage.'/licenses');
             $assets = AssetManifest::loadSnapshot($stage.'/assets/static', $this->config->mode());
-            $archiveIndexes = $this->writeArchiveIndexes($stage, $records);
+            $archiveIndexes = $this->writeArchiveIndexes($stage, $indexableRecords);
             $manifest = $this->writePublishedManifest($stage, $records, $homepage, $archiveIndexes, $builtAt);
             $pageCount = $this->writePages($stage, $records, $homepage, $assets, $builtAt);
             $this->writeSitemapAndRobots($stage, $records, $builtAt);
@@ -119,7 +120,8 @@ final readonly class SiteBuilder
         \DateTimeImmutable $builtAt,
     ): int {
         $pageCount = 0;
-        $descending = array_reverse($records);
+        $indexableRecords = $this->indexableRecordsAt($records, $builtAt);
+        $descending = array_reverse($indexableRecords);
         $base = $this->baseContext($assets, $builtAt);
         $homeCanonical = $this->canonical('/');
         $this->render($stage, 'index.html', 'home.html.twig', $base + [
@@ -145,6 +147,10 @@ final readonly class SiteBuilder
         foreach ($records as $index => $record) {
             $route = '/wordle-answers/'.$record['puzzle_date'].'/';
             $canonical = $this->canonical($route);
+            $nextRecord = $records[$index + 1] ?? null;
+            if (is_array($nextRecord) && $nextRecord['puzzle_date'] > $builtAt->format('Y-m-d')) {
+                $nextRecord = null;
+            }
             $this->render($stage, trim($route, '/').'/index.html', 'dated.html.twig', $base + [
                 'title' => $this->pageTitle(sprintf('Wordle #%d Answer & Hints — %s', $record['puzzle_number'], $record['short_date'])),
                 'description' => sprintf('Progressive hints and a controlled answer reveal for Wordle #%d on %s.', $record['puzzle_number'], $record['full_date']),
@@ -153,14 +159,16 @@ final readonly class SiteBuilder
                 'record' => $record,
                 'full_date' => $record['full_date'],
                 'previous_record' => $records[$index - 1] ?? null,
-                'next_record' => $records[$index + 1] ?? null,
+                'next_record' => $nextRecord,
+                'robots' => $record['puzzle_date'] > $builtAt->format('Y-m-d') ? 'noindex, follow' : null,
                 'definition' => $this->definitions->glossFor(is_string($record['definition_reference']) ? $record['definition_reference'] : null),
                 'structured_data' => $this->structuredData([
                     '@context' => 'https://schema.org',
                     '@type' => 'BreadcrumbList',
                     'itemListElement' => [
-                        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Past Answers', 'item' => $this->canonical('/wordle-answers/')],
-                        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Wordle #'.$record['puzzle_number'], 'item' => $canonical],
+                        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => $this->canonical('/')],
+                        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Wordle Answers', 'item' => $this->canonical('/wordle-answers/')],
+                        ['@type' => 'ListItem', 'position' => 3, 'name' => 'Wordle #'.$record['puzzle_number'], 'item' => $canonical],
                     ],
                 ]),
             ]);
@@ -172,6 +180,9 @@ final readonly class SiteBuilder
             throw new \LogicException('Archive page size must be positive.');
         }
         $chunks = array_chunk($descending, $archivePageSize);
+        if ([] === $chunks) {
+            $chunks = [[]];
+        }
         foreach ($chunks as $pageIndex => $pageRecords) {
             $page = $pageIndex + 1;
             $route = 1 === $page ? '/wordle-answers/' : sprintf('/wordle-answers/page/%d/', $page);
@@ -185,9 +196,13 @@ final readonly class SiteBuilder
                 'current_route' => 'archive',
                 'page_scripts' => [$assets['scripts']['archive']],
                 'page_records' => $pageRecords,
-                'years' => array_values(array_unique(array_map(static fn (array $record): string => substr((string) $record['puzzle_date'], 0, 4), $records))),
+                'years' => array_values(array_unique(array_map(static fn (array $record): string => substr((string) $record['puzzle_date'], 0, 4), $indexableRecords))),
                 'current_page' => $page,
                 'total_pages' => count($chunks),
+                'structured_data' => $this->breadcrumbStructuredData([
+                    ['name' => 'Home', 'url' => $this->canonical('/')],
+                    ['name' => 'Wordle Answers', 'url' => $this->canonical($route)],
+                ]),
             ]);
             ++$pageCount;
         }
@@ -214,6 +229,11 @@ final readonly class SiteBuilder
                 'year' => $year,
                 'months' => $monthLinks,
                 'page_records' => $yearRecords,
+                'structured_data' => $this->breadcrumbStructuredData([
+                    ['name' => 'Home', 'url' => $this->canonical('/')],
+                    ['name' => 'Wordle Answers', 'url' => $this->canonical('/wordle-answers/')],
+                    ['name' => $year.' Wordle Answers', 'url' => $this->canonical(sprintf('/wordle-answers/%s/', $year))],
+                ]),
             ]);
             ++$pageCount;
             foreach ($months as $month => $monthRecords) {
@@ -226,6 +246,12 @@ final readonly class SiteBuilder
                     'current_route' => 'archive',
                     'heading' => sprintf('Wordle answers for %s', $monthName),
                     'page_records' => $monthRecords,
+                    'structured_data' => $this->breadcrumbStructuredData([
+                        ['name' => 'Home', 'url' => $this->canonical('/')],
+                        ['name' => 'Wordle Answers', 'url' => $this->canonical('/wordle-answers/')],
+                        ['name' => $year.' Wordle Answers', 'url' => $this->canonical(sprintf('/wordle-answers/%s/', $year))],
+                        ['name' => $monthName, 'url' => $this->canonical(sprintf('/wordle-answers/%s/%s/', $year, $month))],
+                    ]),
                 ]);
                 ++$pageCount;
             }
@@ -237,6 +263,10 @@ final readonly class SiteBuilder
             'canonical' => $this->canonical('/wordle-solver/'),
             'current_route' => 'solver',
             'page_scripts' => [$assets['scripts']['solver']],
+            'structured_data' => $this->breadcrumbStructuredData([
+                ['name' => 'Home', 'url' => $this->canonical('/')],
+                ['name' => 'Wordle Solver', 'url' => $this->canonical('/wordle-solver/')],
+            ]),
         ]);
         ++$pageCount;
 
@@ -260,6 +290,10 @@ final readonly class SiteBuilder
                 'canonical' => $this->canonical($routing['route']),
                 'current_route' => $routing['current'],
                 'page' => $page,
+                'structured_data' => $this->breadcrumbStructuredData([
+                    ['name' => 'Home', 'url' => $this->canonical('/')],
+                    ['name' => (string) $page['title'], 'url' => $this->canonical($routing['route'])],
+                ]),
             ]);
             ++$pageCount;
         }
@@ -371,6 +405,7 @@ final readonly class SiteBuilder
     /** @param list<array<string, mixed>> $records */
     private function writeSitemapAndRobots(string $stage, array $records, \DateTimeImmutable $builtAt): void
     {
+        $records = $this->indexableRecordsAt($records, $builtAt);
         $homepage = $this->selectHomepageRecord($records, $builtAt);
         $newestRecordDate = $this->latestPuzzleDate($records);
         /** @var array<string, string|null> $routes */
@@ -455,6 +490,44 @@ final readonly class SiteBuilder
         return [] !== $eligible
             ? $eligible[count($eligible) - 1]
             : $records[count($records) - 1];
+    }
+
+    /**
+     * A record can exist early for visitors in UTC+14, but it must not appear in
+     * globally crawled archives or sitemaps before its UTC calendar date.
+     *
+     * @param list<array<string, mixed>> $records
+     * @return list<array<string, mixed>>
+     */
+    private function indexableRecordsAt(array $records, \DateTimeImmutable $builtAt): array
+    {
+        $utcDate = $builtAt->setTimezone(new \DateTimeZone('UTC'))->format('Y-m-d');
+
+        return array_values(array_filter(
+            $records,
+            static fn (array $record): bool => $record['puzzle_date'] <= $utcDate,
+        ));
+    }
+
+    /**
+     * @param list<array{name: string, url: string}> $items
+     */
+    private function breadcrumbStructuredData(array $items): string
+    {
+        return $this->structuredData([
+            '@context' => 'https://schema.org',
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => array_map(
+                static fn (array $item, int $index): array => [
+                    '@type' => 'ListItem',
+                    'position' => $index + 1,
+                    'name' => $item['name'],
+                    'item' => $item['url'],
+                ],
+                $items,
+                array_keys($items),
+            ),
+        ]);
     }
 
     /**

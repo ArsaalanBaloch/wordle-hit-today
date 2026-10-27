@@ -101,7 +101,7 @@ final class TickCommand extends ProjectCommand
                     ]);
                 }
             }
-            $publicationNeeded = $changed || $services->publisher->needsPublication();
+            $publicationNeeded = $changed || $services->publisher->needsPublication($now);
             if ($publicationNeeded) {
                 $result = $services->publisher->publish($now);
                 $services->status->publication($now);

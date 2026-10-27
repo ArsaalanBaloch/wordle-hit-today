@@ -37,5 +37,10 @@ export default defineConfig({
       testMatch: /seo\.spec\.js/,
       use: { ...devices["Desktop Chrome"] },
     },
+    {
+      name: "performance",
+      testMatch: /performance\.spec\.js/,
+      use: { ...devices["Desktop Chrome"] },
+    },
   ],
 });

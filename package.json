@@ -15,11 +15,12 @@
     "test:browser": "playwright test --project=browser-chromium --project=responsive",
     "test:a11y": "playwright test --project=a11y",
     "test:seo": "playwright test --project=seo",
+    "test:performance": "playwright test --project=performance",
     "audit:seo": "node scripts/seo-audit.mjs var/site",
     "scan:secrets": "node scripts/secret-scan.mjs",
     "audit": "npm audit --audit-level=high",
     "check:static": "npm run lint && npm run format:check && npm run scan:secrets && npm run audit && npm run test:unit",
-    "check:browser": "npm run test:browser && npm run test:a11y && npm run test:seo && npm run audit:seo",
+    "check:browser": "npm run test:browser && npm run test:a11y && npm run test:seo && npm run test:performance && npm run audit:seo",
     "check": "npm run check:static && npm run build && npm run check:browser"
   },
   "devDependencies": {

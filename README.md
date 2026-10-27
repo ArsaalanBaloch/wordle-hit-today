@@ -61,7 +61,7 @@ Publication stages and hash-validates its asset snapshot, writes a durable pre-p
 
 Production configuration enforces a real HTTPS origin, contact address, absolute public/private paths, and a validated date/number anchor. The asset manifest records whether its solver vocabulary is `fixture` or `production`, and the PHP build rejects a mode mismatch. `npm run prepare:production-data` reproducibly prepares the pinned ESDB/SCOWL vocabulary and Princeton WordNet definitions, records source/output checksums, and reports coverage. Missing or unsafe definitions are deliberately omitted rather than fabricated.
 
-Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/SEO_AUDIT.md](docs/SEO_AUDIT.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/SECURITY.md](docs/SECURITY.md), [docs/RECOVERY.md](docs/RECOVERY.md), [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) and [docs/HOSTINGER.md](docs/HOSTINGER.md) before enabling production mode.
+Read [docs/CONFIGURATION.md](docs/CONFIGURATION.md), [docs/SOURCE_DATA.md](docs/SOURCE_DATA.md), [docs/SEO_KEYWORD_MAP.md](docs/SEO_KEYWORD_MAP.md), [docs/SEO_AUDIT.md](docs/SEO_AUDIT.md), [docs/SEO_IMPLEMENTATION_REPORT.md](docs/SEO_IMPLEMENTATION_REPORT.md), [docs/OPERATIONS.md](docs/OPERATIONS.md), [docs/SECURITY.md](docs/SECURITY.md), [docs/RECOVERY.md](docs/RECOVERY.md), [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) and [docs/HOSTINGER.md](docs/HOSTINGER.md) before enabling production mode.
 
 ## Remaining work
 
