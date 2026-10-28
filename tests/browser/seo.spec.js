@@ -10,7 +10,7 @@ test("home metadata is evergreen, self-canonical and spoiler-free", async ({
     "Wordle Hit Today | Spoiler-Free Clues & Answer",
   );
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Wordle Hint and Answer for October 16, 2026",
+    "Today’s Wordle Hints and Answer — October 16, 2026",
   );
   await expect(
     page.getByText(/Wordle #900016 · Progressive clues/),
