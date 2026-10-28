@@ -77,7 +77,11 @@ final class PublicationServiceTest extends TestCase
         self::assertSame(7, $result->homepageRevision);
         self::assertSame(7, $journal['record_revision']);
         self::assertArrayHasKey('.htaccess', $result->checksums);
+        self::assertArrayHasKey('favicon.ico', $result->checksums);
+        self::assertArrayHasKey('favicon-48x48.png', $result->checksums);
+        self::assertArrayHasKey('apple-touch-icon.png', $result->checksums);
         self::assertFileExists($this->services->config->publicOutput().'/.htaccess');
+        self::assertFileExists($this->services->config->publicOutput().'/favicon.ico');
         self::assertStringContainsString(
             'ErrorDocument 404 /404.html',
             (string) file_get_contents($this->services->config->publicOutput().'/.htaccess'),

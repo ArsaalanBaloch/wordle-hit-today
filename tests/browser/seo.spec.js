@@ -1,14 +1,20 @@
 import { expect, test } from "./fixtures.js";
 
-test("home metadata is dated, self-canonical and spoiler-free", async ({
+test("home metadata is evergreen, self-canonical and spoiler-free", async ({
   page,
 }) => {
   const response = await page.goto("/");
 
   expect(response.status()).toBe(200);
   await expect(page).toHaveTitle(
-    "Wordle Hint Today and Answer for October 16, 2026 | Wordle Hit Today",
+    "Wordle Hit Today | Spoiler-Free Clues & Answer",
   );
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Wordle Hint Today",
+  );
+  await expect(
+    page.getByText(/October 16, 2026 · Wordle #900016/),
+  ).toBeVisible();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
     "https://example.invalid/",
@@ -19,7 +25,7 @@ test("home metadata is dated, self-canonical and spoiler-free", async ({
   );
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "Wordle Hint Today and Answer for October 16, 2026 | Wordle Hit Today",
+    "Wordle Hit Today | Spoiler-Free Clues & Answer",
   );
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
     "content",
@@ -27,8 +33,34 @@ test("home metadata is dated, self-canonical and spoiler-free", async ({
   );
   await expect(page.locator('meta[name="description"]')).not.toHaveAttribute(
     "content",
-    /CRANE/,
+    /CRANE|October 16, 2026/,
   );
+  await expect(
+    page.locator('link[rel="icon"][type="image/png"]'),
+  ).toHaveAttribute("href", "/favicon-48x48.png");
+  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute(
+    "href",
+    "/apple-touch-icon.png",
+  );
+  const iconDimensions = await page.evaluate(async () => {
+    return Promise.all(
+      ["/favicon-48x48.png", "/apple-touch-icon.png"].map(
+        (src) =>
+          new Promise((resolve, reject) => {
+            const image = new Image();
+            image.addEventListener("load", () =>
+              resolve([image.naturalWidth, image.naturalHeight]),
+            );
+            image.addEventListener("error", () => reject(new Error(src)));
+            image.src = src;
+          }),
+      ),
+    );
+  });
+  expect(iconDimensions).toEqual([
+    [48, 48],
+    [180, 180],
+  ]);
 });
 
 test("historical metadata omits the solution", async ({ page }) => {

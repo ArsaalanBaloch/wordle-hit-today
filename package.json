@@ -7,6 +7,7 @@
     "node": ">=24.0.0"
   },
   "scripts": {
+    "generate:favicons": "node scripts/generate-favicons.mjs",
     "lint": "eslint assets/js scripts tests",
     "format:check": "prettier --check \"{assets,scripts,tests}/**/*.{css,js,json}\" \"*.{json,md}\" \"config/**/*.json\" \"schemas/**/*.json\"",
     "prepare:production-data": "node scripts/prepare-production-data.mjs",

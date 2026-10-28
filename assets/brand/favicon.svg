@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Wordle Hint Today</title>
+  <rect width="512" height="512" rx="112" fill="#174f31"/>
+  <rect x="28" y="28" width="456" height="456" rx="88" fill="#256d45" stroke="#fafaf7" stroke-width="20"/>
+  <path fill="#ffffff" d="M102 179h31l26 154 26-97 23 97 27-154h31l-41 190h-31l-20-87-21 87h-31z"/>
+  <path fill="#ffffff" d="M292 179h31v74h46v-74h31v190h-31v-78h-46v78h-31z"/>
+</svg>

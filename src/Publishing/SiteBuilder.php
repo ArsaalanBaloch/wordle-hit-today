@@ -74,6 +74,7 @@ final readonly class SiteBuilder
 
         try {
             $this->filesystem->mirror($this->projectRoot.'/assets/dist', $stage.'/assets/static');
+            $this->filesystem->mirror($this->projectRoot.'/assets/brand', $stage);
             $this->filesystem->mirror($this->projectRoot.'/resources/licenses', $stage.'/licenses');
             $assets = AssetManifest::loadSnapshot($stage.'/assets/static', $this->config->mode());
             $archiveIndexes = $this->writeArchiveIndexes($stage, $indexableRecords);
@@ -125,8 +126,8 @@ final readonly class SiteBuilder
         $base = $this->baseContext($assets, $builtAt);
         $homeCanonical = $this->canonical('/');
         $this->render($stage, 'index.html', 'home.html.twig', $base + [
-            'title' => $this->pageTitle(sprintf('Wordle Hint Today and Answer for %s', $homepage['full_date'])),
-            'description' => sprintf('Get spoiler-controlled Wordle hints, clues and the answer for %s, plus links to the solver and past answers.', $homepage['full_date']),
+            'title' => $this->config->siteName().' | Spoiler-Free Clues & Answer',
+            'description' => 'Get today\'s Wordle hints and spoiler-controlled clues one step at a time, then reveal the answer when you are ready. Use the solver or browse past answers.',
             'canonical' => $homeCanonical,
             'current_route' => 'home',
             'record' => $homepage,
