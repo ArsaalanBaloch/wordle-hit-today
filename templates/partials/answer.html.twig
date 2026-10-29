@@ -1,11 +1,29 @@
-<div class="stack">
+<div
+  class="stack"
+  data-puzzle-fragment
+  data-puzzle-date="{{ record.puzzle_date }}"
+  data-puzzle-number="{{ record.puzzle_number }}"
+  data-puzzle-full-date="{{ full_date }}"
+  data-puzzle-url="{{ canonical }}"
+>
   <div class="hero__meta" aria-label="Puzzle details">
     <span>{{ full_date }}</span>
     <span>Wordle #{{ record.puzzle_number }}</span>
-    <span>State: {{ record.record_state|capitalize }}</span>
+    <span>{{ verification_label }}: <time datetime="{{ verification_iso }}">{{ verification_display }}</time></span>
   </div>
 
+  <p class="small-print">
+    <a href="{{ canonical }}">Permanent page for {{ full_date }}</a>
+    {% if previous_record %} · <a href="/wordle-answers/{{ previous_record.puzzle_date }}/">Yesterday’s published puzzle ({{ previous_record.full_date }})</a>{% endif %}
+  </p>
+
   <div class="hint-list" aria-label="Progressive hints">
+    {% if definition is defined and definition %}
+      <details>
+        <summary>Reveal a gentle meaning clue</summary>
+        <div>{{ definition }} <span class="small-print">Dictionary meaning from Princeton WordNet 3.0.</span></div>
+      </details>
+    {% endif %}
     <details>
       <summary>Reveal the vowel count</summary>
       <div>The answer contains <strong>{{ record.hint_values.vowel_occurrences }}</strong> A, E, I, O or U occurrence{% if record.hint_values.vowel_occurrences != 1 %}s{% endif %}. Y is not counted.</div>
@@ -14,12 +32,6 @@
       <summary>Reveal repeated-letter status</summary>
       <div>{% if record.hint_values.has_repeats %}At least one letter appears more than once.{% else %}No letter is repeated.{% endif %}</div>
     </details>
-    {% if definition is defined and definition %}
-      <details>
-        <summary>Reveal a meaning of this word</summary>
-        <div>{{ definition }}</div>
-      </details>
-    {% endif %}
     <details>
       <summary>Reveal the first letter</summary>
       <div>The answer begins with <strong>{{ record.solution|slice(0, 1) }}</strong>.</div>
@@ -33,15 +45,23 @@
   <section class="answer-panel" data-answer="{{ record.solution }}" aria-labelledby="answer-heading{{ id_suffix|default('') }}">
     <h2 id="answer-heading{{ id_suffix|default('') }}">Reveal the answer at your pace</h2>
     <p>Select any tile to reveal only that position, or reveal all five.</p>
-    <div class="answer-tiles" aria-label="Five-letter answer">
-      {% for index in 0..4 %}
-        <button class="answer-tile" type="button" data-letter-index="{{ index }}" aria-label="Reveal letter {{ index + 1 }}">?</button>
-      {% endfor %}
+    <div data-js-answer-controls hidden>
+      <div class="answer-tiles" aria-label="Five-letter answer">
+        {% for index in 0..4 %}
+          <button class="answer-tile" type="button" data-letter-index="{{ index }}" aria-label="Reveal letter {{ index + 1 }}">?</button>
+        {% endfor %}
+      </div>
+      <div class="action-row">
+        <button type="button" data-reveal-answer>Show full answer</button>
+        <button class="button--secondary" type="button" data-share="Wordle #{{ record.puzzle_number }} hints for {{ full_date }} — {{ record.hint_values.vowel_occurrences }} vowel occurrence{% if record.hint_values.vowel_occurrences != 1 %}s{% endif %}; {% if record.hint_values.has_repeats %}has a repeated letter{% else %}no repeated letters{% endif %}. {{ canonical }}">Share spoiler-free hints</button>
+      </div>
+      <p class="notice" data-answer-explanation hidden>{{ answer_explanation }}</p>
+      <textarea class="share-fallback" data-share-fallback hidden readonly aria-label="Spoiler-free text to copy">Wordle #{{ record.puzzle_number }} hints for {{ full_date }} — {{ record.hint_values.vowel_occurrences }} vowel occurrence{% if record.hint_values.vowel_occurrences != 1 %}s{% endif %}; {% if record.hint_values.has_repeats %}has a repeated letter{% else %}no repeated letters{% endif %}. {{ canonical }}</textarea>
     </div>
-    <div class="action-row">
-      <button type="button" data-reveal-answer>Show full answer</button>
-      <button class="button--secondary" type="button" data-share="Wordle #{{ record.puzzle_number }} hints for {{ full_date }} — {{ record.hint_values.vowel_occurrences }} vowel occurrence{% if record.hint_values.vowel_occurrences != 1 %}s{% endif %}; {% if record.hint_values.has_repeats %}has a repeated letter{% else %}no repeated letters{% endif %}. {{ canonical }}">Share spoiler-free hints</button>
-    </div>
-    <textarea class="share-fallback" data-share-fallback hidden readonly aria-label="Spoiler-free text to copy">Wordle #{{ record.puzzle_number }} hints for {{ full_date }} — {{ record.hint_values.vowel_occurrences }} vowel occurrence{% if record.hint_values.vowel_occurrences != 1 %}s{% endif %}; {% if record.hint_values.has_repeats %}has a repeated letter{% else %}no repeated letters{% endif %}. {{ canonical }}</textarea>
+    <details class="notice" data-no-js-answer>
+      <summary>Reveal the complete answer without JavaScript</summary>
+      <p>The answer is <strong>{{ record.solution }}</strong>.</p>
+      <p>{{ answer_explanation }}</p>
+    </details>
   </section>
 </div>

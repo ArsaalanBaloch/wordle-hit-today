@@ -3,11 +3,23 @@ import { expect, test } from "./fixtures.js";
 test("home metadata is evergreen, self-canonical and spoiler-free", async ({
   page,
 }) => {
+  await page.addInitScript(() => {
+    const RealDate = Date;
+    const fixed = new RealDate("2026-10-16T12:00:00Z");
+    globalThis.Date = class extends RealDate {
+      constructor(...args) {
+        super(...(args.length ? args : [fixed]));
+      }
+      static now() {
+        return fixed.getTime();
+      }
+    };
+  });
   const response = await page.goto("/");
 
   expect(response.status()).toBe(200);
   await expect(page).toHaveTitle(
-    "Wordle Hit Today | Spoiler-Free Clues & Answer",
+    "Wordle Hint Today | Spoiler-Free Clues & Answer",
   );
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Today’s Wordle Hints and Answer — October 16, 2026",
@@ -25,7 +37,7 @@ test("home metadata is evergreen, self-canonical and spoiler-free", async ({
   );
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "Wordle Hit Today | Spoiler-Free Clues & Answer",
+    "Wordle Hint Today | Spoiler-Free Clues & Answer",
   );
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
     "content",
@@ -35,6 +47,18 @@ test("home metadata is evergreen, self-canonical and spoiler-free", async ({
     "content",
     /CRANE|October 16, 2026/,
   );
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    "Need a Wordle hint today? Reveal spoiler-free clues, vowel counts and letter hints for today's puzzle. See the answer only when you choose.",
+  );
+  const websiteSchema = await page
+    .locator('script[type="application/ld+json"]')
+    .evaluate((node) => JSON.parse(node.textContent));
+  expect(websiteSchema).toMatchObject({
+    "@type": "WebSite",
+    name: "Wordle Hint Today",
+    url: "https://example.invalid/",
+  });
   await expect(
     page.locator('link[rel="icon"][type="image/png"]'),
   ).toHaveAttribute("href", "/favicon-48x48.png");
@@ -67,7 +91,7 @@ test("historical metadata omits the solution", async ({ page }) => {
   await page.goto("/wordle-answers/2026-10-16/");
 
   await expect(page).toHaveTitle(
-    "Wordle #900016 Answer & Hints — Oct 16, 2026 | Wordle Hit Today",
+    "Wordle #900016 Answer & Hints — Oct 16, 2026 | Wordle Hint Today",
   );
   await expect(page.locator('meta[name="description"]')).not.toHaveAttribute(
     "content",
@@ -81,23 +105,23 @@ test("intent pages use distinct descriptive metadata and one main heading", asyn
   const pages = [
     {
       path: "/wordle-solver/",
-      title: "Wordle Solver and 5-Letter Word Finder | Wordle Hit Today",
+      title: "Wordle Solver and 5-Letter Word Finder | Wordle Hint Today",
       heading: /Wordle solver and five-letter word helper/i,
     },
     {
       path: "/wordle-answers/",
       title:
-        "Wordle Archive: Past Answers by Date and Number | Wordle Hit Today",
+        "Wordle Archive: Past Answers by Date and Number | Wordle Hint Today",
       heading: /Wordle archive: past answers and hints/i,
     },
     {
       path: "/wordle-strategy/",
-      title: "Wordle Strategy: Starting Words & Tips | Wordle Hit Today",
+      title: "Wordle Strategy: Starting Words & Tips | Wordle Hint Today",
       heading: /Wordle strategy: starting words, tips and repeated letters/i,
     },
     {
       path: "/how-to-play-wordle/",
-      title: "How to Play Wordle: Rules & Tile Colours | Wordle Hit Today",
+      title: "How to Play Wordle: Rules & Tile Colours | Wordle Hint Today",
       heading: /How to play Wordle: rules, colours and repeated letters/i,
     },
   ];
@@ -217,6 +241,29 @@ test("page-one alias responds with a permanent redirect", async ({ page }) => {
   expect(responses).toContainEqual({
     url: "http://wordle.test/wordle-answers/page/1/",
     status: 301,
+  });
+});
+
+test("index.html permanently redirects to the canonical homepage and preserves its query", async ({
+  page,
+}) => {
+  const redirects = [];
+  page.on("response", (response) => {
+    if (response.status() === 301) {
+      redirects.push({
+        url: response.url(),
+        location: response.headers().location,
+      });
+    }
+  });
+
+  await page.goto("/index.html?source=audit").catch(() => {
+    // The harness verifies the emitted redirect without resolving a real host.
+  });
+
+  expect(redirects).toContainEqual({
+    url: "http://wordle.test/index.html?source=audit",
+    location: "http://wordle.test/?source=audit",
   });
 });
 

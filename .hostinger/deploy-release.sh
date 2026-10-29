@@ -68,6 +68,19 @@ cp -a "$CURRENT/assets/dist" "$STAGE/assets/"
 cp -a "$CURRENT/vendor" "$STAGE/"
 cp -a "$CURRENT/config/site.local.json" "$STAGE/config/site.local.json"
 
+# Browser assets are reviewed and committed, while the production vocabulary
+# remains private on the host. Replace the portable assets, retain only the
+# current production vocabulary, and merge its two manifest fields.
+rm -f -- "$STAGE/assets/dist/"*.css "$STAGE/assets/dist/"*.js
+rm -rf -- "$STAGE/assets/dist/fonts" "$STAGE/assets/dist/licenses"
+cp -a "$CLONE/assets/dist/"*.css "$CLONE/assets/dist/"*.js "$STAGE/assets/dist/"
+cp -a "$CLONE/assets/dist/fonts" "$CLONE/assets/dist/licenses" "$STAGE/assets/dist/"
+"$PHP" "$CLONE/.hostinger/merge-asset-manifests.php" \
+  "$STAGE/vendor/autoload.php" \
+  "$CLONE/assets/dist/manifest.json" \
+  "$CURRENT/assets/dist/manifest.json" \
+  "$STAGE/assets/dist/manifest.json"
+
 "$PHP" "$STAGE/bin/wordle" doctor \
   --config="$STAGE/config/site.local.json" \
   --mode=production

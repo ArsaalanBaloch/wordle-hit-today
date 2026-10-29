@@ -28,6 +28,13 @@ export const test = base.extend({
 export async function installStaticRoutes(page) {
   await page.route("http://wordle.test/**", async (route) => {
     const url = new URL(route.request().url());
+    if (url.pathname === "/index.html") {
+      await route.fulfill({
+        status: 301,
+        headers: { location: `http://wordle.test/${url.search}` },
+      });
+      return;
+    }
     if (url.pathname === "/wordle-answers/page/1/") {
       await route.fulfill({
         status: 301,

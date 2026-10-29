@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "fixture",
-  "site_name": "Wordle Hit Today",
+  "site_name": "Wordle Hint Today",
   "canonical_origin": "https://example.invalid",
   "homepage_fallback_timezone": "UTC",
   "visitor_date_mode": "device_local",

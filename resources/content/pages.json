@@ -124,15 +124,22 @@
   },
   "about": {
     "eyebrow": "Method and independence",
-    "title": "About Wordle Hit Today",
-    "description": "How Wordle Hit Today prepares progressive hints, historical records and solver suggestions.",
-    "intro": "Wordle Hit Today is an independent help site designed to reveal only as much as a reader chooses.",
+    "title": "About Wordle Hint Today",
+    "description": "Learn what Wordle Hint Today offers, how daily puzzle information is checked and sourced, and how to report a correction.",
+    "intro": "Wordle Hint Today is an independent help site with progressive daily clues, controlled answer reveals, a browser-based solver and links to published past puzzles.",
     "sections": [
       {
-        "heading": "What the site publishes",
+        "heading": "What this website offers",
         "paragraphs": [
-          "Each validated record stores a puzzle date, public puzzle number, answer provenance, validation metadata and factual letter hints. Generated public pages are static; visitors do not trigger the private publisher or its source requests.",
-          "Definitions are shown only when a locally imported, licensed source supplies a suitable non-circular gloss. Missing definitions do not block letter-based hints."
+          "The daily page starts with spoiler-free guidance and lets each reader choose whether to reveal a meaning clue, letter facts, individual letters or the complete answer. The archive links only to puzzle dates that have actually been published, and the solver filters its local word list from the feedback a reader enters.",
+          "Daily pages are generated ahead of each visit, so opening a hint does not contact the puzzle source or send solver entries to the publisher."
+        ]
+      },
+      {
+        "heading": "How puzzle information is checked",
+        "paragraphs": [
+          "The publisher retrieves the public daily puzzle record and checks that its date, puzzle number and five-letter answer agree with the expected structure before a page can be published. The displayed letter counts and repeated-letter status are calculated from that checked answer rather than written by hand.",
+          "A gentle meaning clue appears only when the answer has a suitable non-circular definition in the locally imported Princeton WordNet data. If no suitable definition is available, the factual letter hints remain available without a fabricated clue."
         ]
       },
       {
@@ -144,7 +151,7 @@
       {
         "heading": "Vocabulary and definition sources",
         "paragraphs": [
-          "Solver candidates are derived from the pinned ESDB 2026.02.25 American English dictionaries. Optional meaning clues are derived from Princeton WordNet 3.0. Both datasets are filtered locally, retain their source checksums and are used under their accompanying licenses."
+          "Solver candidates are derived from the pinned ESDB 2026.02.25 American English dictionaries. Optional meaning clues are derived from Princeton WordNet 3.0. Both datasets are filtered locally and used under their accompanying licenses."
         ],
         "links": [
           {
@@ -160,7 +167,7 @@
       {
         "heading": "Corrections",
         "paragraphs": [
-          "Corrections can be sent to the contact address in the site footer. Corrections retain the prior revision and publish an explicit notice rather than silently rewriting history."
+          "Send a suspected wrong date, puzzle number, answer or clue to the contact address in the site footer and include the affected page URL. Confirmed corrections retain the earlier record internally and can display a correction notice on the updated page."
         ]
       }
     ]
@@ -168,13 +175,13 @@
   "privacy": {
     "eyebrow": "Plain-language disclosure",
     "title": "Privacy",
-    "description": "Privacy information for Wordle Hit Today, including local browser processing and hosting logs.",
+    "description": "Privacy information for Wordle Hint Today, including local browser processing and hosting logs.",
     "intro": "The site stores no visitor account and sends no solver guesses to the publisher.",
     "sections": [
       {
         "heading": "Local date and solver data",
         "paragraphs": [
-          "The browser reads its resolved timezone and local calendar date to select the matching published page. It does not request location permission or use IP geolocation.",
+          "The browser reads its resolved timezone and local calendar date to show the matching published hints on the homepage. It does not request location permission or use IP geolocation.",
           "Solver guesses and feedback remain in the current page session and are not persisted across visits in the initial release."
         ]
       },

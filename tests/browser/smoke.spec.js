@@ -26,6 +26,10 @@ test("home resolves its labelled local date without exposing the answer first", 
   await expect(page.locator("[data-answer] .answer-tile").first()).toHaveText(
     "?",
   );
+  await expect(page.locator("[data-puzzle-fragment] time")).toHaveAttribute(
+    "datetime",
+    "2026-10-16T12:00:00Z",
+  );
   await page.locator("[data-answer] .answer-tile").first().click();
   await expect(page.locator("[data-answer] .answer-tile").first()).toHaveText(
     "C",
@@ -33,6 +37,11 @@ test("home resolves its labelled local date without exposing the answer first", 
   await expect(page.locator("[data-share]")).not.toHaveAttribute(
     "data-share",
     /CRANE/,
+  );
+  await page.getByRole("button", { name: "Show full answer" }).click();
+  await expect(page.locator("[data-answer-explanation]")).toBeVisible();
+  await expect(page.locator("[data-answer-explanation]")).toContainText(
+    "every letter appears once",
   );
 });
 
@@ -48,7 +57,7 @@ test("an explicit historical page remains authoritative", async ({ page }) => {
   );
 });
 
-test("homepage redirects to the published puzzle for the visitor's local date", async ({
+test("homepage renders the published local puzzle without leaving the homepage", async ({
   browser,
 }) => {
   const context = await browser.newContext({
@@ -70,8 +79,72 @@ test("homepage redirects to the published puzzle for the visitor's local date", 
   });
 
   await page.goto("/");
-  await expect(page).toHaveURL(/\/wordle-answers\/2026-10-17\/$/);
+  await expect(page).toHaveURL("http://wordle.test/");
+  await expect(page.locator("[data-today-root]")).toHaveAttribute(
+    "data-displayed-date",
+    "2026-10-17",
+  );
+  await expect(page.locator("[data-puzzle-fragment]")).toHaveAttribute(
+    "data-puzzle-number",
+    "900017",
+  );
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Today’s Wordle Hints and Answer — October 17, 2026",
+  );
+  await page.getByText("Reveal repeated-letter status").click();
+  await expect(
+    page.getByText("At least one letter appears more than once."),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Permanent page for October 17, 2026" }),
+  ).toHaveAttribute(
+    "href",
+    "https://example.invalid/wordle-answers/2026-10-17/",
+  );
+  await expect(
+    page.getByRole("link", { name: /Yesterday’s published puzzle/ }),
+  ).toHaveAttribute("href", "/wordle-answers/2026-10-16/");
   await context.close();
+});
+
+test("homepage selects published dates across major timezone boundaries", async ({
+  browser,
+}) => {
+  const cases = [
+    ["Asia/Karachi", "2026-10-17", "900017"],
+    ["America/New_York", "2026-10-16", "900016"],
+    ["Pacific/Auckland", "2026-10-17", "900017"],
+  ];
+
+  for (const [timezoneId, expectedDate, expectedNumber] of cases) {
+    const context = await browser.newContext({ timezoneId });
+    const page = await context.newPage();
+    await installStaticRoutes(page);
+    await page.addInitScript(() => {
+      const RealDate = Date;
+      const fixed = new RealDate("2026-10-16T20:30:00Z");
+      globalThis.Date = class extends RealDate {
+        constructor(...args) {
+          super(...(args.length ? args : [fixed]));
+        }
+        static now() {
+          return fixed.getTime();
+        }
+      };
+    });
+
+    await page.goto("/");
+    await expect(page).toHaveURL("http://wordle.test/");
+    await expect(page.locator("[data-today-root]")).toHaveAttribute(
+      "data-displayed-date",
+      expectedDate,
+    );
+    await expect(page.locator("[data-puzzle-fragment]")).toHaveAttribute(
+      "data-puzzle-number",
+      expectedNumber,
+    );
+    await context.close();
+  }
 });
 
 test("homepage shows one clear pending state when a local date is unavailable", async ({
@@ -100,7 +173,14 @@ test("homepage shows one clear pending state when a local date is unavailable", 
   await expect(page.locator("[data-date-notice]")).toContainText(
     "has not been published",
   );
-  await expect(page.locator("[data-today-content]")).toBeHidden();
+  await expect(page.locator("[data-today-content]")).toBeVisible();
+  await expect(page.locator("[data-puzzle-fragment]")).toHaveAttribute(
+    "data-puzzle-date",
+    "2026-10-16",
+  );
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Wordle Hints and Answer — October 16, 2026",
+  );
   await context.close();
 });
 
@@ -129,6 +209,10 @@ test("homepage keeps its labelled fallback usable when the manifest fails", asyn
     "check failed",
   );
   await expect(page.locator("[data-today-content]")).toBeVisible();
+  await expect(page.locator("[data-puzzle-fragment]")).toHaveAttribute(
+    "data-puzzle-date",
+    "2026-10-16",
+  );
 });
 
 test("dated page labels a date that is later than the visitor's local day", async ({
@@ -238,10 +322,16 @@ test("no-JavaScript homepage links to an explicitly dated accessible fallback", 
   ).toBeVisible();
   await expect(
     page.getByRole("link", {
-      name: /Wordle hints and answer for October 16, 2026/,
+      name: /permanent dated page/,
     }),
   ).toBeVisible();
   await expect(page.locator("[data-answer]")).toHaveCount(1);
-  await expect(page.locator("[data-today-content]")).toBeHidden();
+  await expect(page.locator("[data-today-content]")).toBeVisible();
+  await page
+    .getByRole("group")
+    .filter({ hasText: "Reveal the complete answer without JavaScript" })
+    .getByText("Reveal the complete answer without JavaScript")
+    .click();
+  await expect(page.getByText("The answer is CRANE.")).toBeVisible();
   await context.close();
 });

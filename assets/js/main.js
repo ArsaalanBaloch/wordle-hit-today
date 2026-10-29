@@ -25,11 +25,23 @@ export function dateRelation(pageDate, localDate) {
 
 function initializeAnswerReveals(root = document) {
   for (const answer of root.querySelectorAll("[data-answer]")) {
+    const noJavaScriptAnswer = answer.querySelector("[data-no-js-answer]");
+    if (noJavaScriptAnswer) noJavaScriptAnswer.hidden = true;
+    const javaScriptControls = answer.querySelector(
+      "[data-js-answer-controls]",
+    );
+    if (javaScriptControls) javaScriptControls.hidden = false;
     if (answer.dataset.revealReady === "true") continue;
     answer.dataset.revealReady = "true";
     const solution = answer.dataset.answer;
     if (!/^[A-Z]{5}$/.test(solution ?? "")) continue;
     const tiles = [...answer.querySelectorAll("[data-letter-index]")];
+    const explanation = answer.querySelector("[data-answer-explanation]");
+    const showExplanationWhenComplete = () => {
+      if (tiles.every((tile) => tile.dataset.revealed === "true")) {
+        if (explanation) explanation.hidden = false;
+      }
+    };
     const revealLetter = (tile) => {
       const index = Number(tile.dataset.letterIndex);
       tile.textContent = solution[index];
@@ -38,6 +50,7 @@ function initializeAnswerReveals(root = document) {
         "aria-label",
         `Letter ${index + 1}: ${solution[index]}`,
       );
+      showExplanationWhenComplete();
     };
     for (const tile of tiles)
       tile.addEventListener("click", () => revealLetter(tile));
@@ -60,11 +73,15 @@ function resetAnswerReveals(root = document) {
     }
     const full = answer.querySelector("[data-reveal-answer]");
     if (full) full.hidden = false;
+    const explanation = answer.querySelector("[data-answer-explanation]");
+    if (explanation) explanation.hidden = true;
   }
 }
 
 function initializeSharing(root = document) {
   for (const button of root.querySelectorAll("[data-share]")) {
+    if (button.dataset.shareReady === "true") continue;
+    button.dataset.shareReady = "true";
     button.addEventListener("click", async () => {
       const text = button.dataset.share;
       const fallback = button.parentElement?.querySelector(
@@ -118,39 +135,73 @@ async function initializeTodayPage() {
   const status = root.querySelector("[data-date-status]");
   const retry = root.querySelector("[data-date-retry]");
   const notice = root.querySelector("[data-date-notice]");
+  const heading = root.querySelector("[data-puzzle-heading]");
+  const summary = root.querySelector("[data-puzzle-summary]");
   const labelledDate = root.dataset.homeDate;
+  const labelledFullDate = root.dataset.homeFullDate;
   let resolved;
 
   const showNotice = (message = "") => {
     notice.textContent = message;
     notice.hidden = message === "";
   };
+  const initializePuzzleControls = () => {
+    initializeAnswerReveals(content);
+    initializeSharing(content);
+  };
+  const showLabelledFallback = (statusMessage, noticeMessage) => {
+    root.dataset.displayedDate = labelledDate;
+    if (heading)
+      heading.textContent = `Wordle Hints and Answer — ${labelledFullDate}`;
+    status.textContent = statusMessage;
+    showNotice(noticeMessage);
+    initializePuzzleControls();
+  };
+  const showLocalPuzzle = (fragment) => {
+    const date = fragment.dataset.puzzleDate;
+    const number = fragment.dataset.puzzleNumber;
+    const fullDate = fragment.dataset.puzzleFullDate;
+    if (
+      date !== resolved.date ||
+      !/^\d+$/.test(number ?? "") ||
+      typeof fullDate !== "string" ||
+      fullDate === ""
+    ) {
+      throw new Error("Published puzzle fragment does not match local date");
+    }
+    content.replaceChildren(document.importNode(fragment, true));
+    content.setAttribute("aria-label", `Wordle hints for ${fullDate}`);
+    root.dataset.displayedDate = date;
+    if (heading)
+      heading.textContent = `Today’s Wordle Hints and Answer — ${fullDate}`;
+    if (summary)
+      summary.textContent = `Wordle #${number} · Progressive clues with the answer hidden until you choose to reveal it.`;
+    status.textContent = `Showing the published ${date} puzzle for this device (${resolved.timezone}).`;
+    showNotice();
+    initializePuzzleControls();
+  };
 
   try {
     resolved = localDateParts();
   } catch {
-    status.textContent =
-      "Automatic local-date selection is unavailable. The UTC-labelled fallback remains available below.";
-    showNotice(
+    showLabelledFallback(
+      `Automatic local-date selection is unavailable. Showing the explicitly dated ${labelledDate} puzzle.`,
       "Your browser did not provide local timezone support. The explicitly dated UTC fallback remains available.",
     );
-    content.hidden = false;
-    content.inert = false;
-    initializeAnswerReveals(content);
     return;
   }
 
   root.dataset.resolvedDate = resolved.date;
-  status.textContent = `Using ${resolved.date} on this device (${resolved.timezone}).`;
   if (resolved.date === labelledDate) {
-    content.hidden = false;
-    content.inert = false;
-    initializeAnswerReveals(content);
+    root.dataset.displayedDate = labelledDate;
+    status.textContent = `Showing the published ${resolved.date} puzzle for this device (${resolved.timezone}).`;
+    initializePuzzleControls();
     return;
   }
 
   let retryCount = 0;
   const checkManifest = async () => {
+    let localPuzzleLoaded = false;
     retry.disabled = true;
     showNotice();
     try {
@@ -174,23 +225,33 @@ async function initializeTodayPage() {
         ISO_DATE.test(target.date) &&
         target.url === `/wordle-answers/${target.date}/`
       ) {
-        window.location.replace(target.url);
+        const puzzleResponse = await fetch(target.url, {
+          headers: { Accept: "text/html" },
+          cache: "no-cache",
+        });
+        if (!puzzleResponse.ok)
+          throw new Error(`Puzzle page returned ${puzzleResponse.status}`);
+        const puzzleDocument = new DOMParser().parseFromString(
+          await puzzleResponse.text(),
+          "text/html",
+        );
+        const fragment = puzzleDocument.querySelector("[data-puzzle-fragment]");
+        if (!fragment) throw new Error("Puzzle fragment is missing");
+        showLocalPuzzle(fragment);
+        localPuzzleLoaded = true;
         return;
       }
-      status.textContent = `Hints for ${resolved.date} are not available yet.`;
-      showNotice(
-        "That local date has not been published. You can retry the check or choose a date below.",
+      showLabelledFallback(
+        `Hints for this device’s local date (${resolved.date}) are not available yet. Showing the explicitly dated ${labelledDate} puzzle instead.`,
+        `The ${resolved.date} puzzle has not been published. The available puzzle below is labelled ${labelledDate}; you can retry or choose another date.`,
       );
     } catch {
-      status.textContent = `Could not check whether hints for ${resolved.date} are available. The page is labelled for ${labelledDate}.`;
-      showNotice(
-        "The published-date check failed. The explicitly labelled page remains available, or you can choose a date manually.",
+      showLabelledFallback(
+        `Could not load the published puzzle for ${resolved.date}. Showing the explicitly dated ${labelledDate} puzzle.`,
+        "The local-date check failed. The available fallback remains clearly dated, or you can choose a date manually.",
       );
-      content.hidden = false;
-      content.inert = false;
-      initializeAnswerReveals(content);
     } finally {
-      retry.hidden = retryCount >= 2;
+      retry.hidden = localPuzzleLoaded || retryCount >= 2;
       retry.disabled = false;
     }
   };
@@ -268,7 +329,8 @@ function watchForDateChange() {
       if (current !== initial) {
         initial = current;
         if (page.matches("[data-today-root]")) resetAnswerReveals(page);
-        update.href = `/wordle-answers/${current}/`;
+        update.href = "/";
+        update.textContent = "Refresh for your new local date";
         update.hidden = false;
       }
     } catch {

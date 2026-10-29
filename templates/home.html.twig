@@ -1,16 +1,16 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-  <article data-today-root data-home-date="{{ record.puzzle_date }}">
+  <article data-today-root data-home-date="{{ record.puzzle_date }}" data-home-full-date="{{ full_date }}">
     <header class="hero content-measure">
       <div>
         <p class="eyebrow">Progressive help, no instant spoiler</p>
-        <h1>Today’s Wordle Hints and Answer — {{ full_date }}</h1>
-        <p class="lede">Wordle #{{ record.puzzle_number }} · Progressive clues with the answer hidden until you choose to reveal it.</p>
-        <p>Open only the clues you need, from letter facts to the complete answer.</p>
+        <h1 data-puzzle-heading>Today’s Wordle Hints and Answer — {{ full_date }}</h1>
+        <p class="lede" data-puzzle-summary>Wordle #{{ record.puzzle_number }} · Progressive clues with the answer hidden until you choose to reveal it.</p>
+        <p>Need a Wordle hint today? Open only the spoiler-free clues you need, from a gentle meaning clue and letter facts to the complete answer.</p>
       </div>
       <div class="status-panel" aria-live="polite">
-        <span data-date-status>Checking this device’s local date before showing hints…</span>
+        <span data-date-status>Published puzzle for {{ record.puzzle_date }}. Checking this device’s local date…</span>
       </div>
       <p class="notice notice--warning" data-date-notice hidden></p>
       <button class="button--quiet" type="button" data-date-retry hidden>Retry published-date check</button>
@@ -24,7 +24,7 @@
       </form>
     </header>
 
-    <section data-today-content hidden inert aria-label="Today’s resolved Wordle hints">
+    <section data-today-content aria-label="Wordle hints for {{ full_date }}">
       {% include "partials/answer.html.twig" with {id_suffix: '-today'} %}
     </section>
 
@@ -32,7 +32,7 @@
       <section class="stack" aria-labelledby="no-js-heading">
         <div class="notice notice--warning">
           <h2 id="no-js-heading">JavaScript is off</h2>
-          <p>Automatic local-date selection requires JavaScript. Open the <a href="/wordle-answers/{{ record.puzzle_date }}/">Wordle hints and answer for {{ full_date }}</a>, which is explicitly labelled and works without JavaScript.</p>
+          <p>The hints below are the explicitly dated {{ full_date }} puzzle. The clue controls work without JavaScript, and a complete-answer fallback is provided. You can also open its <a href="/wordle-answers/{{ record.puzzle_date }}/">permanent dated page</a>.</p>
         </div>
       </section>
     </noscript>
@@ -96,7 +96,7 @@
       <h3>Can I check yesterday’s Wordle answer?</h3>
       <p>Yes. Open <a href="/wordle-answers/">Past Answers</a> and choose the required date. Historical pages remain fixed to their labelled date.</p>
       <h3>Is this the official NYT Wordle website?</h3>
-      <p>No. Wordle Hit Today is an independent hints and solver site. Play the game on the <a href="https://www.nytimes.com/games/wordle/index.html" rel="external">official Wordle page</a>.</p>
+      <p>No. Wordle Hint Today is an independent hints and solver site. Play the game on the <a href="https://www.nytimes.com/games/wordle/index.html" rel="external">official Wordle page</a>.</p>
     </section>
   </article>
 {% endblock %}

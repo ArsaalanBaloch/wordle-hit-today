@@ -125,24 +125,32 @@ final readonly class SiteBuilder
         $descending = array_reverse($indexableRecords);
         $base = $this->baseContext($assets, $builtAt);
         $homeCanonical = $this->canonical('/');
+        $homepageIndex = array_search(
+            (string) $homepage['puzzle_date'],
+            array_column($records, 'puzzle_date'),
+            true,
+        );
+        $homepagePrevious = is_int($homepageIndex) && $homepageIndex > 0
+            ? $records[$homepageIndex - 1]
+            : null;
         $this->render($stage, 'index.html', 'home.html.twig', $base + [
             'title' => $this->config->siteName().' | Spoiler-Free Clues & Answer',
-            'description' => 'Get today\'s Wordle hints and spoiler-controlled clues one step at a time, then reveal the answer when you are ready. Use the solver or browse past answers.',
+            'description' => 'Need a Wordle hint today? Reveal spoiler-free clues, vowel counts and letter hints for today\'s puzzle. See the answer only when you choose.',
             'canonical' => $homeCanonical,
             'current_route' => 'home',
             'record' => $homepage,
             'full_date' => $homepage['full_date'],
+            'previous_record' => $homepagePrevious,
             'minimum_date' => $records[0]['puzzle_date'],
             'maximum_date' => $records[count($records) - 1]['puzzle_date'],
             'recent_records' => array_slice($descending, 0, 3),
-            'definition' => $this->definitions->glossFor(is_string($homepage['definition_reference']) ? $homepage['definition_reference'] : null),
             'structured_data' => $this->structuredData([
                 '@context' => 'https://schema.org',
                 '@type' => 'WebSite',
                 'name' => $this->config->siteName(),
                 'url' => $homeCanonical,
             ]),
-        ]);
+        ] + $this->puzzlePresentation($homepage, $builtAt));
         ++$pageCount;
 
         foreach ($records as $index => $record) {
@@ -162,7 +170,6 @@ final readonly class SiteBuilder
                 'previous_record' => $records[$index - 1] ?? null,
                 'next_record' => $nextRecord,
                 'robots' => $record['puzzle_date'] > $builtAt->format('Y-m-d') ? 'noindex, follow' : null,
-                'definition' => $this->definitions->glossFor(is_string($record['definition_reference']) ? $record['definition_reference'] : null),
                 'structured_data' => $this->structuredData([
                     '@context' => 'https://schema.org',
                     '@type' => 'BreadcrumbList',
@@ -172,7 +179,7 @@ final readonly class SiteBuilder
                         ['@type' => 'ListItem', 'position' => 3, 'name' => 'Wordle #'.$record['puzzle_number'], 'item' => $canonical],
                     ],
                 ]),
-            ]);
+            ] + $this->puzzlePresentation($record, $builtAt));
             ++$pageCount;
         }
 
@@ -321,6 +328,7 @@ final readonly class SiteBuilder
             ? 'Header always set X-Robots-Tag "noindex, nofollow"'
             : '';
         $contents = str_replace('__WORDLE_ROBOTS_HEADER__', $robotsHeader, $contents);
+        $indexRedirectRule = "RewriteCond %{THE_REQUEST} \\s/+index\\.html(?:[?\\s]) [NC]\n    RewriteRule ^index\\.html$ / [R=301,L,NE]";
         $canonicalHostRule = '';
         if ('production' === $this->config->mode()) {
             $canonicalHost = parse_url($this->config->canonicalOrigin(), PHP_URL_HOST);
@@ -328,12 +336,17 @@ final readonly class SiteBuilder
                 || false === filter_var($canonicalHost, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME)) {
                 throw new \RuntimeException('Production canonical origin does not contain a valid hostname.');
             }
+            $indexRedirectRule = sprintf(
+                "RewriteCond %%{THE_REQUEST} \\s/+index\\.html(?:[?\\s]) [NC]\n    RewriteRule ^index\\.html$ https://%s/ [R=301,L,NE]",
+                $canonicalHost,
+            );
             $canonicalHostRule = sprintf(
-                "RewriteCond %%{HTTP_HOST} !^%s$ [NC]\n    RewriteRule ^ https://%s%%{REQUEST_URI} [R=301,L,NE]",
+                "RewriteCond %%{HTTPS} !=on [OR]\n    RewriteCond %%{HTTP_HOST} !^%s$ [NC]\n    RewriteRule ^ https://%s%%{REQUEST_URI} [R=301,L,NE]",
                 preg_quote($canonicalHost, '/'),
                 $canonicalHost,
             );
         }
+        $contents = str_replace('__WORDLE_INDEX_REDIRECT_RULE__', $indexRedirectRule, $contents);
         $contents = str_replace('__WORDLE_CANONICAL_HOST_RULE__', $canonicalHostRule, $contents);
 
         $this->writer->write($stage.'/.htaccess', $contents);
@@ -529,6 +542,55 @@ final readonly class SiteBuilder
                 array_keys($items),
             ),
         ]);
+    }
+
+    /**
+     * @param array<string, mixed> $record
+     *
+     * @return array{
+     *     definition: string|null,
+     *     verification_label: string,
+     *     verification_iso: string,
+     *     verification_display: string,
+     *     answer_explanation: string
+     * }
+     */
+    private function puzzlePresentation(array $record, \DateTimeImmutable $builtAt): array
+    {
+        $checkedAt = $record['source_checked_at_utc'];
+        $verificationLabel = 'Source checked';
+        if (is_string($checkedAt)) {
+            try {
+                $verificationTime = new \DateTimeImmutable($checkedAt);
+            } catch (\Exception $exception) {
+                throw new \RuntimeException('Validated source-check timestamp could not be formatted.', previous: $exception);
+            }
+        } else {
+            $verificationLabel = 'Preview generated';
+            $verificationTime = $builtAt;
+        }
+        $verificationTime = $verificationTime->setTimezone(new \DateTimeZone('UTC'));
+
+        $solution = (string) $record['solution'];
+        $counts = array_count_values(str_split($solution));
+        $repeated = array_filter($counts, static fn (int $count): bool => $count > 1);
+        if ([] === $repeated) {
+            $answerExplanation = 'Spelling note: every letter appears once, so there is no repeated-letter pattern to account for.';
+        } else {
+            $parts = [];
+            foreach ($repeated as $letter => $count) {
+                $parts[] = sprintf('%s appears %d times', $letter, $count);
+            }
+            $answerExplanation = 'Spelling note: '.implode(' and ', $parts).'. This repeated-letter pattern explains why duplicate-letter guesses need careful reading.';
+        }
+
+        return [
+            'definition' => $this->definitions->glossFor(is_string($record['definition_reference']) ? $record['definition_reference'] : null),
+            'verification_label' => $verificationLabel,
+            'verification_iso' => $verificationTime->format('Y-m-d\TH:i:s\Z'),
+            'verification_display' => $verificationTime->format('F j, Y \a\t H:i \U\T\C'),
+            'answer_explanation' => $answerExplanation,
+        ];
     }
 
     /**

@@ -94,6 +94,18 @@ final class PublicationServiceTest extends TestCase
             '__WORDLE_CANONICAL_HOST_RULE__',
             (string) file_get_contents($this->services->config->publicOutput().'/.htaccess'),
         );
+        self::assertStringNotContainsString(
+            '__WORDLE_INDEX_REDIRECT_RULE__',
+            (string) file_get_contents($this->services->config->publicOutput().'/.htaccess'),
+        );
+        self::assertStringContainsString(
+            'RewriteRule ^index\\.html$ / [R=301,L,NE]',
+            (string) file_get_contents($this->services->config->publicOutput().'/.htaccess'),
+        );
+        $homepage = (string) file_get_contents($this->services->config->publicOutput().'/index.html');
+        self::assertStringContainsString('Wordle Hint Today | Spoiler-Free Clues', $homepage);
+        self::assertStringContainsString('data-today-content', $homepage);
+        self::assertStringNotContainsString('data-today-content hidden inert', $homepage);
         if ('\\' !== DIRECTORY_SEPARATOR) {
             self::assertSame(0o755, fileperms($this->services->config->publicOutput()) & 0o777);
             self::assertSame(0o755, fileperms($this->services->config->publicOutput().'/assets') & 0o777);
