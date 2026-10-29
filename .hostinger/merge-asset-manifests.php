@@ -8,5 +8,6 @@ if (realpath((string) ($_SERVER['SCRIPT_FILENAME'] ?? '')) === __FILE__) {
         exit(64);
     }
     require $argv[1];
+    require_once dirname(__DIR__).'/src/Publishing/ProductionAssetManifestMerger.php';
     \WordleHitToday\Publishing\ProductionAssetManifestMerger::mergeFiles($argv[2], $argv[3], $argv[4]);
 }
